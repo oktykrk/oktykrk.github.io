@@ -1,8 +1,18 @@
-# Video Take public pages
+# Oktay Kırık — application pages
 
-These are the standalone privacy and support pages for Video Take. They contain no application source code or user project data.
+This public repository hosts privacy, terms, and support pages for applications
+published by Oktay Kırık. Application source code, credentials, customer files,
+and private support correspondence are not stored here.
 
-- Privacy: https://oktykrk.github.io/video-take-site/privacy.html
-- Support: https://oktykrk.github.io/video-take-site/support.html
+## Published paths
 
-Publish only the files in this directory to the public `oktykrk/video-take-site` repository. Update both copies when the policy or contact details change.
+| Application | Privacy | Terms | Support |
+|---|---|---|---|
+| Video Take | `/video-take/privacy.html` | `/video-take/terms.html` | `/video-take/support.html` |
+| Pado PDF | `/pado-pdf/privacy.html` | `/pado-pdf/terms.html` | `/pado-pdf/support.html` |
+
+The site is published at <https://oktykrk.github.io/>. Add future applications
+as another top-level directory instead of creating a separate repository.
+
+Legacy Video Take URLs under `/video-take-site/`, `/privacy.html`, and
+`/support.html` are retained as redirects.
