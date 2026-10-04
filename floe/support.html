@@ -1,20 +1,170 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Floe Support"><title>Support — Floe</title><link rel="stylesheet" href="/site.css"></head>
-<body><div class="shell">
-  <nav aria-label="Main navigation"><a class="brand" href="/floe/">Floe</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="#turkce">Türkçe</a></nav>
-  <main><p class="eyebrow">Support</p><h1>Floe Support</h1>
-    <h2>Contact</h2><p>Email <a href="mailto:oktay.kirik@icloud.com?subject=Floe%20Support">oktay.kirik@icloud.com</a> with your Floe version (Settings → About), macOS version, affected application, display configuration, and steps to reproduce the issue. Do not send private documents or unredacted window screenshots unless necessary and you intentionally choose to share them.</p>
-    <h2>Windows do not move or resize</h2><p>Check System Settings → Privacy & Security → Accessibility and allow the copy of Floe you are using. Floe needs this permission to manage other apps’ windows. Full-screen windows are excluded, other Spaces remain separate, and an app’s minimum window size may prevent a requested placement.</p>
-    <h2>Thumbnails are missing</h2><p>Check the live-thumbnail setting in Floe and Screen Recording permission in System Settings → Privacy & Security. Without permission, Snap Assist uses application icons and window titles. A minimized window can show a previously cached preview only if Floe captured it earlier. Floe does not continuously record video or audio.</p>
-    <h2>Layouts and shortcuts</h2><p>Review Settings → Layouts for enabled layouts and display-specific preferences, Settings → Edges for activation options, and Settings → Shortcuts for configured bindings. A shortcut may conflict with another app. Stage Manager or a change in display configuration can affect placement.</p>
-    <h2>Privacy and diagnostics</h2><p>Window data and previews stay on your Mac. Configured builds send automatic crash and hang diagnostics to Sentry; there is currently no in-app diagnostics switch. Read the <a href="privacy.html">Privacy Policy</a> for details. Contact support for help removing local preferences or for applicable data requests.</p>
-    <section id="turkce" class="language" lang="tr"><h1>Floe Destek</h1>
-    <h2>İletişim</h2><p><a href="mailto:oktay.kirik@icloud.com?subject=Floe%20Support">oktay.kirik@icloud.com</a> adresine Floe sürümünü (Settings → About), macOS sürümünü, etkilenen uygulamayı, ekran yapılandırmasını ve sorunu tekrar oluşturma adımlarını gönderin. Gerekli olmadıkça ve paylaşmayı bilerek seçmedikçe özel belgeler veya hassas içeriği gizlenmemiş pencere görüntüleri göndermeyin.</p>
-    <h2>Pencereler taşınmıyor veya boyutlandırılmıyor</h2><p>Sistem Ayarları → Gizlilik ve Güvenlik → Erişilebilirlik bölümünde kullandığınız Floe kopyasına izin verin. Floe başka uygulamaların pencerelerini yönetmek için bu izne ihtiyaç duyar. Tam ekran pencereler kapsam dışıdır, diğer Spaces alanları ayrı kalır ve uygulamanın minimum pencere boyutu istenen yerleşimi engelleyebilir.</p>
-    <h2>Küçük resimler görünmüyor</h2><p>Floe’daki canlı küçük resim ayarını ve Sistem Ayarları → Gizlilik ve Güvenlik bölümündeki Ekran Kaydı iznini kontrol edin. İzin yoksa Snap Assist uygulama simgeleri ile pencere başlıklarını kullanır. Küçültülmüş bir pencere, yalnızca Floe daha önce yakaladıysa önbellekteki önizlemeyi gösterebilir. Floe sürekli video veya ses kaydı yapmaz.</p>
-    <h2>Düzenler ve kısayollar</h2><p>Etkin düzenler ve ekrana özel tercihler için Settings → Layouts, etkinleştirme seçenekleri için Settings → Edges, tuş atamaları için Settings → Shortcuts bölümlerini inceleyin. Kısayol başka bir uygulamayla çakışabilir. Stage Manager veya ekran yapılandırmasındaki değişiklikler yerleşimi etkileyebilir.</p>
-    <h2>Gizlilik ve tanılama</h2><p>Pencere verileri ve önizlemeler Mac’inizde kalır. Yapılandırılmış sürümler Sentry’ye otomatik çökme ve donma tanılaması gönderir; şu anda uygulama içinde tanılama anahtarı yoktur. Ayrıntılar için <a href="privacy.html#turkce">Gizlilik Politikası</a>’nı okuyun. Yerel tercihlerin silinmesi veya geçerli veri talepleri için desteğe yazın.</p>
-    </section>
-  </main><footer><a href="/">All applications</a></footer>
-</div></body></html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Floe Support" />
+    <title>Support — Floe</title>
+    <link rel="stylesheet" href="/site.css" />
+    <link rel="canonical" href="https://oktykrk.github.io/floe/support.html" />
+    <link rel="icon" href="/assets/floe-icon.png" />
+  </head>
+  <body>
+    <div class="shell">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="/floe/">Floe</a><a href="privacy.html">Privacy</a
+        ><a href="terms.html">Terms</a><a href="support.html">Support</a
+        ><a href="#turkce">Türkçe</a>
+      </nav>
+      <main>
+        <p class="eyebrow">Support</p>
+        <h1>Floe Support</h1>
+        <h2>Contact</h2>
+        <p>
+          Email
+          <a href="mailto:oktay.kirik@icloud.com?subject=Floe%20Support"
+            >oktay.kirik@icloud.com</a
+          >
+          with your Floe version (Settings → About), macOS version, affected
+          application, display configuration, and steps to reproduce the issue.
+          Do not send private documents or unredacted window screenshots unless
+          necessary and you intentionally choose to share them.
+        </p>
+        <h2>Trial and license help</h2>
+        <p>
+          Open Settings → License to check the 7-day trial, activate a key from
+          your Lemon Squeezy receipt, verify a saved license, or deactivate this
+          Mac. A license supports two active Macs. Deactivate one before moving
+          to a third. Reinstalling Floe does not reset the trial. After the
+          trial, moving and resizing windows stops until a license is activated;
+          settings remain available. If your date and time changed, restore the
+          correct date in macOS before checking again. A paid license works
+          offline for up to 30 days after a successful check.
+        </p>
+        <p>
+          If an old Mac is unavailable or activation cannot be saved, email
+          support with your order number. Do not send your full license key or
+          payment-card details. Purchasing and production activation will open
+          with the first release.
+        </p>
+        <h2>Updates and downloads</h2>
+        <p>
+          The latest release will be linked from
+          <a href="/floe/">Floe’s main page</a> and hosted on GitHub Releases.
+          Download the DMG, open it, quit Floe, and drag the app into
+          Applications to replace the old version. Floe’s layouts and Keychain
+          license records are kept separately. Updates are installed manually;
+          Floe does not silently replace itself.
+        </p>
+        <h2>Windows do not move or resize</h2>
+        <p>
+          Check System Settings → Privacy & Security → Accessibility and allow
+          the copy of Floe you are using. Floe needs this permission to manage
+          other apps’ windows. Full-screen windows are excluded, other Spaces
+          remain separate, and an app’s minimum window size may prevent a
+          requested placement.
+        </p>
+        <h2>Thumbnails are missing</h2>
+        <p>
+          Check the live-thumbnail setting in Floe and Screen Recording
+          permission in System Settings → Privacy & Security. Without
+          permission, Snap Assist uses application icons and window titles. A
+          minimized window can show a previously cached preview only if Floe
+          captured it earlier. Floe does not continuously record video or audio.
+        </p>
+        <h2>Layouts and shortcuts</h2>
+        <p>
+          Review Settings → Layouts for enabled layouts and display-specific
+          preferences, Settings → Edges for activation options, and Settings →
+          Shortcuts for configured bindings. A shortcut may conflict with
+          another app. Stage Manager or a change in display configuration can
+          affect placement.
+        </p>
+        <h2>Privacy and diagnostics</h2>
+        <p>
+          Window data and previews stay on your Mac. Configured builds send
+          automatic crash and hang diagnostics to Sentry; there is currently no
+          in-app diagnostics switch. Read the
+          <a href="privacy.html">Privacy Policy</a> for details. Contact support
+          for help removing local preferences or for applicable data requests.
+        </p>
+        <section id="turkce" class="language" lang="tr">
+          <h1>Floe Destek</h1>
+          <h2>İletişim</h2>
+          <p>
+            <a href="mailto:oktay.kirik@icloud.com?subject=Floe%20Support"
+              >oktay.kirik@icloud.com</a
+            >
+            adresine Floe sürümünü (Settings → About), macOS sürümünü, etkilenen
+            uygulamayı, ekran yapılandırmasını ve sorunu tekrar oluşturma
+            adımlarını gönderin. Gerekli olmadıkça ve paylaşmayı bilerek
+            seçmedikçe özel belgeler veya hassas içeriği gizlenmemiş pencere
+            görüntüleri göndermeyin.
+          </p>
+          <h2>Deneme ve lisans yardımı</h2>
+          <p>
+            7 günlük denemeyi kontrol etmek, Lemon Squeezy makbuzundaki anahtarı
+            etkinleştirmek, kayıtlı lisansı doğrulamak veya bu Mac’i devre dışı
+            bırakmak için Settings → License bölümünü açın. Lisans aynı anda iki
+            Mac’i destekler. Üçüncüye taşımadan önce birini devre dışı bırakın.
+            Floe’yu yeniden kurmak denemeyi sıfırlamaz. Deneme bitince lisans
+            etkinleştirilene kadar pencere taşıma ve boyutlandırma durur;
+            ayarlar erişilebilir kalır. Tarih ve saat değiştiyse yeniden kontrol
+            etmeden önce macOS’ta doğru tarihe dönün. Ücretli lisans, başarılı
+            kontrolden sonra 30 güne kadar çevrimdışı çalışır.
+          </p>
+          <p>
+            Eski Mac’e erişemiyorsanız veya etkinleştirme kaydedilemiyorsa
+            sipariş numaranızla desteğe yazın. Tam lisans anahtarınızı veya
+            ödeme kartı bilgilerinizi göndermeyin. Satın alma ve üretim lisansı
+            etkinleştirme ilk yayınla açılacaktır.
+          </p>
+          <h2>Güncellemeler ve indirmeler</h2>
+          <p>
+            Son sürüm <a href="/floe/">Floe’nun ana sayfasından</a> bağlantı
+            verilerek GitHub Releases’te sunulacaktır. DMG dosyasını indirin,
+            açın, Floe’dan çıkın ve eski sürümü değiştirmek için uygulamayı
+            Applications klasörüne sürükleyin. Düzenler ve Anahtar Zinciri
+            lisans kayıtları ayrı saklanır. Güncellemeler elle yüklenir; Floe
+            kendini sessizce değiştirmez.
+          </p>
+          <h2>Pencereler taşınmıyor veya boyutlandırılmıyor</h2>
+          <p>
+            Sistem Ayarları → Gizlilik ve Güvenlik → Erişilebilirlik bölümünde
+            kullandığınız Floe kopyasına izin verin. Floe başka uygulamaların
+            pencerelerini yönetmek için bu izne ihtiyaç duyar. Tam ekran
+            pencereler kapsam dışıdır, diğer Spaces alanları ayrı kalır ve
+            uygulamanın minimum pencere boyutu istenen yerleşimi engelleyebilir.
+          </p>
+          <h2>Küçük resimler görünmüyor</h2>
+          <p>
+            Floe’daki canlı küçük resim ayarını ve Sistem Ayarları → Gizlilik ve
+            Güvenlik bölümündeki Ekran Kaydı iznini kontrol edin. İzin yoksa
+            Snap Assist uygulama simgeleri ile pencere başlıklarını kullanır.
+            Küçültülmüş bir pencere, yalnızca Floe daha önce yakaladıysa
+            önbellekteki önizlemeyi gösterebilir. Floe sürekli video veya ses
+            kaydı yapmaz.
+          </p>
+          <h2>Düzenler ve kısayollar</h2>
+          <p>
+            Etkin düzenler ve ekrana özel tercihler için Settings → Layouts,
+            etkinleştirme seçenekleri için Settings → Edges, tuş atamaları için
+            Settings → Shortcuts bölümlerini inceleyin. Kısayol başka bir
+            uygulamayla çakışabilir. Stage Manager veya ekran
+            yapılandırmasındaki değişiklikler yerleşimi etkileyebilir.
+          </p>
+          <h2>Gizlilik ve tanılama</h2>
+          <p>
+            Pencere verileri ve önizlemeler Mac’inizde kalır. Yapılandırılmış
+            sürümler Sentry’ye otomatik çökme ve donma tanılaması gönderir; şu
+            anda uygulama içinde tanılama anahtarı yoktur. Ayrıntılar için
+            <a href="privacy.html#turkce">Gizlilik Politikası</a>’nı okuyun.
+            Yerel tercihlerin silinmesi veya geçerli veri talepleri için desteğe
+            yazın.
+          </p>
+        </section>
+      </main>
+      <footer><a href="/">All applications</a></footer>
+    </div>
+  </body>
+</html>

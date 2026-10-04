@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://oktykrk.github.io/sitemap.xml
