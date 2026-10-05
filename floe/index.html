@@ -7,7 +7,7 @@
     <title>Floe — Find your window flow.</title>
     <meta
       name="description"
-      content="A calmer workspace for your Mac. Download Floe for macOS 15+ and try adaptive window layouts and shared resizing free for 7 days."
+      content="Arrange windows with Snap Bar, fill layouts with Snap Assist, and find your flow on every display. Download Floe for macOS 15+ and try it free for 7 days."
     />
     <link rel="canonical" href="https://oktykrk.github.io/floe/" />
     <meta property="og:title" content="Floe — Find your window flow." />
@@ -23,8 +23,10 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/assets/floe-icon.png" />
-    <link rel="stylesheet" href="floe.css?v=1.0-trial" />
-    <script src="floe.js" defer></script>
+    <link rel="stylesheet" href="floe.css?v=1.0-demos" />
+    <link rel="stylesheet" href="motion.css?v=1.0-demos" />
+    <script src="floe.js?v=1.0-demos" defer></script>
+    <script src="motion.js?v=1.0-demos" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -71,7 +73,7 @@
         <div class="hero-actions">
           <a class="button primary" href="https://github.com/oktykrk/floe-releases/releases/download/v1.0/Floe-1.0.dmg"
             >Download free trial <span aria-hidden="true">↓</span></a
-          ><a class="button quiet" href="#playground"
+          ><a class="button quiet" href="#in-motion"
             >See Floe in motion <span aria-hidden="true">↗</span></a
           >
         </div>
@@ -218,14 +220,116 @@
           where it matters. Out of the way when it doesn’t.
         </p>
       </section>
-      <section class="feature-grid container" aria-label="Floe features">
+      <section class="motion-section container" id="in-motion" aria-labelledby="motion-title">
+        <div class="motion-heading">
+          <p class="eyebrow">A few small moves. A whole new flow.</p>
+          <h2 id="motion-title">See how it<br /><span>all falls into place.</span></h2>
+          <p>From your first window to your whole workspace.</p>
+        </div>
+        <article class="motion-story" data-demo="snap" data-step="0">
+          <div class="motion-copy">
+            <span class="feature-number">01 / SNAP BAR</span>
+            <h3>A place for your window.<br />Right at the top.</h3>
+            <p>Drag a window toward the top of your screen. Floe brings your
+              layouts into reach. Choose a region and let go.</p>
+            <div class="motion-steps" aria-label="Snap Bar steps">
+              <span data-story-step="0">Drag up</span><span data-story-step="1">Choose a region</span><span data-story-step="2">Drop into place</span>
+            </div>
+          </div>
+          <div class="motion-demo">
+            <div class="scene snap-scene" aria-hidden="true">
+              <div class="scene-menubar"><span>● &nbsp; Floe</span><span>9:41</span></div>
+              <div class="scene-wallpaper"></div>
+              <div class="scene-bar">
+                <div class="bar-layout bar-halves"><i></i><i></i></div>
+                <div class="bar-layout bar-focus"><i></i><i></i><i></i></div>
+                <div class="bar-layout bar-thirds"><i></i><i></i><i></i></div>
+                <div class="bar-layout bar-quarters"><i></i><i></i><i></i><i></i></div>
+              </div>
+              <div class="snap-target"><span>Left half</span></div>
+              <div class="scene-window snap-window">
+                <div class="scene-chrome"><span class="scene-lights">● ● ●</span><span>Notes</span></div>
+                <div class="scene-note"><small>A LITTLE ROOM TO THINK</small><strong>Make space<br />for a good idea.</strong><i></i><i></i><i></i></div>
+              </div>
+              <svg class="scene-cursor snap-cursor" viewBox="0 0 24 30"><path d="M2 2v22l6-6 5 10 4-2-5-10h9Z"/></svg>
+              <div class="scene-dock"><span>✎</span><span>◈</span><img src="/assets/floe-icon.png" width="25" height="25" alt="" /><span>♫</span></div>
+            </div>
+            <div class="motion-controls"><p class="motion-status">Drag a window toward the top to reveal Snap Bar.</p><button class="demo-play" type="button" aria-label="Play Snap Bar demo">Play demo <span aria-hidden="true">↻</span></button></div>
+          </div>
+        </article>
+        <article class="motion-story assist-story" data-demo="assist" data-step="0">
+          <div class="motion-copy">
+            <span class="feature-number">02 / SNAP ASSIST</span>
+            <h3>Fill the gaps.<br />Keep the focus.</h3>
+            <p>Your first window is in place. Pick another open window from
+              Snap Assist to fill the next region, then keep going. No hunting
+              behind overlapping windows.</p>
+            <p class="motion-tip">Try it: choose a window in the preview.</p>
+            <div class="motion-steps" aria-label="Snap Assist steps">
+              <span data-story-step="0">Pick a window</span><span data-story-step="1">Fill the next region</span><span data-story-step="2">Workspace ready</span>
+            </div>
+          </div>
+          <div class="motion-demo">
+            <div class="scene assist-scene">
+              <div class="scene-menubar" aria-hidden="true"><span>● &nbsp; Floe</span><span>9:41</span></div>
+              <div class="scene-wallpaper" aria-hidden="true"></div>
+              <div class="scene-window assist-notes" aria-hidden="true"><div class="scene-chrome"><span class="scene-lights">● ● ●</span><span>Notes</span></div><div class="scene-note"><small>TODAY’S PLAN</small><strong>Everything.<br />Within reach.</strong><i></i><i></i><i></i></div></div>
+              <div class="assist-vacancy" aria-hidden="true"><span>Next region</span></div>
+              <div class="assist-picker">
+                <div class="assist-picker-title">Choose a window <span aria-hidden="true">↗</span></div>
+                <div class="assist-candidates">
+                  <button type="button" data-candidate="browser" aria-label="Place Safari in the next empty region"><span class="candidate-preview browser-preview" aria-hidden="true"><i></i><b></b><b></b></span><span>Safari</span><small>A little inspiration</small></button>
+                  <button type="button" data-candidate="finder" aria-label="Place Finder in the next empty region"><span class="candidate-preview finder-preview" aria-hidden="true"><i></i><b></b><b></b><b></b></span><span>Finder</span><small>Project files</small></button>
+                  <button type="button" data-candidate="music" aria-label="Place Music in the next empty region"><span class="candidate-preview music-preview" aria-hidden="true"><i>♫</i><b></b></span><span>Music</span><small>Something to focus to</small></button>
+                </div>
+                <span class="assist-picker-note">Open windows. One clear choice.</span>
+              </div>
+              <div class="scene-window assist-result assist-result-top" aria-hidden="true"><div class="scene-chrome"><span class="scene-lights">● ● ●</span><span class="result-name">Safari</span></div><div class="placed-art"><span>◈</span><strong class="result-title">A little inspiration.</strong><i></i></div></div>
+              <div class="scene-window assist-result assist-result-bottom" aria-hidden="true"><div class="scene-chrome"><span class="scene-lights">● ● ●</span><span class="result-name">Finder</span></div><div class="placed-art"><span>▤</span><strong class="result-title">Project files, in place.</strong><i></i></div></div>
+            </div>
+            <div class="motion-controls"><p class="motion-status" role="status" aria-live="off">Choose an open window for the upper-right region.</p><button class="demo-play" type="button" aria-label="Play Snap Assist demo">Play demo <span aria-hidden="true">↻</span></button></div>
+          </div>
+        </article>
+        <article class="motion-story" data-demo="screens" data-step="0" data-screen="laptop">
+          <div class="motion-copy">
+            <span class="feature-number">03 / EVERY SCREEN</span>
+            <h3>Different screens.<br />The same easy flow.</h3>
+            <p>A laptop, a wide display, a portrait monitor. Snap Bar’s layout
+              previews follow your display’s proportions, with recommended
+              layouts that suit the space.</p>
+            <div class="screen-switcher" role="group" aria-label="Display shape preview">
+              <button type="button" data-screen-choice="laptop" aria-pressed="true">Laptop <small>16:10</small></button>
+              <button type="button" data-screen-choice="wide" aria-pressed="false">Ultrawide <small>21:9</small></button>
+              <button type="button" data-screen-choice="portrait" aria-pressed="false">Portrait <small>9:16</small></button>
+            </div>
+          </div>
+          <div class="motion-demo">
+            <div class="display-stage" aria-hidden="true">
+              <div class="display-orbit"></div>
+              <div class="adaptive-monitor">
+                <div class="monitor-screen">
+                  <div class="scene-menubar"><span>● &nbsp; Floe</span><span>9:41</span></div>
+                  <div class="scene-wallpaper"></div>
+                  <div class="scene-bar adaptive-bar"><div class="bar-layout bar-halves"><i></i><i></i></div><div class="bar-layout bar-focus"><i></i><i></i><i></i></div><div class="bar-layout bar-thirds"><i></i><i></i><i></i></div><div class="bar-layout bar-quarters"><i></i><i></i><i></i><i></i></div></div>
+                  <div class="adaptive-windows"><div><span>Notes</span><i></i><i></i><i></i></div><div><span>Safari</span><b></b></div><div><span>Music</span><strong>♫</strong></div></div>
+                </div>
+                <div class="monitor-stand"></div>
+              </div>
+              <span class="display-size">16:10 / LAPTOP</span>
+            </div>
+            <div class="motion-controls"><p class="motion-status" role="status" aria-live="off">Laptop: compact layouts with previews shaped to your display.</p><button class="demo-play" type="button" aria-label="Play display adaptation demo">Play demo <span aria-hidden="true">↻</span></button></div>
+          </div>
+        </article>
+        <p class="motion-disclaimer">Animated product illustrations. Layouts and appearance depend on your display and settings. Window previews require optional Screen Recording permission.</p>
+      </section>
+      <section class="feature-grid container" aria-label="More Floe features">
         <article class="feature-card adaptive-card">
           <div class="feature-illustration mini-layouts" aria-hidden="true">
             <div><i></i><i></i><i></i></div>
             <div><i></i><i></i></div>
             <div><i></i><i></i><i></i></div>
           </div>
-          <span class="feature-number">01 / ARRANGE</span>
+          <span class="feature-number">04 / ARRANGE</span>
           <h3>Your layout.<br />Your way of working.</h3>
           <p>
             Choose a layout or make your own. Snap windows into place with a
@@ -241,7 +345,7 @@
             <span>↔</span>
             <div></div>
           </div>
-          <span class="feature-number">02 / MAKE ROOM</span>
+          <span class="feature-number">05 / MAKE ROOM</span>
           <h3>Move one divider.<br />Everything follows.</h3>
           <p>
             Resize neighboring windows together. Give your main task more space
@@ -255,7 +359,7 @@
           >
             <kbd>⌃</kbd><kbd>⌥</kbd><kbd>→</kbd>
           </div>
-          <span class="feature-number">03 / KEEP MOVING</span>
+          <span class="feature-number">06 / KEEP MOVING</span>
           <h3>Stay in flow.<br />Keep your hands on the keys.</h3>
           <p>
             Set your own shortcuts for window placement. Switch layouts and send

@@ -25,6 +25,13 @@ The portfolio at `/` uses a warm editorial theme in `portfolio.css`. Floe at
 layout illustration in `floe/floe.js`. Other app pages and the shared legal-page
 stylesheet are independent of these two designs.
 
+`floe/motion.css` and `floe/motion.js` provide three animated product
+illustrations: top-edge Snap Bar placement, interactive Snap Assist filling,
+and display-shaped previews for laptop, ultrawide, and portrait monitors.
+Each demo plays once when it becomes visible and can be paused or replayed.
+Offscreen/background demos stop; reduced motion uses explicit step controls.
+The scenes are illustrations, not recordings of the installed application.
+
 Run a local preview with `python3 -m http.server 8765`. Verify links and image
 references with `python3 tools/check-site.py`. Rebuild the original 1200×630
 social images on macOS with `swift tools/render-social.swift`.
