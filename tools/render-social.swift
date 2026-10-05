@@ -23,7 +23,8 @@ func window(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat, tint: UInt32
     }
     box(x+18,y+49,w-36,h-69,content,radius:5)
 }
-for kind in ["portfolio", "floe"] {
+let kinds = CommandLine.arguments.count > 1 ? Array(CommandLine.arguments.dropFirst()) : ["portfolio", "floe"]
+for kind in kinds {
     let bitmap = NSBitmapImageRep(bitmapDataPlanes:nil,pixelsWide:width,pixelsHigh:height,bitsPerSample:8,
                                  samplesPerPixel:4,hasAlpha:true,isPlanar:false,colorSpaceName:.deviceRGB,bytesPerRow:0,bitsPerPixel:0)!
     NSGraphicsContext.saveGraphicsState()
@@ -49,20 +50,46 @@ for kind in ["portfolio", "floe"] {
         text("PDF",1055,421,80,40,size:24,tint:0x26382b,weight:.medium)
         text("✳",864,99,80,80,size:54,tint:0xb35a37)
     } else {
-        box(0,0,1200,630,0xf0f8fe)
-        text("floe",61,33,220,80,size:51,tint:0x173149,weight:.bold)
-        text("A LITTLE MORE SPACE. A LOT MORE FLOW.",67,161,700,35,size:13,tint:0x477899,weight:.semibold)
-        text("Your windows.",62,215,740,110,size:68,tint:0x173149,weight:.bold)
-        text("In a better place.",62,303,780,110,size:68,tint:0x1788bd,weight:.bold)
-        text("Adaptive layouts. Shared resizing. A calmer Mac.",67,450,780,45,size:21,tint:0x577084)
-        box(66,530,270,49,0x157cac,radius:10)
-        text("Coming soon for macOS",91,542,250,35,size:17,tint:0xffffff,weight:.medium)
-        box(847,126,305,376,0xc4deed,radius:17)
-        window(866,145,145,333,tint:0xf0f5f9,content:0xe3eff7)
-        window(1021,145,112,183,tint:0xf0f5f9,content:0xafd1dc)
-        window(1021,339,112,139,tint:0xf0f5f9,content:0xccddea)
-        text("A little\nroom to\nthink.",892,211,111,150,size:24,tint:0x173149,weight:.semibold)
-        for i in 0..<3 { box(892,363+CGFloat(i)*18,88-CGFloat(i)*9,4,0xa6c4d8,radius:2) }
+        box(0,0,1200,630,0xfafaf8)
+        box(61,101,1078,1,0xe0e2e5)
+        if let icon = NSImage(contentsOfFile: "assets/floe-icon.png") {
+            icon.draw(in: NSRect(x:61,y:630-33-42,width:42,height:42))
+        }
+        text("floe",112,31,160,58,size:35,tint:0x171c26,weight:.bold)
+        text("WINDOW MANAGEMENT, FOR MAC",63,161,590,32,size:13,tint:0x2855ef,weight:.semibold)
+        text("Make room",58,213,680,110,size:78,tint:0x171c26,weight:.semibold)
+        text("for your work.",58,301,680,110,size:78,tint:0x2855ef,weight:.semibold)
+        text("Snap into place. Resize together.",64,428,650,38,size:21,tint:0x646974)
+        text("Get on with your day.",64,459,650,38,size:21,tint:0x646974)
+        box(63,529,238,47,0x2855ef,radius:7)
+        text("Try Floe free for 7 days",83,540,218,32,size:17,tint:0xffffff,weight:.medium)
+        text("macOS 15+",318,542,190,30,size:15,tint:0x646974)
+        box(738,145,401,420,0x2459e8,radius:15)
+        box(754,181,210,334,0xf6f3eb,radius:8)
+        box(754,181,210,25,0xf0f0f0,radius:8)
+        box(774,192,5,5,0xff5f57,radius:3)
+        box(784,192,5,5,0xfebc2e,radius:3)
+        box(794,192,5,5,0x28c840,radius:3)
+        text("fieldnotes.",772,222,178,35,size:19,tint:0x243d30,serif:true)
+        text("Somewhere\na little quieter.",772,269,178,88,size:26,tint:0x243d30,serif:true)
+        if let photo = NSImage(contentsOfFile: "floe/media/lake.webp") {
+            photo.draw(in: NSRect(x:772,y:630-366-129,width:174,height:129))
+        } else {
+            box(772,366,174,129,0x426650,radius:2)
+        }
+        window(974,181,149,190,tint:0xf0f0f0,content:0xffffff)
+        text("The weekend\nplan",987,230,128,65,size:18,tint:0x171c26,weight:.semibold)
+        for i in 0..<3 { box(989,301+CGFloat(i)*14,106-CGFloat(i)*12,3,0xe6e1d8,radius:2) }
+        window(974,381,149,134,tint:0xf0f0f0,content:0xffffff)
+        for i in 0..<2 {
+            let x: CGFloat = 989 + CGFloat(i)*61
+            box(x,432,23,8,0x73c7fa,radius:2)
+            box(x,438,44,30,0x39a7ed,radius:3)
+        }
+        box(899,529,82,23,0x87bcf4,radius:7)
+        for i in 0..<3 { box(910+CGFloat(i)*22,535,13,12,[UInt32(0x2586d7),0xffffff,0xf5d264][i],radius:3) }
+        text("oktykrk.github.io/floe",905,39,240,27,size:15,tint:0x646974)
+
     }
     NSGraphicsContext.restoreGraphicsState()
     try bitmap.representation(using:.png,properties:[:])!.write(to:URL(fileURLWithPath:"assets/\(kind)-social.png"))

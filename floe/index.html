@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#edf7ff" />
-    <title>Floe — Find your window flow.</title>
+    <meta name="theme-color" content="#fafaf8" />
+    <title>Floe — Make room for your work.</title>
     <meta
       name="description"
-      content="Arrange windows with Snap Bar, fill layouts with Snap Assist, and find your flow on every display. Download Floe for macOS 15+ and try it free for 7 days."
+      content="A small Mac app for a desktop that works with you. Snap windows into place, fill a layout, and resize together. Try Floe free for 7 days."
     />
     <link rel="canonical" href="https://oktykrk.github.io/floe/" />
-    <meta property="og:title" content="Floe — Find your window flow." />
+    <meta property="og:title" content="Floe — Make room for your work." />
     <meta
       property="og:description"
-      content="Every window in its place. Adaptive layouts and shared resizing for your Mac."
+      content="Snap into place. Resize together. Get on with your day. A native window manager for Mac."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://oktykrk.github.io/floe/" />
@@ -23,10 +23,8 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/assets/floe-icon.png" />
-    <link rel="stylesheet" href="floe.css?v=1.0-demos" />
-    <link rel="stylesheet" href="motion.css?v=1.0-demos-2" />
-    <script src="floe.js?v=1.0-demos" defer></script>
-    <script src="motion.js?v=1.0-demos" defer></script>
+    <link rel="stylesheet" href="floe.css?v=2" />
+    <script src="floe.js?v=2-loop" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -36,13 +34,59 @@
         "operatingSystem": "macOS 15 or later",
         "description": "Adaptive window layouts and shared resizing for macOS.",
         "url": "https://oktykrk.github.io/floe/",
-        "softwareVersion": "1.0.1",
-        "downloadUrl": "https://github.com/oktykrk/floe-releases/releases/download/v1.0.1/Floe-1.0.1.dmg",
+        "softwareVersion": "1.0.2",
+        "downloadUrl": "https://github.com/oktykrk/floe-releases/releases/download/v1.0.2/Floe-1.0.2.dmg",
         "author": { "@type": "Person", "name": "Oktay Kırık" }
       }
     </script>
   </head>
   <body>
+    <svg
+      class="svg-library"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <symbol id="arrow-down" viewBox="0 0 24 24">
+        <path d="M12 4v15m-6-6 6 6 6-6M5 21h14" />
+      </symbol>
+      <symbol id="arrow-up-right" viewBox="0 0 24 24">
+        <path d="M6 18 18 6M6 6h12v12" />
+      </symbol>
+      <symbol id="play-icon" viewBox="0 0 24 24">
+        <path d="m9 5 11 7-11 7Z" />
+      </symbol>
+      <symbol id="pause-icon" viewBox="0 0 24 24">
+        <path d="M9 5v14M16 5v14" />
+      </symbol>
+      <symbol id="replay-icon" viewBox="0 0 24 24">
+        <path d="M4 10a8 8 0 1 1 1 7M4 4v6h6" />
+      </symbol>
+      <symbol id="check-icon" viewBox="0 0 24 24">
+        <path d="m5 12 4 4L19 6" />
+      </symbol>
+      <symbol id="layout-focus" viewBox="0 0 28 22">
+        <rect x="1" y="1" width="14" height="20" rx="2" />
+        <rect x="18" y="1" width="9" height="9" rx="2" />
+        <rect x="18" y="13" width="9" height="8" rx="2" />
+      </symbol>
+      <symbol id="layout-split" viewBox="0 0 28 22">
+        <rect x="1" y="1" width="11.5" height="20" rx="2" />
+        <rect x="15.5" y="1" width="11.5" height="20" rx="2" />
+      </symbol>
+      <symbol id="layout-columns" viewBox="0 0 28 22">
+        <rect x="1" y="1" width="7" height="20" rx="2" />
+        <rect x="10.5" y="1" width="7" height="20" rx="2" />
+        <rect x="21" y="1" width="6" height="20" rx="2" />
+      </symbol>
+      <symbol id="folder-icon" viewBox="0 0 64 52">
+        <path
+          d="M3 8a5 5 0 0 1 5-5h15l7 7h26a5 5 0 0 1 5 5v29a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5Z"
+          fill="#73c7fa"
+        />
+        <path d="M3 18h58v26a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5Z" fill="#39a7ed" />
+        <path d="M5 19h54" stroke="#a7e1ff" stroke-width="2" />
+      </symbol>
+    </svg>
     <a class="skip" href="#main">Skip to content</a>
     <header class="header container">
       <a class="brand" href="/floe/" aria-label="Floe home"
@@ -52,423 +96,512 @@
       >
       <nav aria-label="Main navigation">
         <a href="#features">Features</a><a href="#pricing">Pricing</a
-        ><a href="support.html">Support</a
-        ><a class="nav-button" href="#release"
-          >Download <span aria-hidden="true">↓</span></a
-        >
+        ><a href="support.html">Support</a>
       </nav>
+      <a class="nav-download" href="#release"
+        >Get Floe <svg class="icon"><use href="#arrow-down" /></svg
+      ></a>
     </header>
     <main id="main">
       <section class="hero container" aria-labelledby="hero-title">
-        <div class="release-tag">
-          <span></span> A little more space. A lot more flow.
+        <div class="hero-heading">
+          <div class="hero-title-block">
+            <p class="eyebrow">
+              <span class="little-layout" aria-hidden="true"
+                ><i></i><i></i><i></i
+              ></span>
+              A window manager for Mac
+            </p>
+            <h1 id="hero-title">Make room<br />for <span>your work.</span></h1>
+          </div>
+          <div class="hero-copy">
+            <p>
+              Snap windows into place. Resize them together. A small Mac app for
+              a desktop that works with you.
+            </p>
+            <a
+              class="button button-blue"
+              href="https://github.com/oktykrk/floe-releases/releases/download/v1.0.2/Floe-1.0.2.dmg"
+              >Download free trial
+              <svg class="icon"><use href="#arrow-down" /></svg
+            ></a>
+            <p class="download-meta">
+              7 days free. No payment required.<br />macOS 15+ · Apple silicon &
+              Intel
+            </p>
+          </div>
         </div>
-        <h1 id="hero-title">
-          Your windows.<br /><span>In a better place.</span>
-        </h1>
-        <p class="hero-description">
-          A calmer workspace starts with a little order.<br />Snap into a
-          layout. Resize together. Get back to your flow.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="https://github.com/oktykrk/floe-releases/releases/download/v1.0.1/Floe-1.0.1.dmg"
-            >Download free trial <span aria-hidden="true">↓</span></a
-          ><a class="button quiet" href="#in-motion"
-            >See Floe in motion <span aria-hidden="true">↗</span></a
+
+        <div class="workspace" id="playground">
+          <div
+            class="desktop"
+            role="img"
+            aria-describedby="demo-status"
+            data-layout="focus"
+            data-phase="ready"
+            aria-label="Interactive illustration of Floe arranging three windows"
           >
-        </div>
-        <p class="system-note">
-          7 days free · No payment required<br />macOS 15+ · Apple silicon & Intel
-        </p>
-        <p class="trial-note">
-          Purchasing and license activation are not available yet. Window
-          management pauses after the 7-day trial.
-        </p>
-        <div id="playground" class="playground">
-          <div class="demo-toolbar">
-            <div class="demo-label">
-              <span class="demo-mark" aria-hidden="true">▥</span
-              ><span>A place for everything</span>
+            <svg
+              class="wallpaper"
+              viewBox="0 0 1200 720"
+              preserveAspectRatio="xMidYMid slice"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient id="wave-a" x2=".8" y2="1">
+                  <stop stop-color="#022aa8" />
+                  <stop offset="1" stop-color="#137bfb" />
+                </linearGradient>
+                <linearGradient id="wave-b" x2="1" y2=".7">
+                  <stop stop-color="#165ce8" />
+                  <stop offset=".55" stop-color="#56c2e9" />
+                  <stop offset="1" stop-color="#9adcd9" />
+                </linearGradient>
+              </defs>
+              <path fill="url(#wave-a)" d="M0 0h1200v720H0z" />
+              <path
+                fill="#154ee1"
+                d="M0 570C320 600 360-120 820 0s150 310 380 160v560H0Z"
+              />
+              <path
+                fill="url(#wave-b)"
+                d="M0 710C440 670 510 190 850 250s150 280 350 90v380H0Z"
+              />
+              <path
+                fill="#a6ebea"
+                opacity=".35"
+                d="M260 720c340-170 440-440 670-420s135 180 270 160v260Z"
+              />
+            </svg>
+            <div class="mac-menu" aria-hidden="true">
+              <span
+                ><svg viewBox="0 0 20 24">
+                  <path
+                    d="M14.8 3.7C15.6 2.7 16.2 1.3 16 0c-1.3.1-2.8.9-3.7 1.9-.8.9-1.5 2.3-1.3 3.6 1.4.1 2.8-.7 3.8-1.8ZM18.1 12.8c0-2.5 2-3.7 2.1-3.8-1.2-1.8-3-2-3.7-2-1.6-.2-3.1 1-3.9 1-.8 0-2-1-3.3-1-1.7 0-3.2 1-4.1 2.4-1.8 3-.5 7.6 1.2 10.1.8 1.2 1.8 2.6 3.1 2.5 1.2-.1 1.7-.8 3.3-.8 1.5 0 2 .8 3.4.8s2.2-1.3 3-2.5c1-1.4 1.4-2.7 1.4-2.8-.1 0-2.6-1-2.6-3.9Z"
+                  /></svg
+                ><b>Finder</b><span>File</span><span>Edit</span><span>View</span
+                ><span>Go</span></span
+              ><span
+                ><svg class="menu-floe" viewBox="0 0 28 22">
+                  <use href="#layout-focus" /></svg
+                ><span>Mon 9:41</span></span
+              >
             </div>
-            <span class="demo-hint">Pick a layout. Feel the difference.</span>
+            <div class="snap-bar" aria-hidden="true">
+              <svg><use href="#layout-split" /></svg
+              ><svg class="snap-selected"><use href="#layout-focus" /></svg
+              ><svg><use href="#layout-columns" /></svg
+              ><svg class="bar-reversed"><use href="#layout-focus" /></svg>
+              <div class="snap-bar-label">Choose a space</div>
+            </div>
+            <div class="target-zone" aria-hidden="true"></div>
+            <div class="app-window browser-window" aria-hidden="true">
+              <div class="window-toolbar">
+                <span class="traffic-lights"><i></i><i></i><i></i></span
+                ><span class="browser-arrows">‹ &nbsp; ›</span
+                ><span class="address-bar"
+                  ><span>⌕</span> fieldnotes.example</span
+                ><span class="toolbar-end">↗ &nbsp; +</span>
+              </div>
+              <div class="browser-content">
+                <div class="journal-nav">
+                  <b>fieldnotes.</b
+                  ><span>Places &nbsp; Stories &nbsp; About</span>
+                </div>
+                <div class="journal-heading">
+                  <span>LESS SCROLLING, MORE WANDERING</span>
+                  <h2>Somewhere<br />a little quieter.</h2>
+                </div>
+                <img
+                  src="media/lake.webp"
+                  width="1000"
+                  height="667"
+                  alt=""
+                  fetchpriority="high"
+                />
+                <div class="journal-footer">
+                  <span>01 — A weekend in the Dolomites</span
+                  ><span>Read the story ↗</span>
+                </div>
+              </div>
+            </div>
+            <div class="app-window notes-window" aria-hidden="true">
+              <div class="window-toolbar">
+                <span class="traffic-lights"><i></i><i></i><i></i></span
+                ><span class="window-name">Notes</span
+                ><span class="notes-action">▣ &nbsp; ♧</span>
+              </div>
+              <div class="notes-body">
+                <span class="note-date">October 5, 2026 at 9:41 AM</span>
+                <h2>The weekend plan</h2>
+                <p>A few days away.<br />A little less on the agenda.</p>
+                <h3>Before we go</h3>
+                <ul>
+                  <li class="checked">Book somewhere by the lake</li>
+                  <li class="checked">Save the walking route</li>
+                  <li>Pack the camera</li>
+                  <li>Leave the laptop at home</li>
+                </ul>
+                <div class="note-link">↗ &nbsp; A weekend in the Dolomites</div>
+              </div>
+            </div>
+            <div class="app-window finder-window" aria-hidden="true">
+              <div class="window-toolbar">
+                <span class="traffic-lights"><i></i><i></i><i></i></span
+                ><span class="window-name">Weekend</span
+                ><span class="toolbar-end">⊞ &nbsp; ⌕</span>
+              </div>
+              <div class="finder-body">
+                <div class="finder-sidebar">
+                  <span>Favorites</span><b>◷ &nbsp; Recents</b
+                  ><b>▱ &nbsp; Desktop</b
+                  ><b class="selected">▱ &nbsp; Weekend</b>
+                </div>
+                <div class="finder-files">
+                  <div>
+                    <svg><use href="#folder-icon" /></svg><span>Photos</span>
+                  </div>
+                  <div>
+                    <svg><use href="#folder-icon" /></svg><span>Places</span>
+                  </div>
+                  <div>
+                    <span class="file-preview">PDF</span
+                    ><span>Tickets.pdf</span>
+                  </div>
+                </div>
+              </div>
+              <div class="finder-status">3 items</div>
+            </div>
+            <div class="assist-overlay" aria-hidden="true">
+              <span>Choose a window</span>
+              <div class="assist-options">
+                <div>
+                  <span class="assist-mini-notes"
+                    >The weekend plan<i></i><i></i></span
+                  ><b>Notes</b>
+                </div>
+                <div>
+                  <span class="assist-mini-finder"
+                    ><svg><use href="#folder-icon" /></svg
+                    ><svg><use href="#folder-icon" /></svg></span
+                  ><b>Finder</b>
+                </div>
+              </div>
+            </div>
+            <svg class="demo-cursor" viewBox="0 0 28 34" aria-hidden="true">
+              <path d="M3 2v25l7-7 6 12 5-3-6-11h10Z" />
+            </svg>
+            <div class="desktop-dock" aria-hidden="true">
+              <div class="dock-finder">⌣</div>
+              <div class="dock-safari">↗</div>
+              <div class="dock-notes"></div>
+              <img src="/assets/floe-icon.png" width="40" height="40" alt="" />
+            </div>
+          </div>
+          <div class="workspace-controls">
+            <div class="demo-caption">
+              <span class="live-dot"></span>
+              <p id="demo-status">Everything in its place.</p>
+            </div>
             <div
               class="layout-controls"
               role="group"
-              aria-label="Workspace demo layouts"
+              aria-label="Try a window layout"
             >
               <button
-                type="button"
                 class="layout-button"
+                type="button"
                 data-layout="focus"
                 aria-pressed="true"
-                aria-label="Focus layout: large window on the left, two on the right"
               >
-                <span class="layout-icon focus-icon" aria-hidden="true"
-                  ><i></i><i></i><i></i
-                ></span></button
+                <svg><use href="#layout-focus" /></svg
+                ><span>Focus</span></button
               ><button
-                type="button"
                 class="layout-button"
+                type="button"
+                data-layout="split"
+                aria-pressed="false"
+              >
+                <svg><use href="#layout-split" /></svg
+                ><span>Split</span></button
+              ><button
+                class="layout-button"
+                type="button"
                 data-layout="columns"
                 aria-pressed="false"
-                aria-label="Three equal columns"
               >
-                <span class="layout-icon columns-icon" aria-hidden="true"
-                  ><i></i><i></i><i></i
-                ></span></button
-              ><button
-                type="button"
-                class="layout-button"
-                data-layout="stack"
-                aria-pressed="false"
-                aria-label="Two windows above a wide window"
-              >
-                <span class="layout-icon stack-icon" aria-hidden="true"
-                  ><i></i><i></i><i></i
-                ></span>
+                <svg><use href="#layout-columns" /></svg><span>Columns</span>
               </button>
             </div>
+            <button
+              class="play-demo"
+              type="button"
+              aria-label="Play window snapping demo"
+            >
+              <svg class="icon"><use href="#play-icon" /></svg
+              ><span>See it in action</span>
+            </button>
           </div>
-          <div class="desktop-demo" data-layout="focus">
-            <div class="desktop-menubar" aria-hidden="true">
-              <span>● &nbsp; Floe &nbsp; File &nbsp; View</span
-              ><span>Mon 9:41</span>
-            </div>
-            <div class="demo-grid">
-              <div class="demo-window writing-window">
-                <div class="window-chrome">
-                  <span class="traffic-lights" aria-hidden="true"
-                    ><i></i><i></i><i></i></span
-                  ><span>Notes</span><span aria-hidden="true">⌘</span>
-                </div>
-                <div class="writing-content">
-                  <span class="note-date">MONDAY, A FRESH START</span>
-                  <h2>A little room<br />to think.</h2>
-                  <p>
-                    Less time moving windows.<br />More time moving ideas
-                    forward.
-                  </p>
-                  <div class="note-check">✓ <span>A clear workspace</span></div>
-                  <div class="note-check">
-                    ✓ <span>Everything within reach</span>
-                  </div>
-                  <div class="note-check">
-                    ○ <span>Make something good</span>
-                  </div>
-                  <div class="note-rule"></div>
-                  <span class="note-footer">One window at a time.</span>
-                </div>
-              </div>
-              <div class="demo-window landscape-window">
-                <div class="window-chrome">
-                  <span class="traffic-lights" aria-hidden="true"
-                    ><i></i><i></i><i></i></span
-                  ><span>Inspiration</span><span aria-hidden="true">＋</span>
-                </div>
-                <div class="landscape">
-                  <div class="sun"></div>
-                  <div class="mountain mountain-back"></div>
-                  <div class="mountain mountain-front"></div>
-                  <div class="lake"></div>
-                  <span>A quieter perspective.</span>
-                </div>
-              </div>
-              <div class="demo-window music-window">
-                <div class="window-chrome">
-                  <span class="traffic-lights" aria-hidden="true"
-                    ><i></i><i></i><i></i></span
-                  ><span>Focus mix</span><span aria-hidden="true">♡</span>
-                </div>
-                <div class="music-content">
-                  <div class="album-art" aria-hidden="true">
-                    <i></i><i></i><i></i>
-                  </div>
-                  <div class="track-info">
-                    <strong>Somewhere, slowly</strong
-                    ><span>Sounds for a clear head</span>
-                    <div class="track-progress"><i></i></div>
-                    <span class="playback" aria-hidden="true"
-                      >‹ &nbsp; Ⅱ &nbsp; ›</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="desktop-dock" aria-hidden="true">
-              <span>✎</span><span>◈</span
-              ><img
-                src="/assets/floe-icon.png"
-                width="36"
-                height="36"
-                alt=""
-              /><span>♫</span><span>⌘</span>
-            </div>
-          </div>
-          <p class="demo-status" role="status" aria-live="polite">
-            Focus layout — room for your main task, with two windows alongside.
-          </p>
-          <p class="demo-disclaimer">
-            Interactive illustration of Floe’s layouts.
-          </p>
         </div>
-      </section>
-      <section class="feature-intro container" id="features">
-        <p class="eyebrow">Fewer adjustments. More momentum.</p>
-        <h2>From a busy desktop<br />to a <span>clear head.</span></h2>
-        <p>
-          Floe brings a little structure to the way you work.<br />Flexible
-          where it matters. Out of the way when it doesn’t.
+        <div class="hero-footnote">
+          <span>Interactive product demo. Try a layout above.</span
+          ><a href="#in-motion"
+            >Less arranging. More doing. <span aria-hidden="true">↓</span></a
+          >
+        </div>
+        <p class="trial-notice">
+          The free trial is available now. Purchasing opens soon; window
+          management pauses after 7 days.
+          <a href="#pricing">Details <span aria-hidden="true">↗</span></a>
         </p>
       </section>
-      <section class="motion-section container" id="in-motion" aria-labelledby="motion-title">
-        <div class="motion-heading">
-          <p class="eyebrow">A few small moves. A whole new flow.</p>
-          <h2 id="motion-title">See how it<br /><span>all falls into place.</span></h2>
-          <p>From your first window to your whole workspace.</p>
+
+      <section
+        class="workflow-section container"
+        id="features"
+        aria-labelledby="workflow-title"
+      >
+        <div class="section-heading" id="in-motion">
+          <p class="eyebrow">Less window management</p>
+          <h2 id="workflow-title">
+            Get your desktop together.<br /><span
+              >Then get on with your day.</span
+            >
+          </h2>
         </div>
-        <article class="motion-story" data-demo="snap" data-step="0">
-          <div class="motion-copy">
-            <span class="feature-number">01 / SNAP BAR</span>
-            <h3>A place for your window.<br />Right at the top.</h3>
-            <p>Drag a window toward the top of your screen. Floe brings your
-              layouts into reach. Choose a region and let go.</p>
-            <div class="motion-steps" aria-label="Snap Bar steps">
-              <span data-story-step="0">Drag up</span><span data-story-step="1">Choose a region</span><span data-story-step="2">Drop into place</span>
-            </div>
-          </div>
-          <div class="motion-demo">
-            <div class="scene snap-scene" aria-hidden="true">
-              <div class="scene-menubar"><span>● &nbsp; Floe</span><span>9:41</span></div>
-              <div class="scene-wallpaper"></div>
-              <div class="scene-bar">
-                <div class="bar-layout bar-halves"><i></i><i></i></div>
-                <div class="bar-layout bar-focus"><i></i><i></i><i></i></div>
-                <div class="bar-layout bar-thirds"><i></i><i></i><i></i></div>
-                <div class="bar-layout bar-quarters"><i></i><i></i><i></i><i></i></div>
-              </div>
-              <div class="snap-target"><span>Left half</span></div>
-              <div class="scene-window snap-window">
-                <div class="scene-chrome"><span class="scene-lights">● ● ●</span><span>Notes</span></div>
-                <div class="scene-note"><small>A LITTLE ROOM TO THINK</small><strong>Make space<br />for a good idea.</strong><i></i><i></i><i></i></div>
-              </div>
-              <svg class="scene-cursor snap-cursor" viewBox="0 0 24 30"><path d="M2 2v22l6-6 5 10 4-2-5-10h9Z"/></svg>
-              <div class="scene-dock"><span>✎</span><span>◈</span><img src="/assets/floe-icon.png" width="25" height="25" alt="" /><span>♫</span></div>
-            </div>
-            <div class="motion-controls"><p class="motion-status">Drag a window toward the top to reveal Snap Bar.</p><button class="demo-play" type="button" aria-label="Play Snap Bar demo">Play demo <span aria-hidden="true">↻</span></button></div>
-          </div>
-        </article>
-        <article class="motion-story assist-story" data-demo="assist" data-step="0">
-          <div class="motion-copy">
-            <span class="feature-number">02 / SNAP ASSIST</span>
-            <h3>Fill the gaps.<br />Keep the focus.</h3>
-            <p>Your first window is in place. Pick another open window from
-              Snap Assist to fill the next region, then keep going. No hunting
-              behind overlapping windows.</p>
-            <p class="motion-tip">Try it: choose a window in the preview.</p>
-            <div class="motion-steps" aria-label="Snap Assist steps">
-              <span data-story-step="0">Pick a window</span><span data-story-step="1">Fill the next region</span><span data-story-step="2">Workspace ready</span>
-            </div>
-          </div>
-          <div class="motion-demo">
-            <div class="scene assist-scene">
-              <div class="scene-menubar" aria-hidden="true"><span>● &nbsp; Floe</span><span>9:41</span></div>
-              <div class="scene-wallpaper" aria-hidden="true"></div>
-              <div class="scene-window assist-notes" aria-hidden="true"><div class="scene-chrome"><span class="scene-lights">● ● ●</span><span>Notes</span></div><div class="scene-note"><small>TODAY’S PLAN</small><strong>Everything.<br />Within reach.</strong><i></i><i></i><i></i></div></div>
-              <div class="assist-vacancy" aria-hidden="true"><span>Next region</span></div>
-              <div class="assist-picker">
-                <div class="assist-picker-title">Choose a window <span aria-hidden="true">↗</span></div>
-                <div class="assist-candidates">
-                  <button type="button" data-candidate="browser" aria-label="Place Safari in the next empty region"><span class="candidate-preview browser-preview" aria-hidden="true"><i></i><b></b><b></b></span><span>Safari</span><small>A little inspiration</small></button>
-                  <button type="button" data-candidate="finder" aria-label="Place Finder in the next empty region"><span class="candidate-preview finder-preview" aria-hidden="true"><i></i><b></b><b></b><b></b></span><span>Finder</span><small>Project files</small></button>
-                  <button type="button" data-candidate="music" aria-label="Place Music in the next empty region"><span class="candidate-preview music-preview" aria-hidden="true"><i>♫</i><b></b></span><span>Music</span><small>Something to focus to</small></button>
-                </div>
-                <span class="assist-picker-note">Open windows. One clear choice.</span>
-              </div>
-              <div class="scene-window assist-result assist-result-top" aria-hidden="true"><div class="scene-chrome"><span class="scene-lights">● ● ●</span><span class="result-name">Safari</span></div><div class="placed-art"><span>◈</span><strong class="result-title">A little inspiration.</strong><i></i></div></div>
-              <div class="scene-window assist-result assist-result-bottom" aria-hidden="true"><div class="scene-chrome"><span class="scene-lights">● ● ●</span><span class="result-name">Finder</span></div><div class="placed-art"><span>▤</span><strong class="result-title">Project files, in place.</strong><i></i></div></div>
-            </div>
-            <div class="motion-controls"><p class="motion-status" role="status" aria-live="off">Choose an open window for the upper-right region.</p><button class="demo-play" type="button" aria-label="Play Snap Assist demo">Play demo <span aria-hidden="true">↻</span></button></div>
-          </div>
-        </article>
-        <article class="motion-story" data-demo="screens" data-step="0" data-screen="laptop">
-          <div class="motion-copy">
-            <span class="feature-number">03 / EVERY SCREEN</span>
-            <h3>Different screens.<br />The same easy flow.</h3>
-            <p>A laptop, a wide display, a portrait monitor. Snap Bar’s layout
-              previews follow your display’s proportions, with recommended
-              layouts that suit the space.</p>
-            <div class="screen-switcher" role="group" aria-label="Display shape preview">
-              <button type="button" data-screen-choice="laptop" aria-pressed="true">Laptop <small>16:10</small></button>
-              <button type="button" data-screen-choice="wide" aria-pressed="false">Ultrawide <small>21:9</small></button>
-              <button type="button" data-screen-choice="portrait" aria-pressed="false">Portrait <small>9:16</small></button>
-            </div>
-          </div>
-          <div class="motion-demo">
-            <div class="display-stage" aria-hidden="true">
-              <div class="display-orbit"></div>
-              <div class="adaptive-monitor">
-                <div class="monitor-screen">
-                  <div class="scene-menubar"><span>● &nbsp; Floe</span><span>9:41</span></div>
-                  <div class="scene-wallpaper"></div>
-                  <div class="scene-bar adaptive-bar"><div class="bar-layout bar-halves"><i></i><i></i></div><div class="bar-layout bar-focus"><i></i><i></i><i></i></div><div class="bar-layout bar-thirds"><i></i><i></i><i></i></div><div class="bar-layout bar-quarters"><i></i><i></i><i></i><i></i></div></div>
-                  <div class="adaptive-windows"><div><span>Notes</span><i></i><i></i><i></i></div><div><span>Safari</span><b></b></div><div><span>Music</span><strong>♫</strong></div></div>
-                </div>
-                <div class="monitor-stand"></div>
-              </div>
-              <span class="display-size">16:10 / LAPTOP</span>
-            </div>
-            <div class="motion-controls"><p class="motion-status" role="status" aria-live="off">Laptop: compact layouts with previews shaped to your display.</p><button class="demo-play" type="button" aria-label="Play display adaptation demo">Play demo <span aria-hidden="true">↻</span></button></div>
-          </div>
-        </article>
-        <p class="motion-disclaimer">Animated product illustrations. Layouts and appearance depend on your display and settings. Window previews require optional Screen Recording permission.</p>
-      </section>
-      <section class="feature-grid container" aria-label="More Floe features">
-        <article class="feature-card adaptive-card">
-          <div class="feature-illustration mini-layouts" aria-hidden="true">
-            <div><i></i><i></i><i></i></div>
-            <div><i></i><i></i></div>
-            <div><i></i><i></i><i></i></div>
-          </div>
-          <span class="feature-number">04 / ARRANGE</span>
-          <h3>Your layout.<br />Your way of working.</h3>
-          <p>
-            Choose a layout or make your own. Snap windows into place with a
-            drag, the layout picker, or a keyboard shortcut.
-          </p>
-        </article>
-        <article class="feature-card resize-card">
-          <div
-            class="feature-illustration resize-illustration"
-            aria-hidden="true"
-          >
-            <div></div>
-            <span>↔</span>
-            <div></div>
-          </div>
-          <span class="feature-number">05 / MAKE ROOM</span>
-          <h3>Move one divider.<br />Everything follows.</h3>
-          <p>
-            Resize neighboring windows together. Give your main task more space
-            without fixing every window by hand.
-          </p>
-        </article>
-        <article class="feature-card keyboard-card">
-          <div
-            class="feature-illustration keyboard-illustration"
-            aria-hidden="true"
-          >
-            <kbd>⌃</kbd><kbd>⌥</kbd><kbd>→</kbd>
-          </div>
-          <span class="feature-number">06 / KEEP MOVING</span>
-          <h3>Stay in flow.<br />Keep your hands on the keys.</h3>
-          <p>
-            Set your own shortcuts for window placement. Switch layouts and send
-            a window to your next display.
-          </p>
-        </article>
-      </section>
-      <section class="details-section container">
-        <div class="detail-heading">
-          <p class="eyebrow">Small details. Big difference.</p>
-          <h2>Feels right<br />at home.</h2>
-        </div>
-        <div class="detail-list">
+        <div class="workflow-grid">
           <article>
-            <span aria-hidden="true">▤</span>
-            <div>
-              <h3>See what goes where</h3>
-              <p>
-                Optional window previews help you fill the empty spaces in a
-                layout.
-              </p>
+            <div class="feature-symbol" aria-hidden="true">
+              <svg viewBox="0 0 40 40">
+                <rect x="5" y="7" width="30" height="25" rx="3" />
+                <path d="M5 14h30M15 14v18m5-13 7 5-4 1 2 5-3 1-2-5-3 2Z" />
+              </svg>
             </div>
+            <h3>Drag. Drop. Done.</h3>
+            <p>
+              Pull a window to the top of your screen. Pick a space in Snap Bar
+              and let go. Right where you wanted it.
+            </p>
+            <span class="feature-label">SNAP BAR</span>
           </article>
           <article>
-            <span aria-hidden="true">◫</span>
-            <div>
-              <h3>Room for every screen</h3>
-              <p>
-                Choose layouts for your connected displays and move windows
-                between them.
-              </p>
+            <div class="feature-symbol" aria-hidden="true">
+              <svg viewBox="0 0 40 40">
+                <rect x="5" y="7" width="13" height="25" rx="3" />
+                <rect x="22" y="7" width="13" height="11" rx="3" />
+                <path d="M23 27h11m-5.5-5.5v11" />
+              </svg>
             </div>
+            <h3>The rest falls into place.</h3>
+            <p>
+              Snap Assist brings your open windows to you. Pick one to fill the
+              next space. No digging through the pile.
+            </p>
+            <span class="feature-label">SNAP ASSIST</span>
           </article>
           <article>
-            <span aria-hidden="true">◐</span>
-            <div>
-              <h3>Make it feel like you</h3>
-              <p>
-                Adjust spacing, appearance, activation areas, and motion to suit
-                your workspace.
-              </p>
+            <div class="feature-symbol" aria-hidden="true">
+              <svg viewBox="0 0 40 40">
+                <path
+                  d="M13 7H8a3 3 0 0 0-3 3v19a3 3 0 0 0 3 3h5m14-25h5a3 3 0 0 1 3 3v19a3 3 0 0 1-3 3h-5M20 5v30M9 20h22m-4-4 4 4-4 4M13 16l-4 4 4 4"
+                />
+              </svg>
             </div>
+            <h3>A little more room? Easy.</h3>
+            <p>
+              Move a shared divider and neighboring windows resize together.
+              Your layout stays together, too.
+            </p>
+            <span class="feature-label">SHARED RESIZING</span>
           </article>
         </div>
       </section>
-      <section class="pricing-section" id="pricing">
+
+      <section class="resize-section container" aria-labelledby="resize-title">
+        <div class="resize-copy">
+          <p class="eyebrow">Make it fit</p>
+          <h2 id="resize-title">Your work isn’t<br />always 50/50.</h2>
+          <p>
+            Give the window you’re working in a little more space. Floe takes
+            care of the one next to it.
+          </p>
+          <label for="resize-range"
+            >Try the divider <span aria-hidden="true">↔</span></label
+          ><input
+            id="resize-range"
+            type="range"
+            min="30"
+            max="70"
+            value="58"
+            aria-label="Width of the left demo window"
+            aria-valuetext="Left window 58%, right window 42%"
+          />
+          <p class="resize-hint">Drag the handle, or use the arrow keys.</p>
+        </div>
+        <div
+          class="resize-demo"
+          role="img"
+          aria-label="Interactive shared resizing illustration"
+        >
+          <div class="resize-demo-menu" aria-hidden="true">
+            <span>Workspace</span><span><i></i><i></i><i></i></span>
+          </div>
+          <div class="resize-windows" style="--split: 58%">
+            <div class="resize-document" aria-hidden="true">
+              <span class="mini-app-name"><i></i> Notes</span>
+              <div class="resize-paper">
+                <span>THE GOOD PART</span>
+                <h3>Room to<br />think.</h3>
+                <div class="text-lines"><i></i><i></i><i></i></div>
+                <div class="text-lines short"><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="resize-divider" aria-hidden="true"><span>↔</span></div>
+            <div class="resize-browser" aria-hidden="true">
+              <span class="mini-app-name"><i></i> Safari</span
+              ><img
+                src="media/lake.webp"
+                width="1000"
+                height="667"
+                alt=""
+                loading="lazy"
+              /><span class="resize-browser-title">A change of scenery.</span>
+            </div>
+          </div>
+          <div class="resize-demo-footer">
+            <span>One move. Both windows.</span
+            ><span id="resize-value">58 / 42</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="extras container"
+        aria-label="More ways to work with Floe"
+      >
+        <article>
+          <div class="keyboard-visual" aria-hidden="true">
+            <kbd>⌥</kbd><kbd>⌘</kbd><kbd>→</kbd>
+          </div>
+          <h3>For the keyboard people.</h3>
+          <p>
+            Place windows, switch layouts, or move to the next display. All with
+            shortcuts you can make your own.
+          </p>
+        </article>
+        <article>
+          <div class="screens-visual" aria-hidden="true">
+            <span class="screen-wide"><i></i><i></i><i></i></span
+            ><span class="screen-tall"><i></i><i></i></span
+            ><span class="screen-laptop"><i></i><i></i></span>
+          </div>
+          <h3>From laptop to big screen.</h3>
+          <p>
+            Layouts adapt to your display’s proportions. Keep different setups
+            for your laptop, ultrawide, and portrait monitor.
+          </p>
+        </article>
+        <article>
+          <div class="custom-visual" aria-hidden="true">
+            <span><i></i><i></i><i></i></span><b>+</b
+            ><span><i></i><i></i></span>
+          </div>
+          <h3>A layout that’s yours.</h3>
+          <p>
+            Start with a built-in layout or create your own. Fine-tune the
+            spacing, appearance, and way Floe responds.
+          </p>
+        </article>
+      </section>
+
+      <section
+        class="pricing-section"
+        id="pricing"
+        aria-labelledby="pricing-title"
+      >
         <div class="container pricing-inner">
           <div class="pricing-copy">
-            <p class="eyebrow">A small tool. A simple price.</p>
-            <h2>Less juggling.<br />More <span>doing.</span></h2>
+            <p class="eyebrow">Small app. Simple deal.</p>
+            <h2 id="pricing-title">
+              Keep your space.<br />Skip the subscription.
+            </h2>
             <p>
-              Try every feature free for 7 days.<br />One-time licenses will
-              be available when purchasing opens.
+              Try every feature for 7 days, free.<br />When purchasing opens,
+              pay once and get back to work.
             </p>
             <a class="text-link" href="terms.html"
-              >Read the license terms <span aria-hidden="true">↗</span></a
-            >
+              >Read the license terms
+              <svg class="icon"><use href="#arrow-up-right" /></svg
+            ></a>
           </div>
           <div class="price-card">
-            <div class="price-top">
-              <img
-                src="/assets/floe-icon.png"
-                width="52"
-                height="52"
-                alt=""
-              /><span>Floe for Mac<br /><small>Planned one-time license</small></span>
+            <div class="price-card-header">
+              <span>Floe for Mac</span
+              ><span class="coming-label">Purchasing soon</span>
             </div>
-            <p class="price"><span>$</span>9.99 <small>USD</small></p>
+            <p class="price">$9.99<span>USD / one-time</span></p>
+            <p class="price-subline">
+              Planned license price. No recurring fees.
+            </p>
             <ul>
               <li>
-                <span aria-hidden="true">✓</span> One license. Two active Macs.
+                <svg class="icon"><use href="#check-icon" /></svg>One license.
+                Two active Macs.
               </li>
               <li>
-                <span aria-hidden="true">✓</span> All window management features
+                <svg class="icon"><use href="#check-icon" /></svg>Every window
+                management feature.
               </li>
               <li>
-                <span aria-hidden="true">✓</span> 7-day free trial available now
-              </li>
-              <li>
-                <span aria-hidden="true">✓</span> No recurring subscription
+                <svg class="icon"><use href="#check-icon" /></svg>7 days to make
+                yourself at home.
               </li>
             </ul>
-            <a class="button primary" href="https://github.com/oktykrk/floe-releases/releases/download/v1.0.1/Floe-1.0.1.dmg"
-              >Download free trial <span aria-hidden="true">↓</span></a
-            >
+            <a
+              class="button button-dark"
+              href="https://github.com/oktykrk/floe-releases/releases/download/v1.0.2/Floe-1.0.2.dmg"
+              >Start your free trial
+              <svg class="icon"><use href="#arrow-down" /></svg
+            ></a>
             <p class="price-note">
-              Planned license price. Purchasing and activation await Lemon
-              Squeezy approval. Applicable taxes may be added.
+              Purchasing and license activation are not available yet. Window
+              management pauses after the trial; Settings stays accessible.
+              Applicable taxes may be added when purchasing opens.
             </p>
           </div>
         </div>
       </section>
+
       <section class="faq-section container" aria-labelledby="faq-title">
         <div>
-          <p class="eyebrow">A few things to know</p>
-          <h2 id="faq-title">Before you<br />find your flow.</h2>
+          <p class="eyebrow">Good to know</p>
+          <h2 id="faq-title">A few details.</h2>
+          <p>
+            Something else on your mind?<br /><a
+              class="text-link"
+              href="support.html"
+              >Get in touch <span aria-hidden="true">↗</span></a
+            >
+          </p>
         </div>
         <div class="faqs">
           <details>
-            <summary>What does my Mac need?</summary>
+            <summary>
+              Will it work on my Mac?<span aria-hidden="true">+</span>
+            </summary>
             <p>
-              Floe requires macOS 15 or later and supports Apple silicon and
-              Intel Macs. Some apps restrict how their windows can be resized.
+              Floe requires macOS 15 or later and works on Apple silicon and
+              Intel Macs. Some apps limit how their windows can be resized.
               Full-screen windows and windows in other Spaces have additional
               macOS limitations.
             </p>
           </details>
           <details>
-            <summary>Why does Floe ask for Accessibility access?</summary>
+            <summary>
+              Why does Floe need Accessibility access?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
             <p>
               macOS requires your permission before Floe can move and resize
               other apps’ windows. Floe observes window and mouse activity for
@@ -476,90 +609,112 @@
             </p>
           </details>
           <details>
-            <summary>Do I need Screen Recording permission?</summary>
+            <summary>
+              What about Screen Recording permission?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
             <p>
-              Only for optional window thumbnails. Floe captures still previews,
-              not a continuous recording. You can turn thumbnails off and
-              continue arranging windows.
+              It’s only used for optional window thumbnails in Snap Assist. Floe
+              captures still previews, not a continuous recording. You can turn
+              thumbnails off and keep arranging windows.
             </p>
           </details>
           <details>
-            <summary>How do the trial and license work?</summary>
+            <summary>
+              How does the free trial work?<span aria-hidden="true">+</span>
+            </summary>
             <p>
               The 7-day trial starts when you first launch Floe. No payment is
-              required. Purchasing and license activation are not available yet;
-              window management pauses when the trial ends, while Settings stays
-              accessible. Reinstalling does not reset the trial. Once purchasing
-              opens, a $9.99 USD one-time license will cover two active Macs,
-              using the license key from your Lemon Squeezy receipt.
+              required. Purchasing and license activation are not available yet.
+              When the trial ends, window management pauses and Settings remains
+              accessible. Reinstalling doesn’t reset the trial. Once purchasing
+              opens, a planned $9.99 USD one-time license will cover two active
+              Macs.
             </p>
           </details>
           <details>
-            <summary>Is Floe on the Mac App Store?</summary>
+            <summary>
+              Is Floe on the Mac App Store?<span aria-hidden="true">+</span>
+            </summary>
             <p>
-              Floe is available as a direct download, signed with Developer ID
-              and notarized by Apple. Download the DMG below and drag Floe into
-              Applications. It is not distributed through the Mac App Store.
+              Floe is a direct download, signed with Developer ID and notarized
+              by Apple. Open the DMG and drag Floe into Applications. It isn’t
+              distributed through the Mac App Store.
             </p>
           </details>
           <details>
-            <summary>What about privacy?</summary>
+            <summary>
+              Does my window content stay on my Mac?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
             <p>
-              Your layouts and preferences stay on your Mac. Licensing contacts
-              Lemon Squeezy, and Floe sends automatic crash and hang diagnostics
-              through Sentry. Read the
-              <a href="privacy.html">privacy policy</a> for the full details.
+              Yes. Window content, previews, layouts, and preferences stay on
+              your Mac. Licensing uses Lemon Squeezy, update checks use GitHub,
+              and automatic crash and hang diagnostics go through Sentry. The
+              <a href="privacy.html">privacy policy</a> explains the details.
             </p>
           </details>
         </div>
       </section>
-      <section class="release-section container" id="release">
-        <img src="/assets/floe-icon.png" width="90" height="90" alt="" />
-        <p class="eyebrow">Your next workspace starts here.</p>
-        <h2>Make a little<br /><span>space for Floe.</span></h2>
-        <p>
-          Download Floe. Open the DMG. Drag it into Applications.<br />Launch
-          Floe and allow Accessibility access to start arranging your windows.
-        </p>
-        <a
-          class="button primary"
-          href="https://github.com/oktykrk/floe-releases/releases/download/v1.0.1/Floe-1.0.1.dmg"
-          >Download Floe for Mac <span aria-hidden="true">↓</span></a
-        ><span class="release-note"
-          >Version 1.0.1 · 7.1 MB · macOS 15+ · Apple silicon & Intel<br />Developer
-          ID signed · Apple notarized · 7-day free trial</span
-        >
-        <p class="trial-note">
-          Purchasing and activation are not available yet. Window management
-          pauses after the trial; Settings remains accessible.
-        </p>
-        <p class="download-links">
-          <a href="https://github.com/oktykrk/floe-releases/releases/tag/v1.0.1">Release notes</a>
-          · <a href="https://github.com/oktykrk/floe-releases/releases/download/v1.0.1/SHA256SUMS.txt">SHA-256 checksum</a>
-          · <a href="support.html">Installation help</a>
-        </p>
+
+      <section
+        class="release-section container"
+        id="release"
+        aria-labelledby="release-title"
+      >
+        <div class="release-brand">
+          <img src="/assets/floe-icon.png" width="88" height="88" alt="" />
+          <div>
+            <p class="eyebrow">Meet your new workspace</p>
+            <h2 id="release-title">Go with Floe.</h2>
+          </div>
+        </div>
+        <div class="release-action">
+          <a
+            class="button button-blue"
+            href="https://github.com/oktykrk/floe-releases/releases/download/v1.0.2/Floe-1.0.2.dmg"
+            >Download Floe for Mac
+            <svg class="icon"><use href="#arrow-down" /></svg
+          ></a>
+          <p>
+            v1.0.2 · 7.0 MB · macOS 15+<br />Apple silicon & Intel · Signed &
+            notarized
+          </p>
+        </div>
+        <div class="release-bottom">
+          <p>
+            Open the DMG. Drag Floe into Applications. Make yourself some
+            room.<br /><span
+              >7-day trial. Purchasing opens soon; window management pauses when
+              the trial ends.</span
+            >
+          </p>
+          <div>
+            <a
+              href="https://github.com/oktykrk/floe-releases/releases/tag/v1.0.2"
+              >Release notes ↗</a
+            ><a
+              href="https://github.com/oktykrk/floe-releases/releases/download/v1.0.2/SHA256SUMS.txt"
+              >Checksum ↗</a
+            >
+          </div>
+        </div>
       </section>
     </main>
     <footer class="footer container">
-      <div>
-        <a class="brand" href="/floe/"
-          ><img
-            src="/assets/floe-icon.png"
-            width="32"
-            height="32"
-            alt=""
-          /><span>floe</span></a
-        >
-        <p>A little more space. A lot more flow.</p>
-        <a class="maker-link" href="/"
-          >Made by Oktay Kırık <span aria-hidden="true">↗</span></a
-        >
-      </div>
+      <a class="brand" href="/floe/"
+        ><img src="/assets/floe-icon.png" width="28" height="28" alt="" /><span
+          >floe</span
+        ></a
+      >
+      <p>Made by <a href="/">Oktay Kırık</a>.</p>
       <nav aria-label="Footer navigation">
         <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a
         ><a href="support.html">Support</a>
       </nav>
-      <span class="copyright">© 2026 Oktay Kırık</span>
+      <span>© 2026</span>
     </footer>
   </body>
 </html>

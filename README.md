@@ -6,11 +6,11 @@ and private support correspondence are not stored here.
 
 ## Published paths
 
-| Application | Privacy | Terms | Support |
-|---|---|---|---|
-| Video Take | `/video-take/privacy.html` | `/video-take/terms.html` | `/video-take/support.html` |
-| Pado PDF | `/pado-pdf/privacy.html` | `/pado-pdf/terms.html` | `/pado-pdf/support.html` |
-| Floe | `/floe/privacy.html` | `/floe/terms.html` | `/floe/support.html` |
+| Application | Privacy                    | Terms                    | Support                    |
+| ----------- | -------------------------- | ------------------------ | -------------------------- |
+| Video Take  | `/video-take/privacy.html` | `/video-take/terms.html` | `/video-take/support.html` |
+| Pado PDF    | `/pado-pdf/privacy.html`   | `/pado-pdf/terms.html`   | `/pado-pdf/support.html`   |
+| Floe        | `/floe/privacy.html`       | `/floe/terms.html`       | `/floe/support.html`       |
 
 The site is published at <https://oktykrk.github.io/>. Add future applications
 as another top-level directory instead of creating a separate repository.
@@ -21,22 +21,23 @@ Legacy Video Take URLs under `/video-take-site/`, `/privacy.html`, and
 ## Landing pages
 
 The portfolio at `/` uses a warm editorial theme in `portfolio.css`. Floe at
-`/floe/` has a separate blue workspace theme in `floe/floe.css` and an accessible
-layout illustration in `floe/floe.js`. Other app pages and the shared legal-page
-stylesheet are independent of these two designs.
+`/floe/` has an independent white, ink, and cobalt design in `floe/floe.css`.
+Other app pages and the shared legal-page stylesheet are independent.
 
-`floe/motion.css` and `floe/motion.js` provide three animated product
-illustrations: top-edge Snap Bar placement, interactive Snap Assist filling,
-and display-shaped previews for laptop, ultrawide, and portrait monitors.
-Each demo plays once when it becomes visible and can be paused or replayed.
-Offscreen/background demos stop; reduced motion uses explicit step controls.
-The scenes are illustrations, not recordings of the installed application.
+`floe/floe.js` powers a single interactive desktop illustration with Focus,
+Split, and Columns layouts, a Snap Bar / Snap Assist sequence, and a draggable
+shared-resize demo. The sequence loops while visible, with a two-second hold on
+the finished layout. It supports pause and resume, and pauses offscreen or in
+background tabs. Reduced motion uses explicit step controls. There are no
+third-party runtime scripts or external font loads.
+The scenes are product illustrations, not recordings of the installed app.
+Photo attribution is in `floe/media/README.md`.
 
 Run a local preview with `python3 -m http.server 8765`. Verify links and image
-references with `python3 tools/check-site.py`. Rebuild the original 1200×630
-social images on macOS with `swift tools/render-social.swift`.
+references with `python3 tools/check-site.py`. Rebuild the 1200×630 social images
+on macOS with `swift tools/render-social.swift`; pass `floe` to update only Floe.
 
-Floe offers a public 7-day trial download from the verified, notarized `v1.0`
+Floe offers a public 7-day trial download from the verified, notarized `v1.0.1`
 GitHub Release. Purchasing and license activation are unavailable while Lemon
 Squeezy approval is pending; the page explains that window management pauses
 after the trial. Never link a test checkout as a live sale. Add a verified live
