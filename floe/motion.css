@@ -13,7 +13,7 @@
   margin-bottom: 18px;
 }
 .motion-heading h2 span { color: #247fa8; }
-.motion-heading > p:last-child { color: #627c8f; font-size: 14px; }
+.motion-heading > p:last-child { color: #53768a; font-size: 14px; }
 .motion-story {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.65fr);
@@ -31,7 +31,7 @@
 }
 .motion-copy > p {
   font-size: 13px;
-  color: #627c8f;
+  color: #53768a;
   line-height: 1.85;
   max-width: 350px;
 }
@@ -41,7 +41,7 @@
   padding: 7px 9px;
   border: 1px solid #d9e6ed;
   border-radius: 6px;
-  color: #627c8f;
+  color: #53768a;
   font-size: 10px;
   transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
@@ -229,7 +229,7 @@
 [data-demo="assist"][data-step="2"] .assist-vacancy { opacity: 0; }
 .screen-switcher { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 24px; }
 .screen-switcher button { display: flex; flex-direction: column; gap: 5px; padding: 10px 12px; font-size: 11px; border: 1px solid #d2e3ee; background: #fff; border-radius: 8px; color: #557488; cursor: pointer; }
-.screen-switcher small { font-size: 9px; color: #7a93a2; }
+.screen-switcher small { font-size: 9px; color: #5b788a; }
 .screen-switcher button[aria-pressed="true"] { background: #e6f4fd; border-color: #89bfd9; color: #196c97; }
 .display-stage { height: 365px; position: relative; display: grid; place-items: center; padding-bottom: 36px; border-radius: 15px; overflow: hidden; background: #eaf3f9; border: 1px solid #d3e4ee; isolation: isolate; }
 .display-orbit { position: absolute; width: 82%; aspect-ratio: 1; border: 1px solid #d7e7f1; border-radius: 50%; z-index: -1; }
@@ -270,7 +270,7 @@
 [data-screen="portrait"] .adaptive-windows > div:first-child { grid-row: auto; }
 [data-screen="portrait"] .adaptive-windows i { margin-top: 5px; }
 [data-screen="portrait"] .adaptive-windows strong { font-size: 16px; margin-top: 1px; }
-.motion-disclaimer { font-size: 10px; color: #78909f; line-height: 1.75; text-align: center; max-width: 650px; margin: 25px auto 0; }
+.motion-disclaimer { font-size: 10px; color: #5b788a; line-height: 1.75; text-align: center; max-width: 650px; margin: 25px auto 0; }
 .motion-story.is-paused *, .motion-story.is-paused *::after { transition: none; }
 @media (max-width: 1000px) {
   .motion-story, .assist-story { gap: 30px; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
