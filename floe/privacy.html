@@ -104,13 +104,17 @@
           applicable Sentry terms. Sentry infrastructure may process diagnostics
           outside your country, including in the United States.
         </p>
-        <h2>Manual update checks</h2>
+        <h2>App updates</h2>
         <p>
-          Choosing Check for Updates contacts GitHub’s public Releases API to
-          read the latest published Floe version. GitHub receives ordinary
-          connection information; the request does not include your license key,
-          installation identifier, layouts, or window data. No update is
-          downloaded or installed automatically.
+          From version 1.0.3, Floe uses Sparkle to check a signed update feed
+          hosted on GitHub Releases and download verified updates. Automatic
+          checks and downloads are enabled by default and can be disabled in
+          Settings → About. Automatic updates install when you quit Floe;
+          you can also choose to install and relaunch from the update window.
+          GitHub receives ordinary connection information such as your IP
+          address. Update requests do not include your license key, installation
+          identifier, layouts, or window data. Sparkle system profiling is disabled.
+          Versions 1.0–1.0.2 use manual checks and require a manual upgrade.
         </p>
         <h2>Support and website links</h2>
         <p>
@@ -238,13 +242,18 @@
             yapılandırmasına ve geçerli Sentry koşullarına bağlıdır. Sentry
             altyapısı tanılama verilerini ABD dahil ülkeniz dışında işleyebilir.
           </p>
-          <h2>Elle güncelleme kontrolü</h2>
+          <h2>Uygulama güncellemeleri</h2>
           <p>
-            Check for Updates seçeneği, yayınlanan son Floe sürümünü okumak için
-            GitHub’ın herkese açık Releases API’sine bağlanır. GitHub olağan
-            bağlantı bilgilerini alır; istek lisans anahtarınızı, kurulum
-            kimliğinizi, düzenlerinizi veya pencere verilerini içermez. Hiçbir
-            güncelleme otomatik olarak indirilmez veya yüklenmez.
+            Floe, 1.0.3 sürümünden itibaren GitHub Releases üzerinde barındırılan
+            imzalı güncelleme akışını kontrol etmek ve doğrulanmış güncellemeleri
+            indirmek için Sparkle kullanır. Otomatik kontrol ve indirme varsayılan
+            olarak açıktır; Settings → About bölümünden kapatılabilir. Otomatik
+            güncellemeler Floe’dan çıktığınızda yüklenir; güncelleme penceresinden
+            yükleyip yeniden başlatmayı da seçebilirsiniz. GitHub, IP adresiniz
+            gibi olağan bağlantı bilgilerini alır. Güncelleme istekleri lisans
+            anahtarınızı, kurulum kimliğinizi, düzenlerinizi veya pencere verilerini
+            içermez. Sparkle sistem profillemesi kapalıdır. 1.0–1.0.2 sürümleri
+            elle kontrol kullanır ve ilk yükseltmenin elle yapılmasını gerektirir.
           </p>
           <h2>Destek ve web bağlantıları</h2>
           <p>
