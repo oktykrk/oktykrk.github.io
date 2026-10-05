@@ -1,0 +1,47 @@
+# Floe for Mac
+
+> Floe is a native macOS window manager by Oktay Kırık for window snapping, tiling, custom layouts, and shared resizing.
+
+Floe helps arrange several application windows in a desktop workspace. Drag a
+window to the top of the screen to choose a space in Snap Bar. Snap Assist lets
+you select other open windows to fill the remaining spaces. Moving a shared
+divider resizes neighboring windows together. Custom layouts, customizable
+keyboard shortcuts, and display-specific preferences support laptop,
+ultrawide, and portrait monitor setups.
+
+Floe requires macOS 15 or later and supports Apple silicon and Intel Macs.
+Accessibility permission is required to move and resize other apps' windows.
+Screen Recording permission is optional and used only for still window
+thumbnails in Snap Assist. Full-screen windows are excluded, other Spaces stay
+separate, and applications can impose minimum window sizes.
+
+The public download includes a free 7-day trial starting at first launch, with
+no payment required. Purchasing and license activation are not available yet.
+Window management pauses after the trial; Settings remains accessible.
+The planned price is USD 9.99 for a one-time license covering two active Macs;
+this is not a currently available purchase offer. Applicable taxes may be added
+when purchasing opens. Reinstalling does not reset the trial.
+
+Floe is a direct DMG download, signed with Developer ID and notarized by Apple.
+It is not distributed through the Mac App Store. Website desktop scenes are
+interactive product illustrations, not recordings of the installed app.
+Window content, previews, layouts, and preferences stay on the Mac. Licensing
+uses Lemon Squeezy, update checks use GitHub, and automatic crash and hang
+diagnostics go through Sentry, as described in the privacy policy.
+
+## Official product information
+
+- [Floe for Mac](https://oktykrk.github.io/floe/): Canonical product page, features, system requirements, trial, planned pricing, and frequently asked questions.
+- [Installation and support](https://oktykrk.github.io/floe/support.html): Installation steps, permissions, layouts, shortcuts, downloads, updates, and support contact.
+- [License terms](https://oktykrk.github.io/floe/terms.html): Trial and license conditions, compatibility, and limitations.
+- [Privacy policy](https://oktykrk.github.io/floe/privacy.html): Local window data, optional previews, licensing, updates, and crash diagnostics.
+
+## Downloads
+
+- [Download Floe.dmg](https://github.com/oktykrk/floe-releases/releases/latest/download/Floe.dmg): Latest stable Mac installer with the 7-day trial.
+- [Latest release notes](https://github.com/oktykrk/floe-releases/releases/latest): Public release notes and assets.
+- [SHA-256 checksums](https://github.com/oktykrk/floe-releases/releases/latest/download/SHA256SUMS.txt): Checksums for the release's versioned DMG; Floe.dmg is the identical download alias.
+
+## Optional
+
+- [Publisher](https://oktykrk.github.io/): Oktay Kırık's application portfolio.

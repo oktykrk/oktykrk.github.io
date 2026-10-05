@@ -1,5 +1,6 @@
 """Verify local links and search-indexing signals without external services."""
 import json
+import re
 from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
@@ -11,6 +12,9 @@ root = Path(__file__).resolve().parent.parent
 origin = 'https://oktykrk.github.io'
 sitemap_url = f'{origin}/sitemap.xml'
 namespace = {'sm': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+crawler_agents = ('Googlebot', 'Bingbot', 'OAI-SearchBot', 'ChatGPT-User',
+                  'PerplexityBot', 'Claude-SearchBot', 'Claude-User')
+context_files = (root / 'llms.txt', root / 'floe' / 'llms.txt')
 
 class Page(HTMLParser):
     def __init__(self, source):
@@ -94,7 +98,7 @@ if sitemap_url not in (robots.site_maps() or []):
     errors.append('robots.txt: missing canonical sitemap declaration')
 
 def check_crawler_access(url, label):
-    for agent in ('Googlebot', 'Bingbot'):
+    for agent in crawler_agents:
         if not robots.can_fetch(agent, url):
             errors.append(f'{label}: robots.txt blocks {agent}')
 
@@ -121,6 +125,27 @@ for path, page in pages.items():
             errors.append(f'{label}: missing anchor {reference}')
         if target.is_relative_to(root):
             check_crawler_access(f'{origin}/{target.relative_to(root).as_posix()}', f'{label}: {reference}')
+
+for path in context_files:
+    label = path.relative_to(root)
+    if not path.exists():
+        errors.append(f'{label}: missing AI context file')
+        continue
+    source = path.read_text(encoding='utf-8')
+    if not source.startswith('# '):
+        errors.append(f'{label}: missing project heading')
+    check_crawler_access(page_url(path), str(label))
+    for reference in re.findall(r'\[[^\]]+\]\(([^)\s]+)\)', source):
+        target = local_target(reference, path)
+        if target is None:
+            continue
+        count += 1
+        if not target.exists():
+            errors.append(f'{label}: missing {reference}')
+        elif urlsplit(reference).fragment and target in pages:
+            if unquote(urlsplit(reference).fragment) not in pages[target].ids:
+                errors.append(f'{label}: missing anchor {reference}')
+        check_crawler_access(reference, f'{label}: {reference}')
 
 sitemap = ElementTree.parse(root / 'sitemap.xml').getroot()
 if sitemap.tag != f'{{{namespace["sm"]}}}urlset':
@@ -181,4 +206,4 @@ for path, page in indexable.items():
 
 if errors:
     raise SystemExit('\n'.join(errors))
-print(f'OK: {len(pages)} HTML pages, {count} local references, {len(sitemap_locations)} indexable sitemap URLs; links, metadata, JSON-LD, canonicals, and crawler access verified.')
+print(f'OK: {len(pages)} HTML pages, {len(context_files)} AI context files, {count} local references, {len(sitemap_locations)} indexable sitemap URLs; links, metadata, JSON-LD, canonicals, and access for {len(crawler_agents)} crawler agents verified.')

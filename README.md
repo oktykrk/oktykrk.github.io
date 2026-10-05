@@ -73,6 +73,33 @@ References: [Google's title guidance](https://developers.google.com/search/docs/
 [sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap),
 and [software-app structured data](https://developers.google.com/search/docs/appearance/structured-data/software-app).
 
+## AI search discovery
+
+The existing `User-agent: *` / `Allow: /` policy permits `OAI-SearchBot`,
+`ChatGPT-User`, `PerplexityBot`, `Claude-SearchBot`, and `Claude-User`.
+`tools/check-site.py` checks these agents alongside Googlebot and Bingbot so a
+future robots.txt change does not accidentally block the public content.
+A request with a bot's user-agent name checks ordinary HTTP access; it does
+not prove that requests from the provider's actual IP ranges will succeed or
+that the provider has crawled, indexed, cited, or recommended Floe.
+
+`/llms.txt` indexes the site's application pages. `/floe/llms.txt` gives a short
+Floe overview with use cases, features, requirements, permissions, limitations,
+the current trial and planned purchase conditions, and official links.
+Portfolio and Floe pages advertise the relevant file with `rel="describedby"`.
+Keep this summary consistent with the visible pages when product, licensing,
+or distribution details change. Neither file belongs in the HTML sitemap.
+
+These context files follow the optional [llms.txt proposal](https://llmstxt.org/).
+They are an additional reading aid, not a documented requirement for ChatGPT
+Search or a guaranteed ranking signal. The indexed HTML, useful visible
+answers, and accurate product information remain the primary content.
+[OpenAI's crawler documentation](https://developers.openai.com/api/docs/bots)
+distinguishes search access (`OAI-SearchBot`) from model-training collection
+(`GPTBot`); permitting training is not a way to guarantee recommendations.
+[Google's AI search guidance](https://developers.google.com/search/docs/appearance/ai-features)
+also requires no special AI files or schema beyond its existing SEO practices.
+
 ## Floe distribution
 
 Floe offers a public 7-day trial download from the latest stable, notarized

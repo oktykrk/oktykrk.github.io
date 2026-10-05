@@ -1,0 +1,18 @@
+# Oktay Kırık — app websites
+
+> Official product, privacy, license, and support pages for independent apps published by Oktay Kırık.
+
+Floe is a native window manager for Mac. Its product details, requirements,
+download, and current trial and purchasing conditions are summarized in the
+Floe context file linked below. Product pages are published by the developer.
+
+## Floe for Mac
+
+- [Floe product context](https://oktykrk.github.io/floe/llms.txt): A concise text overview and links to official product information.
+- [Floe website](https://oktykrk.github.io/floe/): Window snapping, tiling, Snap Assist, custom layouts, and shared resizing.
+
+## Optional
+
+- [Publisher](https://oktykrk.github.io/): Oktay Kırık's application portfolio.
+- [Video Take](https://oktykrk.github.io/video-take/): Official application and support pages.
+- [Pado PDF](https://oktykrk.github.io/pado-pdf/): Official application and support pages.
