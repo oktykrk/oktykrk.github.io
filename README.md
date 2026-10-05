@@ -37,7 +37,7 @@ Run a local preview with `python3 -m http.server 8765`. Verify links and image
 references with `python3 tools/check-site.py`. Rebuild the 1200×630 social images
 on macOS with `swift tools/render-social.swift`; pass `floe` to update only Floe.
 
-Floe offers a public 7-day trial download from the verified, notarized `v1.0.6`
+Floe offers a public 7-day trial download from the verified, notarized `v1.0.7`
 GitHub Release. Purchasing and license activation are unavailable while Lemon
 Squeezy approval is pending; the page explains that window management pauses
 after the trial. Never link a test checkout as a live sale. Add a verified live
