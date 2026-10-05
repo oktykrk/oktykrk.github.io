@@ -430,7 +430,7 @@ h1 span {
   letter-spacing: 0.13cqw;
   color: #627360;
 }
-.journal-heading h2 {
+.journal-heading .demo-journal-title {
   font-family: Georgia, serif;
   font-weight: 400;
   color: #243d30;
@@ -478,19 +478,22 @@ h1 span {
   white-space: nowrap;
   margin-bottom: 1.65cqw;
 }
-.notes-body h2 {
+.notes-body .demo-note-title {
+  line-height: normal;
   font-size: 2.05cqw;
   font-weight: 650;
   letter-spacing: -0.05cqw;
   margin-bottom: 0.8cqw;
   white-space: nowrap;
 }
-.notes-body > p {
+.notes-body .demo-note-copy {
   font-size: 0.99cqw;
   line-height: 1.5;
   color: #595751;
 }
-.notes-body h3 {
+.notes-body .demo-note-subtitle {
+  font-weight: 700;
+  line-height: normal;
   font-size: 1.05cqw;
   margin-top: 1.5cqw;
   margin-bottom: 0.8cqw;
@@ -792,7 +795,7 @@ h1 span {
 .desktop[data-layout="columns"] .browser-arrows {
   display: none;
 }
-.desktop[data-layout="columns"] .journal-heading h2 {
+.desktop[data-layout="columns"] .journal-heading .demo-journal-title {
   font-size: 3.1cqw;
 }
 .desktop[data-layout="columns"] .notes-body {
@@ -1282,7 +1285,7 @@ h2 {
   color: #746b5d;
   white-space: nowrap;
 }
-.resize-paper h3 {
+.resize-paper .demo-resize-title {
   font-size: 5.5cqw;
   font-family: Georgia, serif;
   line-height: 1.1;
@@ -1944,19 +1947,19 @@ h2 {
   .journal-heading {
     padding-top: 3.5cqw;
   }
-  .journal-heading h2 {
+  .journal-heading .demo-journal-title {
     font-size: 4.3cqw;
   }
   .notes-body {
     padding-top: 1.5cqw;
   }
-  .notes-body > p {
+  .notes-body .demo-note-copy {
     font-size: 1.18cqw;
   }
-  .notes-body h2 {
+  .notes-body .demo-note-title {
     font-size: 2.3cqw;
   }
-  .notes-body h3 {
+  .notes-body .demo-note-subtitle {
     font-size: 1.2cqw;
     margin-top: 2cqw;
   }
@@ -2349,7 +2352,7 @@ h2 {
     font-size: 0.75cqw;
     letter-spacing: 0.08cqw;
   }
-  .journal-heading h2 {
+  .journal-heading .demo-journal-title {
     font-size: 5cqw;
     margin-top: 1.3cqw;
   }
@@ -2370,14 +2373,14 @@ h2 {
     font-size: 0.81cqw;
     margin-bottom: 2.3cqw;
   }
-  .notes-body h2 {
+  .notes-body .demo-note-title {
     font-size: 2.65cqw;
     margin-bottom: 1.4cqw;
   }
-  .notes-body > p {
+  .notes-body .demo-note-copy {
     font-size: 1.4cqw;
   }
-  .notes-body h3 {
+  .notes-body .demo-note-subtitle {
     font-size: 1.5cqw;
     margin-top: 2.6cqw;
     margin-bottom: 1.3cqw;
@@ -2456,10 +2459,10 @@ h2 {
     top: 10%;
     height: 76%;
   }
-  .desktop[data-layout="columns"] .journal-heading h2 {
+  .desktop[data-layout="columns"] .journal-heading .demo-journal-title {
     font-size: 3.6cqw;
   }
-  .desktop[data-layout="columns"] .notes-body h2 {
+  .desktop[data-layout="columns"] .notes-body .demo-note-title {
     font-size: 2.05cqw;
   }
   .desktop[data-layout="columns"] .notes-body li {
@@ -2607,7 +2610,7 @@ h2 {
   .resize-paper {
     padding: 5cqw 3.6cqw;
   }
-  .resize-paper h3 {
+  .resize-paper .demo-resize-title {
     font-size: 6cqw;
   }
   .resize-demo-menu,

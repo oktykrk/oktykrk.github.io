@@ -4,16 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fafaf8" />
-    <title>Floe — Make room for your work.</title>
+    <title>Floe — Mac Window Manager for Snapping &amp; Tiling</title>
     <meta
       name="description"
-      content="A small Mac app for a desktop that works with you. Snap windows into place, fill a layout, and resize together. Try Floe free for 7 days."
+      content="Floe is a native Mac window manager with Snap Bar, Snap Assist, custom layouts, and shared resizing. Download a free 7-day trial for macOS 15+."
     />
+    <meta name="robots" content="max-image-preview:large" />
     <link rel="canonical" href="https://oktykrk.github.io/floe/" />
-    <meta property="og:title" content="Floe — Make room for your work." />
+    <meta
+      property="og:title"
+      content="Floe — Mac Window Manager for Snapping &amp; Tiling"
+    />
     <meta
       property="og:description"
-      content="Snap into place. Resize together. Get on with your day. A native window manager for Mac."
+      content="Floe is a native Mac window manager with Snap Bar, Snap Assist, custom layouts, and shared resizing. Download a free 7-day trial for macOS 15+."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://oktykrk.github.io/floe/" />
@@ -21,21 +25,78 @@
       property="og:image"
       content="https://oktykrk.github.io/assets/floe-social.png"
     />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Floe for Mac: window snapping, shared resizing, and a free 7-day trial."
+    />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Floe — Mac Window Manager for Snapping &amp; Tiling"
+    />
+    <meta
+      name="twitter:description"
+      content="Floe is a native Mac window manager with Snap Bar, Snap Assist, custom layouts, and shared resizing. Download a free 7-day trial for macOS 15+."
+    />
+    <meta
+      name="twitter:image"
+      content="https://oktykrk.github.io/assets/floe-social.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Floe for Mac: window snapping, shared resizing, and a free 7-day trial."
+    />
     <link rel="icon" href="/assets/floe-icon.png" />
-    <link rel="stylesheet" href="floe.css?v=2-dock" />
+    <link rel="stylesheet" href="floe.css?v=3-seo" />
     <script src="floe.js?v=2-loop" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Floe",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "macOS 15 or later",
-        "description": "Adaptive window layouts and shared resizing for macOS.",
-        "url": "https://oktykrk.github.io/floe/",
-        "downloadUrl": "https://github.com/oktykrk/floe-releases/releases/latest/download/Floe.dmg",
-        "author": { "@type": "Person", "name": "Oktay Kırık" }
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://oktykrk.github.io/floe/#webpage",
+            "url": "https://oktykrk.github.io/floe/",
+            "name": "Floe — Mac Window Manager for Snapping & Tiling",
+            "description": "Floe is a native Mac window manager with Snap Bar, Snap Assist, custom layouts, and shared resizing. Download a free 7-day trial for macOS 15+.",
+            "inLanguage": "en",
+            "mainEntity": { "@id": "https://oktykrk.github.io/floe/#app" }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://oktykrk.github.io/floe/#app",
+            "name": "Floe",
+            "applicationCategory": "UtilitiesApplication",
+            "applicationSubCategory": "Mac window manager",
+            "operatingSystem": "macOS 15 or later",
+            "processorRequirements": "Apple silicon or Intel Mac",
+            "description": "Floe is a native Mac window manager with Snap Bar, Snap Assist, custom layouts, and shared resizing. Download a free 7-day trial for macOS 15+.",
+            "url": "https://oktykrk.github.io/floe/",
+            "image": "https://oktykrk.github.io/assets/floe-social.png",
+            "downloadUrl": "https://github.com/oktykrk/floe-releases/releases/latest/download/Floe.dmg",
+            "softwareHelp": {
+              "@type": "WebPage",
+              "url": "https://oktykrk.github.io/floe/support.html"
+            },
+            "license": "https://oktykrk.github.io/floe/terms.html",
+            "featureList": [
+              "Window snapping with Snap Bar",
+              "Snap Assist to fill window layouts",
+              "Shared resizing of neighboring windows",
+              "Custom window layouts",
+              "Customizable keyboard shortcuts",
+              "Display-specific layouts for multiple monitors"
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Oktay Kırık",
+              "url": "https://oktykrk.github.io/"
+            }
+          }
+        ]
       }
     </script>
   </head>
@@ -118,12 +179,12 @@
               ></span>
               A window manager for Mac
             </p>
-            <h1 id="hero-title">Make room<br />for <span>your work.</span></h1>
+            <h1 id="hero-title">Make room<br />with <span>Floe.</span></h1>
           </div>
           <div class="hero-copy">
             <p>
-              Snap windows into place. Resize them together. A small Mac app for
-              a desktop that works with you.
+              Floe is a native window manager for Mac. Snap and tile windows,
+              arrange custom layouts, and resize neighboring windows together.
             </p>
             <a
               class="button button-blue"
@@ -146,6 +207,7 @@
             data-layout="focus"
             data-phase="ready"
             aria-label="Interactive illustration of Floe arranging three windows"
+            data-nosnippet
           >
             <svg
               class="wallpaper"
@@ -216,7 +278,9 @@
                 </div>
                 <div class="journal-heading">
                   <span>LESS SCROLLING, MORE WANDERING</span>
-                  <h2>Somewhere<br />a little quieter.</h2>
+                  <p class="demo-journal-title">
+                    Somewhere<br />a little quieter.
+                  </p>
                 </div>
                 <img
                   src="media/lake.webp"
@@ -239,9 +303,11 @@
               </div>
               <div class="notes-body">
                 <span class="note-date">October 5, 2026 at 9:41 AM</span>
-                <h2>The weekend plan</h2>
-                <p>A few days away.<br />A little less on the agenda.</p>
-                <h3>Before we go</h3>
+                <p class="demo-note-title">The weekend plan</p>
+                <p class="demo-note-copy">
+                  A few days away.<br />A little less on the agenda.
+                </p>
+                <p class="demo-note-subtitle">Before we go</p>
                 <ul>
                   <li class="checked">Book somewhere by the lake</li>
                   <li class="checked">Save the walking route</li>
@@ -383,7 +449,7 @@
                 <path d="M5 14h30M15 14v18m5-13 7 5-4 1 2 5-3 1-2-5-3 2Z" />
               </svg>
             </div>
-            <h3>Drag. Drop. Done.</h3>
+            <h3>Snap windows with Snap Bar.</h3>
             <p>
               Pull a window to the top of your screen. Pick a space in Snap Bar
               and let go. Right where you wanted it.
@@ -398,7 +464,7 @@
                 <path d="M23 27h11m-5.5-5.5v11" />
               </svg>
             </div>
-            <h3>The rest falls into place.</h3>
+            <h3>Fill layouts with Snap Assist.</h3>
             <p>
               Snap Assist brings your open windows to you. Pick one to fill the
               next space. No digging through the pile.
@@ -413,7 +479,7 @@
                 />
               </svg>
             </div>
-            <h3>A little more room? Easy.</h3>
+            <h3>Resize windows together.</h3>
             <p>
               Move a shared divider and neighboring windows resize together.
               Your layout stays together, too.
@@ -448,6 +514,7 @@
           class="resize-demo"
           role="img"
           aria-label="Interactive shared resizing illustration"
+          data-nosnippet
         >
           <div class="resize-demo-menu" aria-hidden="true">
             <span>Workspace</span><span><i></i><i></i><i></i></span>
@@ -457,7 +524,7 @@
               <span class="mini-app-name"><i></i> Notes</span>
               <div class="resize-paper">
                 <span>THE GOOD PART</span>
-                <h3>Room to<br />think.</h3>
+                <p class="demo-resize-title">Room to<br />think.</p>
                 <div class="text-lines"><i></i><i></i><i></i></div>
                 <div class="text-lines short"><i></i><i></i></div>
               </div>
@@ -489,7 +556,7 @@
           <div class="keyboard-visual" aria-hidden="true">
             <kbd>⌥</kbd><kbd>⌘</kbd><kbd>→</kbd>
           </div>
-          <h3>For the keyboard people.</h3>
+          <h3>Custom keyboard shortcuts.</h3>
           <p>
             Place windows, switch layouts, or move to the next display. All with
             shortcuts you can make your own.
@@ -501,7 +568,7 @@
             ><span class="screen-tall"><i></i><i></i></span
             ><span class="screen-laptop"><i></i><i></i></span>
           </div>
-          <h3>From laptop to big screen.</h3>
+          <h3>Layouts for multiple monitors.</h3>
           <p>
             Layouts adapt to your display’s proportions. Keep different setups
             for your laptop, ultrawide, and portrait monitor.
@@ -512,7 +579,7 @@
             <span><i></i><i></i><i></i></span><b>+</b
             ><span><i></i><i></i></span>
           </div>
-          <h3>A layout that’s yours.</h3>
+          <h3>Your own window layouts.</h3>
           <p>
             Start with a built-in layout or create your own. Fine-tune the
             spacing, appearance, and way Floe responds.
@@ -581,7 +648,7 @@
       <section class="faq-section container" aria-labelledby="faq-title">
         <div>
           <p class="eyebrow">Good to know</p>
-          <h2 id="faq-title">A few details.</h2>
+          <h2 id="faq-title">Floe for Mac: FAQ.</h2>
           <p>
             Something else on your mind?<br /><a
               class="text-link"
@@ -591,6 +658,33 @@
           </p>
         </div>
         <div class="faqs">
+          <details>
+            <summary>
+              What is Floe for Mac?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Floe is a native macOS window manager for snapping and tiling app
+              windows into layouts. Use Snap Bar to place a window, Snap Assist
+              to fill the remaining spaces, and shared dividers to resize
+              neighboring windows together. It also supports custom layouts,
+              keyboard shortcuts, and different setups for each display.
+            </p>
+          </details>
+          <details>
+            <summary>
+              How do I snap windows on a Mac with Floe?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              Install Floe and grant Accessibility permission, then drag an app
+              window to the top of your screen. Choose a space in Snap Bar and
+              release the window to snap it into place. Snap Assist lets you
+              select other open windows to fill the remaining spaces. See the
+              <a href="support.html#installation">Floe installation guide</a>
+              for setup instructions.
+            </p>
+          </details>
           <details>
             <summary>
               Will it work on my Mac?<span aria-hidden="true">+</span>
@@ -674,7 +768,7 @@
           <img src="/assets/floe-icon.png" width="88" height="88" alt="" />
           <div>
             <p class="eyebrow">Meet your new workspace</p>
-            <h2 id="release-title">Go with Floe.</h2>
+            <h2 id="release-title">Download Floe.</h2>
           </div>
         </div>
         <div class="release-action">
