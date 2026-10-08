@@ -200,11 +200,22 @@
               height="1536"
               fetchpriority="high"
             />
+            <video
+              class="creator-video"
+              data-src="media/creator-speaking.mp4"
+              poster="media/creator-portrait.webp"
+              preload="none"
+              muted
+              loop
+              playsinline
+              hidden
+              aria-label="A creator sharing her story in a sunlit home studio"
+            ></video>
             <div class="camera-shade"></div>
             <div class="camera-top">
               <span class="camera-rec"><i></i> <span>REC</span></span
               ><span class="camera-timer">00:00</span
-              ><span>1080p <i class="tiny-separator"></i> 30 fps</span>
+              ><span>720p <i class="tiny-separator"></i> 25 fps</span>
             </div>
             <span class="frame-corner top-left"></span
             ><span class="frame-corner top-right"></span
@@ -227,6 +238,14 @@
                 ><i></i></span
               ><span class="take-label" data-i18n="takeLabel"
                 >SECTION 01 / TAKE 02</span
+              ><button
+                class="preview-sound"
+                type="button"
+                aria-label="Turn video sound on"
+                aria-pressed="false"
+                hidden
+              >
+                Hear her story</button
               ><button
                 class="preview-toggle"
                 type="button"

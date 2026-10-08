@@ -65,14 +65,6 @@
             : "Download Cadreur on the App Store",
         ),
       );
-    document
-      .querySelector(".camera-scene")
-      .setAttribute(
-        "aria-label",
-        language === "tr"
-          ? "Teleprompter ile çekimin hareketli temsili"
-          : "Animated illustration of recording with a teleprompter",
-      );
     updatePreviewLabel();
     if (remember) {
       try {
@@ -128,46 +120,149 @@
 
   const scene = document.querySelector(".camera-scene");
   const previewButton = document.querySelector(".preview-toggle");
+  const previewVideo = document.querySelector(".creator-video");
+  const previewPhoto = document.querySelector(".creator-photo");
+  const soundButton = document.querySelector(".preview-sound");
+  const previewDescription = document.querySelector(".preview-description");
   const timer = document.querySelector(".camera-timer");
+  const videoSource = previewVideo.dataset.src;
+  let videoReady = false;
+  let videoRequested = false;
+  let playbackRequest = 0;
   let wantsToPlay = !motion.matches;
   let sceneVisible = false;
   let frame = 0;
   let previousTime = null;
   let elapsed = 0;
   function updatePreviewLabel() {
+    const type = videoReady ? "video" : "animated preview";
     const label =
       language === "tr"
         ? wantsToPlay
-          ? "Hareketli önizlemeyi duraklat"
-          : "Hareketli önizlemeyi oynat"
+          ? videoReady
+            ? "Videoyu duraklat"
+            : "Hareketli önizlemeyi duraklat"
+          : videoReady
+            ? "Videoyu oynat"
+            : "Hareketli önizlemeyi oynat"
         : wantsToPlay
-          ? "Pause animated preview"
-          : "Play animated preview";
+          ? `Pause ${type}`
+          : `Play ${type}`;
     previewButton.setAttribute("aria-label", label);
     previewButton.setAttribute("aria-pressed", String(wantsToPlay));
     previewButton.title = label;
+    soundButton.hidden = !videoReady;
+    soundButton.textContent =
+      language === "tr"
+        ? previewVideo.muted
+          ? "Sesi aç"
+          : "Sessize al"
+        : previewVideo.muted
+          ? "Hear her story"
+          : "Mute";
+    soundButton.setAttribute(
+      "aria-label",
+      language === "tr"
+        ? previewVideo.muted
+          ? "Videonun sesini aç"
+          : "Videonun sesini kapat"
+        : previewVideo.muted
+          ? "Turn video sound on"
+          : "Mute video",
+    );
+    soundButton.setAttribute("aria-pressed", String(!previewVideo.muted));
+    scene.setAttribute(
+      "aria-label",
+      language === "tr"
+        ? videoReady
+          ? "Teleprompter ile çekim: İngilizce örnek video"
+          : "Teleprompter ile çekimin hareketli temsili"
+        : videoReady
+          ? "Teleprompter recording: English sample video"
+          : "Animated illustration of recording with a teleprompter",
+    );
+    previewDescription.textContent = videoReady
+      ? language === "tr"
+        ? "Örnek video · İngilizce"
+        : "Sample video · English"
+      : language === "tr"
+        ? window.CADREUR_TR.illustratedPreview
+        : english.illustratedPreview;
+    document
+      .querySelector(".teleprompter")
+      .setAttribute("aria-hidden", String(!videoReady));
   }
   function tick(time) {
-    if (previousTime !== null) elapsed += Math.min(time - previousTime, 100);
+    if (videoReady) elapsed = previewVideo.currentTime * 1000;
+    else if (previousTime !== null)
+      elapsed += Math.min(time - previousTime, 100);
     previousTime = time;
-    timer.textContent = `00:${String(Math.floor(elapsed / 1000) % 60).padStart(2, "0")}`;
+    const seconds = Math.floor(elapsed / 1000);
+    timer.textContent = `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
+    const cycle =
+      videoReady &&
+      Number.isFinite(previewVideo.duration) &&
+      previewVideo.duration > 0
+        ? previewVideo.duration * 1000
+        : 9000;
     scene.style.setProperty(
       "--prompt-progress",
-      `${Math.min((elapsed % 9000) / 60, 100)}%`,
+      `${Math.min(((elapsed % cycle) / (cycle * 0.67)) * 100, 100)}%`,
     );
     frame = requestAnimationFrame(tick);
   }
   function syncPlayback() {
+    const request = ++playbackRequest;
     cancelAnimationFrame(frame);
     previousTime = null;
     const running = wantsToPlay && sceneVisible && !document.hidden;
+    if (running && videoSource && !videoRequested) {
+      videoRequested = true;
+      previewVideo.src = videoSource;
+      previewVideo.load();
+    }
     scene.dataset.playing = String(running);
+    if (videoReady) {
+      if (running) {
+        previewVideo.play().catch(() => {
+          if (request !== playbackRequest) return;
+          wantsToPlay = false;
+          syncPlayback();
+        });
+      } else previewVideo.pause();
+    }
     if (running) frame = requestAnimationFrame(tick);
     updatePreviewLabel();
   }
   previewButton.addEventListener("click", () => {
     wantsToPlay = !wantsToPlay;
     syncPlayback();
+  });
+  previewVideo.addEventListener("loadeddata", () => {
+    videoReady = true;
+    previewVideo.hidden = false;
+    previewPhoto.hidden = true;
+    scene.dataset.video = "true";
+    syncPlayback();
+  });
+  previewVideo.addEventListener("error", () => {
+    videoReady = false;
+    previewVideo.hidden = true;
+    previewPhoto.hidden = false;
+    previewVideo.muted = true;
+    scene.dataset.video = "false";
+    elapsed = 0;
+    syncPlayback();
+  });
+  previewVideo.addEventListener("volumechange", updatePreviewLabel);
+  soundButton.addEventListener("click", () => {
+    if (previewVideo.muted) {
+      previewVideo.currentTime = 0;
+      previewVideo.muted = false;
+      wantsToPlay = true;
+      syncPlayback();
+    } else previewVideo.muted = true;
+    updatePreviewLabel();
   });
   document.addEventListener("visibilitychange", syncPlayback);
   const sceneObserver = new IntersectionObserver(

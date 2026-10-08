@@ -40,6 +40,44 @@ Constraints: no legible text, logos, watermarks, app UI, decorative graphics or 
 
 The subjects are generated illustrative creators, not customer testimonials.
 
+## creator-speaking.mp4
+
+Generated on 2026-10-08 through the official HeyGen MCP
+`create_video_from_image` tool, using `creator-portrait.webp` as the identity,
+clothing, lighting, and room reference. This is a fictional illustrative creator,
+not a customer testimonial or a recording made with Cadreur.
+
+- HeyGen video: `037508e9fff12f769c70e1f3a43eb8eb`
+- Project: <https://app.heygen.com/videos/037508e9fff12f769c70e1f3a43eb8eb>
+- Source image asset: `9d6a0fd0963d4088a9a4f7fa017c6256`
+- Voice: Cecily — Warm & Friendly (`41f17b4ebd334ac99a91c2aada5f86d7`),
+  English, requested speed 0.9, medium expressiveness.
+- Script: “You don't need to be perfect. You just need to be you. Let's start there.”
+- Output: 720 × 1080, 25 fps, approximately 4.84 seconds, H.264/AAC MP4.
+- The account's free plan rejected 1080p before generation; one video was then
+  generated at 720p. The provider's watermark remains in the source video.
+- Web optimization: x264 CRF 23, slow preset, yuv420p, AAC 96 kbps, fast-start
+  header. Original framing and timing are preserved.
+- Validation: sampled frames show changing mouth positions, blinking, and hand
+  gestures; local Whisper transcription matches all three scripted sentences.
+  The optimized file is 992,104 bytes. Desktop and mobile playback, sound,
+  pause/resume, offscreen pause, and both interface languages were checked.
+
+Motion prompt:
+
+```text
+The same fictional adult woman talks warmly and naturally straight to the camera. Preserve her identity, shoulder-length dark wavy hair, off-white crew-neck T-shirt, exact room and warm daylight. One continuous fixed-camera portrait shot, no cuts, no pan, no zoom. Convincing speech lip synchronization, natural blinking, subtle gentle head movements and restrained anatomically natural hand gestures. Calm encouraging delivery with a small friendly smile at the end. No on-screen text, captions, titles, logos, music or additional dialogue.
+```
+
+The landing page uses the local MP4, with the original photograph as its poster
+and loading/error fallback. It does not depend on an expiring HeyGen URL.
+
+The player loads when needed, starts muted, supports pause/resume, and pauses
+offscreen or in a background tab. The sound button restarts the clip before
+unmuting so visitors hear the full sentence. Reduced motion requires an explicit
+play action. Both interface languages use the same English clip. Loading or
+decoding failures restore the photograph and hide video-only controls.
+
 
 ## App assets
 
