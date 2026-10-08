@@ -30,13 +30,29 @@ for kind in kinds {
     NSGraphicsContext.saveGraphicsState()
     NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: bitmap)
     if kind == "portfolio" {
-        box(0,0,1200,630,0x171816)
+        box(0,0,1200,630,0x111210)
         text("ok.",57,28,100,70,size:47,tint:0xddf98b,weight:.bold)
         text("OKTAY KIRIK / INDEPENDENT DEVELOPER",176,52,720,30,size:15,tint:0xf3f3e9,weight:.medium)
         box(60,112,1080,1,0x3b3e34)
         text("Good ideas.",52,155,1070,140,size:115,tint:0xf3f3e9,weight:.medium)
         text("Real apps.",52,290,900,140,size:115,tint:0xddf98b,weight:.medium)
-        text("✳",945,297,160,150,size:115,tint:0xddf98b)
+        let tiles: [(CGFloat, CGFloat, CGFloat, UInt32)] = [
+            (-24, -5, 18, 0x77874d), (0, 7, 0, 0xb2c977), (24, -5, -18, 0xddf98b)
+        ]
+        for (index, tile) in tiles.enumerated() {
+            NSGraphicsContext.saveGraphicsState()
+            let transform = NSAffineTransform()
+            transform.translateX(by: 995 + tile.0, yBy: 630 - 362 + tile.1)
+            transform.rotate(byDegrees: tile.2)
+            transform.concat()
+            let shape = NSBezierPath(roundedRect: NSRect(x: -29, y: -29, width: 58, height: 58), xRadius: 10, yRadius: 10)
+            color(index == 2 ? 0xddf98b : 0x111210).setFill()
+            shape.fill()
+            color(tile.3).setStroke()
+            shape.lineWidth = 2
+            shape.stroke()
+            NSGraphicsContext.restoreGraphicsState()
+        }
         text("Software for your work, your stories, and everything in between.",60,447,1080,35,size:22,tint:0xacafa3)
         box(60,517,1080,1,0x3b3e34)
         let apps: [(String, String)] = [

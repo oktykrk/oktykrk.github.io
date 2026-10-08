@@ -29,9 +29,11 @@ pages and the shared legal-page stylesheet are independent of the portfolio.
 Portfolio previews are manual: Floe illustrates three window layouts, while
 Cadreur and Pado PDF switch between real app screenshots. Buttons expose their
 selected state and support native keyboard interaction. Reduced motion disables
-transitions; content and links work without JavaScript. The font is self-hosted
-with its SIL Open Font License under `assets/fonts/`. Asset provenance and
-verified profile links are recorded in `assets/portfolio/README.md`.
+transitions; content and links work without JavaScript. The three-tile hero motif
+unfolds once on load and aligns on hover. Reduced motion keeps the motif static.
+The font is self-hosted with its SIL Open Font License under `assets/fonts/`.
+Asset provenance and verified profile links are recorded in
+`assets/portfolio/README.md`.
 
 `floe/floe.js` powers a single interactive desktop illustration with Focus,
 Split, and Columns layouts, a Snap Bar / Snap Assist sequence, and a draggable
