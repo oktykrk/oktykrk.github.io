@@ -30,25 +30,27 @@ for kind in kinds {
     NSGraphicsContext.saveGraphicsState()
     NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: bitmap)
     if kind == "portfolio" {
-        box(0,0,1200,630,0xf5f3ec)
-        text("ok.",65,30,160,80,size:58,tint:0x26382b,serif:true)
-        text("OKTAY KIRIK / INDEPENDENT DEVELOPER",68,147,650,35,size:14,tint:0x687065,weight:.medium)
-        text("Small apps.\nThoughtfully",62,206,700,200,size:77,tint:0x26382b,serif:true)
-        text("made.",62,405,500,100,size:77,tint:0xb35a37,serif:true)
-        text("Useful little things for your everyday.",68,551,650,35,size:20,tint:0x5b645a)
-        box(798,120,330,367,0xe8e5d8,radius:165)
-        box(744,193,253,278,0xfffdf7,radius:3)
-        text("A LITTLE LESS\nBUSYWORK.",771,220,230,110,size:28,tint:0x26382b,weight:.bold)
-        for i in 0..<3 { box(772,347+CGFloat(i)*16,174-CGFloat(i)*16,5,0xd9d8ca,radius:2) }
-        box(998,164,110,110,0xc4e5f5,radius:23)
-        box(1013,179,32,79,0x3fa7d8,radius:8)
-        box(1051,179,40,36,0x81c9ed,radius:8)
-        box(1051,221,40,37,0x3fa7d8,radius:8)
-        box(727,417,103,106,0xbd572f,radius:20)
-        text("TAKE",744,453,80,40,size:22,tint:0xfff3db,weight:.bold)
-        box(1033,377,101,120,0xd1dab5,radius:20)
-        text("PDF",1055,421,80,40,size:24,tint:0x26382b,weight:.medium)
-        text("✳",864,99,80,80,size:54,tint:0xb35a37)
+        box(0,0,1200,630,0x171816)
+        text("ok.",57,28,100,70,size:47,tint:0xddf98b,weight:.bold)
+        text("OKTAY KIRIK / INDEPENDENT DEVELOPER",176,52,720,30,size:15,tint:0xf3f3e9,weight:.medium)
+        box(60,112,1080,1,0x3b3e34)
+        text("Good ideas.",52,155,1070,140,size:115,tint:0xf3f3e9,weight:.medium)
+        text("Real apps.",52,290,900,140,size:115,tint:0xddf98b,weight:.medium)
+        text("✳",945,297,160,150,size:115,tint:0xddf98b)
+        text("Software for your work, your stories, and everything in between.",60,447,1080,35,size:22,tint:0xacafa3)
+        box(60,517,1080,1,0x3b3e34)
+        let apps: [(String, String)] = [
+            ("Floe", "assets/floe-icon.png"),
+            ("Cadreur", "video-take/media/apple-touch-icon.png"),
+            ("Pado PDF", "assets/portfolio/pado-icon.webp")
+        ]
+        for (index, app) in apps.enumerated() {
+            let x = CGFloat(60 + index * 375)
+            if let icon = NSImage(contentsOfFile: app.1) {
+                icon.draw(in: NSRect(x:x,y:630-549-32,width:32,height:32))
+            }
+            text(app.0,x+45,553,240,35,size:20,tint:0xf3f3e9,weight:.medium)
+        }
     } else {
         box(0,0,1200,630,0xfafaf8)
         box(61,101,1078,1,0xe0e2e5)

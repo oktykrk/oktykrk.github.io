@@ -20,9 +20,18 @@ Legacy Cadreur URLs under `/video-take-site/`, `/privacy.html`, and
 
 ## Landing pages
 
-The portfolio at `/` uses a warm editorial theme in `portfolio.css`. Floe at
-`/floe/` has an independent white, ink, and cobalt design in `floe/floe.css`.
-Other app pages and the shared legal-page stylesheet are independent.
+The portfolio at `/` uses a charcoal and lime design, oversized Space Grotesk
+typography, and three interactive app showcases in `portfolio.css` and
+`portfolio.js`. Floe at `/floe/` has an independent white, ink, and cobalt design
+in `floe/floe.css`. Cadreur retains its own paper and lavender identity. Product
+pages and the shared legal-page stylesheet are independent of the portfolio.
+
+Portfolio previews are manual: Floe illustrates three window layouts, while
+Cadreur and Pado PDF switch between real app screenshots. Buttons expose their
+selected state and support native keyboard interaction. Reduced motion disables
+transitions; content and links work without JavaScript. The font is self-hosted
+with its SIL Open Font License under `assets/fonts/`. Asset provenance and
+verified profile links are recorded in `assets/portfolio/README.md`.
 
 `floe/floe.js` powers a single interactive desktop illustration with Focus,
 Split, and Columns layouts, a Snap Bar / Snap Assist sequence, and a draggable
