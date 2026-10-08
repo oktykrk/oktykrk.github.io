@@ -14,5 +14,5 @@ Floe context file linked below. Product pages are published by the developer.
 ## Optional
 
 - [Publisher](https://oktykrk.github.io/): Oktay Kırık's application portfolio.
-- [Cadreur](https://oktykrk.github.io/video-take/): Official application and support pages.
+- [Cadreur](https://oktykrk.github.io/video-take/): Teleprompter and video studio for iPhone and iPad. Write, record in sections, edit, and caption; three projects free.
 - [Pado PDF](https://oktykrk.github.io/pado-pdf/): Official application and support pages.

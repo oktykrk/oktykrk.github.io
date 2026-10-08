@@ -113,3 +113,30 @@ after the trial. Never link a test checkout as a live sale. Add a verified live
 checkout only after merchant approval and a new release configured for the live
 catalog. Keep billing on Lemon Squeezy and binaries on GitHub Releases; this
 repository contains neither merchant credentials nor the private app source.
+
+## Cadreur landing page
+
+`/video-take/` is Cadreur's product website. It keeps the established URL and
+existing privacy, terms, support, and legacy redirects. `cadreur.css` provides
+its independent warm-paper, ink, and lavender design. No build step, external
+fonts, analytics, or third-party runtime packages are needed.
+
+`cadreur.js` animates the illustrated teleprompter and provides an accessible
+four-step walkthrough using actual app screenshots. The preview can be paused,
+stops while offscreen or in a background tab, and starts paused with reduced
+motion enabled. The walkthrough supports arrow keys, Home, and End. Content
+and download links remain available with JavaScript disabled.
+
+The EN/TR switch translates copy and accessibility descriptions and chooses the
+matching app screenshots. It follows the browser language on a first visit and
+stores only an explicit language preference locally. English is the static HTML
+fallback. Translations live in `video-take/translations.js`.
+
+The App Store link uses the verified, name-independent app ID `6817267046`.
+At implementation, the live listing still used the former name Video Take while
+the Cadreur rename was awaiting review. All download buttons point to this same
+existing app, without assuming the review outcome.
+
+The two original editorial photographs were created with built-in ImageGen.
+Exact prompts and media provenance are in `video-take/media/README.md`. App
+screens show real UI with sample content; the hero is an animated illustration.

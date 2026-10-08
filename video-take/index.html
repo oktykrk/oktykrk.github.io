@@ -1,8 +1,822 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Privacy, terms, and support for Cadreur."><title>Cadreur</title><link rel="stylesheet" href="/site.css"></head>
-<body><div class="shell">
-  <nav aria-label="Main navigation"><a class="brand" href="/">Oktay Kırık</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
-  <main><p class="eyebrow">Cadreur</p><h1>Create videos one section at a time.</h1><p>Write or import a script, rehearse, record, edit clips, and create captions on iPhone and iPad. Projects stay on your device and no Cadreur account is required.</p><div class="links"><a class="button" href="privacy.html">Privacy Policy</a><a class="button" href="terms.html">Terms of Use</a><a class="button" href="support.html">Support</a></div></main>
-  <footer>Published by Oktay Kırık · Türkiye</footer>
-</div></body></html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f7f3" />
+    <meta
+      name="description"
+      content="Your script. Your take. Your video. Cadreur is the teleprompter and video studio for iPhone and iPad. Write, record in sections, edit, and caption. Try three projects free."
+    />
+    <title>Cadreur — Your story. Your pace.</title>
+    <link rel="canonical" href="https://oktykrk.github.io/video-take/" />
+    <link rel="icon" type="image/svg+xml" href="media/cadreur-icon.svg" />
+    <link rel="apple-touch-icon" href="media/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cadreur" />
+    <meta property="og:title" content="Cadreur — Your story. Your pace." />
+    <meta
+      property="og:description"
+      content="A little less pressure. A lot more you. Script, record, edit, and caption your next video on iPhone and iPad."
+    />
+    <meta property="og:url" content="https://oktykrk.github.io/video-take/" />
+    <meta
+      property="og:image"
+      content="https://oktykrk.github.io/video-take/media/cadreur-social.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="preload"
+      href="media/creator-portrait.webp"
+      as="image"
+      fetchpriority="high"
+    />
+    <link rel="stylesheet" href="cadreur.css" />
+    <script src="translations.js" defer></script>
+    <script src="cadreur.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Cadreur",
+        "alternateName": "Video Take",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "iOS 26.0 or later; iPadOS 26.0 or later",
+        "description": "Write scripts, rehearse with a teleprompter, record videos in sections, edit takes, and create captions on iPhone and iPad. Three video projects free, with optional Pro purchases.",
+        "url": "https://oktykrk.github.io/video-take/",
+        "downloadUrl": "https://apps.apple.com/app/id6817267046",
+        "image": "https://oktykrk.github.io/video-take/media/apple-touch-icon.png",
+        "author": {
+          "@type": "Person",
+          "name": "Oktay Kırık",
+          "url": "https://oktykrk.github.io/"
+        }
+      }
+    </script>
+    <noscript
+      ><style>
+        .language-toggle,
+        .preview-toggle,
+        .workflow-controls {
+          display: none;
+        }
+        .workflow-demo {
+          display: block;
+        }
+        .workflow-stage {
+          overflow: visible;
+        }
+        .workflow-panel[hidden] {
+          display: grid !important;
+        }
+        .workflow-panel {
+          border-bottom: 1px solid #ceccda;
+        }
+        .app-phone {
+          transform: none;
+        }
+        .workflow-panel {
+          padding-bottom: 24px;
+        }
+      </style></noscript
+    >
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+    <svg
+      class="svg-library"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <symbol id="icon-apple" viewBox="0 0 24 28">
+        <path
+          fill="currentColor"
+          d="M19.6 14.8c0-3 2.5-4.5 2.6-4.6-1.4-2.1-3.6-2.4-4.4-2.4-1.9-.2-3.6 1.1-4.5 1.1-1 0-2.4-1.1-4-1.1C7.2 7.9 5.2 9.1 4.1 11c-2.3 3.9-.6 9.7 1.6 12.9 1.1 1.6 2.3 3.3 3.9 3.2 1.6-.1 2.2-1 4.1-1s2.5 1 4.1 1c1.7 0 2.8-1.5 3.8-3.1 1.3-1.8 1.8-3.6 1.8-3.7-.1 0-3.8-1.4-3.8-5.5ZM16.5 5.7c.9-1.1 1.6-2.7 1.4-4.2-1.4.1-3.1.9-4.1 2-1 1.1-1.7 2.6-1.5 4.1 1.6.1 3.2-.8 4.2-1.9Z"
+        />
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path
+          d="M5 12h14m-6-6 6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path
+          d="m5 12 4 4L19 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24">
+        <path d="m9 5 11 7-11 7Z" fill="currentColor" />
+      </symbol>
+    </svg>
+    <header class="site-header wrap">
+      <a class="brand" href="/video-take/" aria-label="Cadreur home"
+        ><img src="media/cadreur-icon.svg" width="36" height="36" alt="" /><span
+          >cadreur<span class="brand-period">.</span></span
+        ></a
+      >
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#workflow" data-i18n="navWorkflow">The workflow</a
+        ><a href="#made-for-you" data-i18n="navForYou">Made for you</a
+        ><a href="#questions" data-i18n="navQuestions">A few answers</a>
+      </nav>
+      <div class="header-actions">
+        <button
+          class="language-toggle"
+          type="button"
+          aria-label="Switch to Turkish"
+        >
+          TR <span aria-hidden="true">↗</span></button
+        ><a
+          class="small-download"
+          href="https://apps.apple.com/app/id6817267046"
+          ><svg aria-hidden="true"><use href="#icon-apple" /></svg
+          ><span data-i18n="getApp">Get Cadreur</span></a
+        >
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="status-dot"></span
+            ><span data-i18n="heroEyebrow"
+              >A little studio. A lot of possibility.</span
+            >
+          </p>
+          <h1 id="hero-title">
+            <span data-i18n="heroLine1">Your story.</span
+            ><em data-i18n="heroLine2">Your pace.</em>
+          </h1>
+          <p class="hero-description" data-i18n="heroDescription">
+            Big ideas don’t need a perfect take. Write, record, and shape your
+            next video — one little section at a time.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="app-store"
+              href="https://apps.apple.com/app/id6817267046"
+              aria-label="Download Cadreur on the App Store"
+              ><svg aria-hidden="true"><use href="#icon-apple" /></svg
+              ><span
+                ><small data-i18n="downloadOn">Download on the</small
+                ><strong>App Store</strong></span
+              ></a
+            ><a class="watch-link" href="#workflow"
+              ><span class="play-circle"
+                ><svg aria-hidden="true"><use href="#icon-play" /></svg></span
+              ><span data-i18n="seeFlow">Find your flow</span></a
+            >
+          </div>
+          <p class="hero-note" data-i18n="freeNote">
+            3 free projects. No watermark. Just you.
+          </p>
+          <div class="hero-platform">
+            <span class="device-outline" aria-hidden="true"></span
+            ><span data-i18n="platform">Made for iPhone & iPad</span
+            ><span class="platform-divider"></span><span>iOS 26+</span>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div
+            class="camera-scene"
+            data-playing="false"
+            aria-label="Animated illustration of recording with a teleprompter"
+          >
+            <img
+              class="creator-photo"
+              src="media/creator-portrait.webp"
+              alt="A creator sharing her story in a sunlit home studio"
+              width="1024"
+              height="1536"
+              fetchpriority="high"
+            />
+            <div class="camera-shade"></div>
+            <div class="camera-top">
+              <span class="camera-rec"><i></i> <span>REC</span></span
+              ><span class="camera-timer">00:00</span
+              ><span>1080p <i class="tiny-separator"></i> 30 fps</span>
+            </div>
+            <span class="frame-corner top-left"></span
+            ><span class="frame-corner top-right"></span
+            ><span class="frame-corner bottom-left"></span
+            ><span class="frame-corner bottom-right"></span>
+            <div class="teleprompter" aria-hidden="true">
+              <span class="prompt-line dim" data-i18n="promptLine1"
+                >You don’t need to be perfect.</span
+              ><span class="prompt-line current"
+                ><span class="prompt-highlight" data-i18n="promptLine2"
+                  >You just need to be you.</span
+                ></span
+              ><span class="prompt-line dim" data-i18n="promptLine3"
+                >Let’s start there.</span
+              >
+            </div>
+            <div class="camera-bottom">
+              <span class="audio-meter" aria-hidden="true"
+                ><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                ><i></i></span
+              ><span class="take-label" data-i18n="takeLabel"
+                >SECTION 01 / TAKE 02</span
+              ><button
+                class="preview-toggle"
+                type="button"
+                aria-label="Play animated preview"
+                aria-pressed="false"
+              >
+                <span class="toggle-glyph" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+          <div class="script-note" aria-hidden="true">
+            <span class="note-kicker"
+              ><span class="note-dot"></span
+              ><span data-i18n="noteKicker">A thought worth sharing</span></span
+            >
+            <p data-i18n="noteText">
+              “The best place to start?<br />
+              Right where you are.”
+            </p>
+            <span class="note-footer"
+              ><span data-i18n="noteFooter">Your script, by your side.</span
+              ><svg><use href="#icon-check" /></svg
+            ></span>
+          </div>
+          <div class="take-saved" aria-hidden="true">
+            <span class="saved-check"
+              ><svg><use href="#icon-check" /></svg></span
+            ><span
+              ><strong data-i18n="savedTitle">That’s the one.</strong
+              ><small data-i18n="savedDescription"
+                >Good take. Keep going.</small
+              ></span
+            >
+          </div>
+          <p class="art-caption">
+            <span class="caption-line"></span
+            ><span data-i18n="artCaption"
+              >Less memorizing. More being yourself.</span
+            ><span class="preview-description" data-i18n="illustratedPreview"
+              >Illustrated preview</span
+            >
+          </p>
+        </div>
+      </section>
+      <div class="workflow-ribbon wrap" aria-label="The Cadreur workflow">
+        <span class="ribbon-intro" data-i18n="ribbonIntro"
+          >FROM “WHAT IF” TO “IT’S LIVE.”</span
+        >
+        <div>
+          <span data-i18n="write">Write</span
+          ><svg aria-hidden="true"><use href="#icon-arrow" /></svg
+          ><span data-i18n="rehearse">Rehearse</span
+          ><svg aria-hidden="true"><use href="#icon-arrow" /></svg
+          ><span data-i18n="record">Record</span
+          ><svg aria-hidden="true"><use href="#icon-arrow" /></svg
+          ><span data-i18n="makeYours">Make it yours</span
+          ><span class="ribbon-star" aria-hidden="true">✳</span>
+        </div>
+      </div>
+      <section
+        class="workflow-section wrap section-space"
+        id="workflow"
+        aria-labelledby="workflow-title"
+      >
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow" data-i18n="workflowEyebrow">
+              THE IDEA IS YOURS. THE FLOW IS HERE.
+            </p>
+            <h2 id="workflow-title">
+              <span data-i18n="workflowTitle1">From a first thought</span><br />
+              <em data-i18n="workflowTitle2">to a final cut.</em>
+            </h2>
+          </div>
+          <p class="section-intro" data-i18n="workflowIntro">
+            A teleprompter, a recording studio, and an editing room. All in your
+            pocket. All working together.
+          </p>
+        </div>
+        <div class="workflow-demo reveal">
+          <div class="workflow-controls">
+            <div
+              class="workflow-tabs"
+              role="tablist"
+              aria-label="Explore the workflow"
+              aria-orientation="vertical"
+            >
+              <button
+                class="workflow-tab active"
+                id="tab-write"
+                role="tab"
+                aria-selected="true"
+                aria-controls="panel-write"
+                tabindex="0"
+                data-step="write"
+              >
+                <span class="step-number">01</span
+                ><span
+                  ><strong data-i18n="stepWrite">Give your idea a home.</strong
+                  ><small data-i18n="stepWriteSub"
+                    >WRITE & REHEARSE</small
+                  ></span
+                ><svg aria-hidden="true"><use href="#icon-arrow" /></svg>
+              </button>
+              <button
+                class="workflow-tab"
+                id="tab-record"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-record"
+                tabindex="-1"
+                data-step="record"
+              >
+                <span class="step-number">02</span
+                ><span
+                  ><strong data-i18n="stepRecord"
+                    >Take it a little at a time.</strong
+                  ><small data-i18n="stepRecordSub"
+                    >RECORD IN SECTIONS</small
+                  ></span
+                ><svg aria-hidden="true"><use href="#icon-arrow" /></svg>
+              </button>
+              <button
+                class="workflow-tab"
+                id="tab-edit"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-edit"
+                tabindex="-1"
+                data-step="edit"
+              >
+                <span class="step-number">03</span
+                ><span
+                  ><strong data-i18n="stepEdit"
+                    >Find your favorite version.</strong
+                  ><small data-i18n="stepEditSub">TRIM & FINE-TUNE</small></span
+                ><svg aria-hidden="true"><use href="#icon-arrow" /></svg>
+              </button>
+              <button
+                class="workflow-tab"
+                id="tab-captions"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-captions"
+                tabindex="-1"
+                data-step="captions"
+              >
+                <span class="step-number">04</span
+                ><span
+                  ><strong data-i18n="stepCaptions">Let every word land.</strong
+                  ><small data-i18n="stepCaptionsSub"
+                    >CAPTION & SHARE</small
+                  ></span
+                ><svg aria-hidden="true"><use href="#icon-arrow" /></svg>
+              </button>
+            </div>
+            <div class="workflow-footnote">
+              <span class="status-dot"></span
+              ><span data-i18n="workflowFootnote"
+                >One app. Your whole creative process.</span
+              >
+            </div>
+          </div>
+          <div class="workflow-stage">
+            <div
+              class="workflow-panel"
+              id="panel-write"
+              role="tabpanel"
+              aria-labelledby="tab-write"
+              tabindex="0"
+            >
+              <div class="panel-copy">
+                <span class="panel-category" data-i18n="panelWriteLabel"
+                  >MAKE ROOM FOR THE IDEA</span
+                >
+                <h3 data-i18n="panelWriteTitle">
+                  A blank page.<br />
+                  A fresh start.
+                </h3>
+                <p data-i18n="panelWriteDescription">
+                  Write your script or bring one along. Break it into small
+                  sections, then rehearse until the words feel like you.
+                </p>
+                <span class="feature-tag" data-i18n="panelWriteTag"
+                  >Import TXT, RTF & PDF</span
+                >
+              </div>
+              <div class="app-phone">
+                <img
+                  src="media/screen-script.webp"
+                  alt="Cadreur app showing a script organized into sections and takes"
+                  width="700"
+                  height="1520"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div
+              class="workflow-panel"
+              id="panel-record"
+              role="tabpanel"
+              aria-labelledby="tab-record"
+              tabindex="0"
+              hidden
+            >
+              <div class="panel-copy">
+                <span class="panel-category" data-i18n="panelRecordLabel"
+                  >MORE YOU. LESS PRESSURE.</span
+                >
+                <h3 data-i18n="panelRecordTitle">
+                  Missed a line?<br />
+                  Just redo that bit.
+                </h3>
+                <p data-i18n="panelRecordDescription">
+                  Keep your script near the lens with the teleprompter. Record
+                  one section, try another take, and keep your favorite.
+                </p>
+                <span class="feature-tag" data-i18n="panelRecordTag"
+                  >Manual, timed & voice-follow modes*</span
+                >
+              </div>
+              <div class="app-phone dark-phone">
+                <img
+                  src="media/screen-record.webp"
+                  alt="Cadreur teleprompter displaying the script over the camera preview"
+                  width="700"
+                  height="1520"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div
+              class="workflow-panel"
+              id="panel-edit"
+              role="tabpanel"
+              aria-labelledby="tab-edit"
+              tabindex="0"
+              hidden
+            >
+              <div class="panel-copy">
+                <span class="panel-category" data-i18n="panelEditLabel"
+                  >THE LITTLE FINISHING TOUCHES</span
+                >
+                <h3 data-i18n="panelEditTitle">
+                  Good takes.<br />
+                  Better together.
+                </h3>
+                <p data-i18n="panelEditDescription">
+                  Trim the pauses. Arrange your clips. Adjust the frame, add
+                  music, and find a filter that feels right.
+                </p>
+                <span class="feature-tag" data-i18n="panelEditTag"
+                  >Your edit. Your creative control.</span
+                >
+              </div>
+              <div class="app-phone">
+                <img
+                  src="media/screen-edit.webp"
+                  alt="Cadreur video editor with Cut, Sound, Frame, Captions, and Filters tools"
+                  width="700"
+                  height="1520"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div
+              class="workflow-panel"
+              id="panel-captions"
+              role="tabpanel"
+              aria-labelledby="tab-captions"
+              tabindex="0"
+              hidden
+            >
+              <div class="panel-copy">
+                <span class="panel-category" data-i18n="panelCaptionsLabel"
+                  >READY FOR THE WORLD</span
+                >
+                <h3 data-i18n="panelCaptionsTitle">
+                  Sound on.<br />
+                  Or sound off.
+                </h3>
+                <p data-i18n="panelCaptionsDescription">
+                  Create and style your captions so your story travels with
+                  every word. Export your video without a watermark.
+                </p>
+                <span class="feature-tag" data-i18n="panelCaptionsTag"
+                  >Video, SRT captions & JPEG covers</span
+                >
+              </div>
+              <div class="app-phone">
+                <img
+                  src="media/screen-captions.webp"
+                  alt="Cadreur caption editor with text, timing, and caption generation"
+                  width="700"
+                  height="1520"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="demo-note" data-i18n="demoNote">
+          Actual app screens with sample content. *Voice following and automatic
+          transcription depend on your device and language.
+        </p>
+      </section>
+      <section
+        class="manifesto section-space"
+        id="made-for-you"
+        aria-labelledby="manifesto-title"
+      >
+        <div class="wrap manifesto-grid">
+          <div class="studio-photo reveal">
+            <img
+              src="media/studio-wide.webp"
+              alt="A phone on a small tripod recording a creator in a warm, relaxed studio"
+              width="1536"
+              height="1024"
+              loading="lazy"
+            /><span class="photo-corner-label"
+              ><span class="status-dot"></span
+              ><span data-i18n="studioLabel"
+                >YOUR EVERYDAY. YOUR STUDIO.</span
+              ></span
+            ><span class="photo-handwriting" data-i18n="studioHandwriting"
+              >This is enough<br />
+              to begin.</span
+            >
+          </div>
+          <div class="manifesto-copy reveal">
+            <p class="eyebrow" data-i18n="forYouEyebrow">
+              FOR THE PERSON BEHIND THE CAMERA
+            </p>
+            <h2 id="manifesto-title">
+              <span data-i18n="forYouTitle1">You have something</span><br />
+              <em data-i18n="forYouTitle2">worth saying.</em>
+            </h2>
+            <p data-i18n="forYouDescription">
+              A lesson you can make simpler. A business you believe in. A story
+              only you can tell. You don’t need a bigger setup. Just a little
+              space to get it out.
+            </p>
+            <div class="use-cases">
+              <span data-i18n="useCase1">For your first reel</span
+              ><span data-i18n="useCase2">For what you teach</span
+              ><span data-i18n="useCase3">For what you’re building</span
+              ><span data-i18n="useCase4">For the joy of making</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="details-section wrap section-space"
+        aria-labelledby="details-title"
+      >
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow" data-i18n="detailsEyebrow">
+              LESS IN YOUR WAY. MORE IN YOUR HANDS.
+            </p>
+            <h2 id="details-title" data-i18n="detailsTitle">
+              Small details. Big exhale.
+            </h2>
+          </div>
+          <span class="drawn-asterisk" aria-hidden="true">✳</span>
+        </div>
+        <div class="detail-grid">
+          <article class="detail-item reveal">
+            <div class="detail-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <rect x="8" y="3" width="16" height="26" rx="4" />
+                <path d="M13 25h6M12 12l3 3 6-6" />
+              </svg>
+            </div>
+            <h3 data-i18n="privacyTitle">Yours, from start to finish.</h3>
+            <p data-i18n="privacyDescription">
+              Your scripts, recordings, and projects stay on your device. No
+              Cadreur account to create. More room to create something else.
+            </p>
+            <a href="privacy.html" class="inline-link"
+              ><span data-i18n="privacyLink">Our approach to privacy</span
+              ><span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article class="detail-item reveal">
+            <div class="detail-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path
+                  d="M8 7h16v18H8zM4 3l24 26M4 12V7a4 4 0 0 1 4-4h9M28 20v5a4 4 0 0 1-4 4H15"
+                />
+              </svg>
+            </div>
+            <h3 data-i18n="watermarkTitle">Your video. Not our billboard.</h3>
+            <p data-i18n="watermarkDescription">
+              Every export is watermark-free, including your free projects.
+              Because the name on your work should be yours.
+            </p>
+            <span class="detail-caption" data-i18n="watermarkCaption"
+              >A clean frame, every time.</span
+            >
+          </article>
+          <article class="detail-item reveal">
+            <div class="detail-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path
+                  d="m16 3 3.5 8.5L29 16l-9.5 4.5L16 29l-3.5-8.5L3 16l9.5-4.5Z"
+                />
+              </svg>
+            </div>
+            <h3 data-i18n="freeTitle">Room to find your rhythm.</h3>
+            <p data-i18n="freeDescription">
+              Make three complete video projects for free. Retake, edit, and
+              export. Ready for more? Pro opens the door to unlimited projects.
+            </p>
+            <a href="#questions" class="inline-link"
+              ><span data-i18n="freeLink">A little more about Pro</span
+              ><span aria-hidden="true">↗</span></a
+            >
+          </article>
+        </div>
+      </section>
+      <section
+        class="faq-section wrap section-space"
+        id="questions"
+        aria-labelledby="faq-title"
+      >
+        <div class="faq-intro reveal">
+          <p class="eyebrow" data-i18n="faqEyebrow">BEFORE YOUR FIRST TAKE</p>
+          <h2 id="faq-title">
+            <span data-i18n="faqTitle1">A few good</span><br />
+            <em data-i18n="faqTitle2">questions.</em>
+          </h2>
+          <p>
+            <span data-i18n="faqMore">Something else on your mind?</span><br />
+            <a href="support.html" class="inline-link"
+              ><span data-i18n="faqSupport">We’re here to help</span
+              ><span aria-hidden="true">↗</span></a
+            >
+          </p>
+        </div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>
+              <span data-i18n="q1">What exactly is Cadreur?</span
+              ><span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p data-i18n="a1">
+                Cadreur is a teleprompter and video creation app for iPhone and
+                iPad. Write or import a script, rehearse, record in short
+                sections, pick your best takes, then edit and add captions — all
+                in one app.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              <span data-i18n="q2">What can I do for free?</span
+              ><span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p data-i18n="a2">
+                You get three complete video projects. A project counts when you
+                save its first video take, so writing and rehearsing don’t use
+                your allowance. Retakes, editing, and watermark-free exports
+                stay available in activated projects. Deleting a project doesn’t
+                restore an allowance.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              <span data-i18n="q3"
+                >Do I have to record everything in one take?</span
+              ><span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p data-i18n="a3">
+                No. Divide your script into sections and record each one
+                separately. If a line doesn’t land, redo just that section.
+                Choose your favorite takes and bring them together in the
+                editor.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              <span data-i18n="q4">Does the teleprompter follow my voice?</span
+              ><span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p data-i18n="a4">
+                Voice following is available on supported devices and in
+                supported speech languages. An Apple speech model may need to
+                download first. You can also use manual scrolling or a fixed
+                reading speed. App interface languages and supported speech
+                languages are different; Pro doesn’t add speech support.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              <span data-i18n="q5">What devices can I use?</span
+              ><span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p data-i18n="a5">
+                Cadreur runs on iPhone and iPad with iOS 26 or iPadOS 26 and
+                later. The interface is available in English, Turkish, French,
+                German, and Spanish. Projects stay on the device where you
+                create them and don’t automatically sync.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              <span data-i18n="q6">What does Cadreur Pro include?</span
+              ><span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              <p data-i18n="a6">
+                Pro unlocks unlimited new projects. Choose a monthly or yearly
+                subscription, or a one-time lifetime purchase. See current local
+                prices in the app. Subscriptions renew automatically unless
+                canceled in your App Store account.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+      <section class="closing-section" aria-labelledby="closing-title">
+        <div class="wrap closing-inner reveal">
+          <div class="closing-topline">
+            <span class="eyebrow"
+              ><span class="status-dot"></span
+              ><span data-i18n="closingEyebrow"
+                >THE NEXT TAKE IS YOURS</span
+              ></span
+            ><span class="closing-time" aria-hidden="true">00:00:01</span>
+          </div>
+          <h2 id="closing-title">
+            <span data-i18n="closingTitle1">A little less overthinking.</span
+            ><br />
+            <em data-i18n="closingTitle2">A little more creating.</em>
+          </h2>
+          <div class="closing-bottom">
+            <p data-i18n="closingDescription">
+              Your script. Your take. Your video.<br />
+              Start with three free projects.
+            </p>
+            <a
+              class="app-store light"
+              href="https://apps.apple.com/app/id6817267046"
+              aria-label="Download Cadreur on the App Store"
+              ><svg aria-hidden="true"><use href="#icon-apple" /></svg
+              ><span
+                ><small data-i18n="downloadOn">Download on the</small
+                ><strong>App Store</strong></span
+              ><svg class="download-arrow" aria-hidden="true">
+                <use href="#icon-arrow" /></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer wrap">
+      <div class="footer-top">
+        <a class="brand" href="/video-take/"
+          ><img
+            src="media/cadreur-icon.svg"
+            width="32"
+            height="32"
+            alt=""
+          /><span>cadreur<span class="brand-period">.</span></span></a
+        >
+        <p data-i18n="footerTagline">Made with care. For what you create.</p>
+        <a class="back-to-top" href="#main"
+          ><span data-i18n="backToTop">Back to top</span> ↑</a
+        >
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> <a href="/">Oktay Kırık</a></span>
+        <nav aria-label="Legal and support">
+          <a href="privacy.html" data-i18n="privacy">Privacy</a
+          ><a href="terms.html" data-i18n="terms">Terms</a
+          ><a href="support.html" data-i18n="support">Support</a
+          ><a href="/" data-i18n="allApps">All apps ↗</a>
+        </nav>
+        <span data-i18n="footerPlatform">For iPhone & iPad · iOS 26+</span>
+      </div>
+    </footer>
+  </body>
+</html>

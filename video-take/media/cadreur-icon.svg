@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Cadreur: video camera with script lines and a recording light</title>
+  <desc>An ivory video camera and lavender lens on deep indigo, with three script lines and a coral recording light. The square artwork is masked by the system.</desc>
+  <defs>
+    <linearGradient id="background" gradientUnits="userSpaceOnUse" x1="120" y1="0" x2="850" y2="1024">
+      <stop stop-color="#414775"/>
+      <stop offset="0.55" stop-color="#292D4B"/>
+      <stop offset="1" stop-color="#191C30"/>
+    </linearGradient>
+    <linearGradient id="body" gradientUnits="userSpaceOnUse" x1="420" y1="310" x2="420" y2="714">
+      <stop stop-color="#FFFEFA"/>
+      <stop offset="1" stop-color="#DFE4FA"/>
+    </linearGradient>
+    <linearGradient id="lens" gradientUnits="userSpaceOnUse" x1="776" y1="360" x2="776" y2="664">
+      <stop stop-color="#D8DEFF"/>
+      <stop offset="1" stop-color="#929FEB"/>
+    </linearGradient>
+    <linearGradient id="record" gradientUnits="userSpaceOnUse" x1="568" y1="378" x2="568" y2="446">
+      <stop stop-color="#FF786E"/>
+      <stop offset="1" stop-color="#ED494F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#background)"/>
+  <path d="M700 442 L818 366 Q852 346 852 386 V638 Q852 678 818 658 L700 582 Z" fill="url(#lens)"/>
+  <rect x="180" y="310" width="486" height="404" rx="96" fill="url(#body)"/>
+  <g fill="none" stroke="#424B7E" stroke-linecap="round" stroke-width="44">
+    <path d="M264 412 H450"/>
+    <path d="M264 516 H576"/>
+    <path d="M264 612 H484"/>
+  </g>
+  <circle cx="568" cy="412" r="34" fill="url(#record)"/>
+</svg>
