@@ -2311,3 +2311,95 @@ summary {
     font-size: 13px;
   }
 }
+
+/* Mobile workflow: native horizontal paging, with the desktop tabs retained. */
+.workflow-mobile-heading,
+.workflow-swipe-hint {
+  display: none;
+}
+@media (max-width: 640px) {
+  .workflow-demo { min-width: 0; }
+  .workflow-controls { padding: 12px 16px 0; }
+  .workflow-mobile-heading {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+  }
+  .workflow-mobile-heading button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--accent);
+    font-size: 22px;
+  }
+  .workflow-position { color: var(--accent); font-size: 11px; letter-spacing: 2px; }
+  .workflow-current-step { margin: 5px 0 0; font-size: 11px; letter-spacing: 0.7px; }
+  .workflow-swipe-hint { display: none; }
+  .workflow-tabs { display: flex; flex-direction: row; justify-content: center; gap: 0; }
+  .workflow-tab {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    padding: 0 !important;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .workflow-tab::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 10px;
+    background: #bcb9cc;
+    transition: width 0.25s, background 0.25s;
+  }
+  .workflow-tab.active::after { width: 24px; background: var(--accent); }
+  .workflow-tab > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .workflow-stage {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .workflow-stage::-webkit-scrollbar { display: none; }
+  .workflow-panel {
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    animation: none;
+    grid-template-rows: 1fr auto;
+    min-height: 0;
+    padding: 16px 20px 0;
+  }
+  .workflow-panel .panel-category,
+  .workflow-panel .feature-tag { display: none; }
+  .workflow-panel .panel-copy { padding-bottom: 0; }
+  .workflow-panel .panel-copy h3 {
+    font-size: 25px;
+    letter-spacing: -0.7px;
+    margin: 0 0 10px;
+  }
+  .workflow-panel .panel-copy p {
+    max-width: 280px;
+    line-height: 1.55;
+  }
+  .workflow-panel .app-phone {
+    width: 144px;
+    margin-block: 16px 18px;
+    border-radius: 24px;
+  }
+}

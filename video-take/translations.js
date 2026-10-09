@@ -42,26 +42,27 @@ window.CADREUR_TR = {
   stepEditSub: "KIRP VE DÜZENLE",
   stepCaptions: "Her sözün yerini bulsun.",
   stepCaptionsSub: "ALTYAZI EKLE VE PAYLAŞ",
+  workflowSwipe: "Adımları keşfetmek için kaydır",
   workflowFootnote: "Tek uygulama. Fikirden son dokunuşa.",
   panelWriteLabel: "FİKRİNE YER AÇ",
   panelWriteTitle: "Boş bir sayfa.<br> Yeni bir başlangıç.",
   panelWriteDescription:
-    "Metnini yaz ya da hazır bir metin getir. Küçük bölümlere ayır, sonra sözler içine sinene kadar prova yap.",
+    "Metnini yaz veya içe aktar. Bölüm bölüm prova yap.",
   panelWriteTag: "TXT, RTF ve PDF içe aktar",
   panelRecordLabel: "DAHA ÇOK SEN. DAHA AZ BASKI.",
   panelRecordTitle: "Bir cümle olmadı mı?<br> Sadece onu yeniden çek.",
   panelRecordDescription:
-    "Prompter metnini kameranın yakınında tutar. Bir bölümü çek, gerekirse tekrar dene, en sevdiğin çekimi seç.",
+    "Metnini takip et. Bölüm bölüm çek, en iyi çekimlerini seç.",
   panelRecordTag: "Elle, sabit hızda ve sesle takip*",
   panelEditLabel: "KÜÇÜK SON DOKUNUŞLAR",
   panelEditTitle: "Güzel çekimler.<br> Birlikte daha güzel.",
   panelEditDescription:
-    "Duraksamaları kırp. Kliplerini sırala. Kadrajı ayarla, müzik ekle ve videona yakışan filtreyi bul.",
+    "Kırp, sırala, müzik ekle. Videona kendinden kat.",
   panelEditTag: "Senin kurgun. Kontrol sende.",
   panelCaptionsLabel: "PAYLAŞMAYA HAZIR",
   panelCaptionsTitle: "Ses açıkken de.<br> Kapalıyken de.",
   panelCaptionsDescription:
-    "Altyazılarını oluştur, görünümünü düzenle. Hikâyenin her kelimesi izleyicine ulaşsın. Videonu filigransız dışa aktar.",
+    "Altyazılarını düzenle. Videonu filigransız paylaş.",
   panelCaptionsTag: "Video, SRT altyazı ve JPEG kapak",
   demoNote:
     "Örnek içeriklerle gerçek uygulama ekranları. *Sesle takip ve otomatik yazıya dökme, cihazına ve konuşma diline bağlıdır.",
@@ -134,6 +135,8 @@ window.CADREUR_TR_ATTRIBUTES = {
   "Play animated preview": "Hareketli önizlemeyi oynat",
   "Pause animated preview": "Hareketli önizlemeyi duraklat",
   "The Cadreur workflow": "Cadreur ile video hazırlama adımları",
+  "Previous step": "Önceki adım",
+  "Next step": "Sonraki adım",
   "Explore the workflow": "Video hazırlama adımlarını keşfet",
   "Cadreur app showing a script organized into sections and takes":
     "Cadreur’de bölümlere ayrılmış bir metin ve her bölüme ait çekimler",

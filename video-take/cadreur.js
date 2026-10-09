@@ -66,6 +66,7 @@
         ),
       );
     updatePreviewLabel();
+    updateWorkflowHeading();
     if (remember) {
       try {
         localStorage.setItem("cadreur-language", language);
@@ -80,43 +81,95 @@
 
   const tabs = [...document.querySelectorAll(".workflow-tab")];
   const tablist = document.querySelector(".workflow-tabs");
-  function activateTab(index, focus = false) {
+  const workflow = document.querySelector(".workflow-demo");
+  const stage = document.querySelector(".workflow-stage");
+  const panels = tabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
+  let activeStep = 0;
+  let workflowTouched = false;
+  let workflowVisible = false;
+  let advanceTimer;
+  let scrollTimer;
+
+  function updateWorkflowHeading() {
+    document.querySelector(".workflow-position").textContent =
+      `${String(activeStep + 1).padStart(2, "0")} / ${String(tabs.length).padStart(2, "0")}`;
+    document.querySelector(".workflow-current-step").textContent = tabs[activeStep].querySelector("small").textContent;
+  }
+  function scheduleAdvance() {
+    clearTimeout(advanceTimer);
+    if (!narrow.matches || motion.matches || workflowTouched || !workflowVisible || document.hidden) return;
+    advanceTimer = setTimeout(() => activateTab((activeStep + 1) % tabs.length), 6000);
+  }
+  function stopAdvance() {
+    workflowTouched = true;
+    clearTimeout(advanceTimer);
+  }
+  function activateTab(index, focus = false, scroll = true) {
+    activeStep = index;
     tabs.forEach((tab, i) => {
       const active = i === index;
       tab.classList.toggle("active", active);
       tab.setAttribute("aria-selected", String(active));
       tab.tabIndex = active ? 0 : -1;
-      document.getElementById(tab.getAttribute("aria-controls")).hidden =
-        !active;
+      panels[i].hidden = !narrow.matches && !active;
+      panels[i].inert = !active;
     });
-    if (focus) tabs[index].focus();
+    updateWorkflowHeading();
+    if (narrow.matches && scroll) {
+      stage.scrollTo({ left: index * stage.clientWidth, behavior: motion.matches ? "instant" : "smooth" });
+    }
+    if (focus) tabs[index].focus({ preventScroll: true });
+    scheduleAdvance();
   }
   tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => activateTab(index));
+    tab.addEventListener("click", () => { stopAdvance(); activateTab(index); });
     tab.addEventListener("keydown", (event) => {
-      const direction = narrow.matches
-        ? ["ArrowLeft", "ArrowRight"]
-        : ["ArrowUp", "ArrowDown"];
+      const direction = narrow.matches ? ["ArrowLeft", "ArrowRight"] : ["ArrowUp", "ArrowDown"];
       let next;
-      if (event.key === direction[0])
-        next = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === direction[0]) next = (index - 1 + tabs.length) % tabs.length;
       else if (event.key === direction[1]) next = (index + 1) % tabs.length;
       else if (event.key === "Home") next = 0;
       else if (event.key === "End") next = tabs.length - 1;
       if (next !== undefined) {
         event.preventDefault();
+        stopAdvance();
         activateTab(next, true);
       }
     });
   });
-  function updateTabOrientation() {
-    tablist.setAttribute(
-      "aria-orientation",
-      narrow.matches ? "horizontal" : "vertical",
-    );
+  document.querySelector(".workflow-previous").addEventListener("click", () => {
+    stopAdvance(); activateTab((activeStep - 1 + tabs.length) % tabs.length);
+  });
+  document.querySelector(".workflow-next").addEventListener("click", () => {
+    stopAdvance(); activateTab((activeStep + 1) % tabs.length);
+  });
+  workflow.addEventListener("pointerdown", stopAdvance, { passive: true });
+  workflow.addEventListener("touchstart", stopAdvance, { passive: true });
+  workflow.addEventListener("focusin", stopAdvance);
+  stage.addEventListener("wheel", stopAdvance, { passive: true });
+  stage.addEventListener("scroll", () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      if (!narrow.matches) return;
+      const index = Math.round(stage.scrollLeft / stage.clientWidth);
+      if (index >= 0 && index < tabs.length && index !== activeStep) activateTab(index, false, false);
+    }, 120);
+  }, { passive: true });
+  function updateWorkflowLayout() {
+    clearTimeout(scrollTimer);
+    tablist.setAttribute("aria-orientation", narrow.matches ? "horizontal" : "vertical");
+    activateTab(activeStep, false, false);
+    stage.scrollTo({ left: narrow.matches ? activeStep * stage.clientWidth : 0, behavior: "instant" });
   }
-  narrow.addEventListener("change", updateTabOrientation);
-  updateTabOrientation();
+  new ResizeObserver(updateWorkflowLayout).observe(stage);
+  new IntersectionObserver((entries) => {
+    workflowVisible = entries[0].isIntersecting;
+    scheduleAdvance();
+  }, { threshold: 0.25 }).observe(workflow);
+  narrow.addEventListener("change", updateWorkflowLayout);
+  motion.addEventListener("change", scheduleAdvance);
+  document.addEventListener("visibilitychange", scheduleAdvance);
+  updateWorkflowLayout();
 
   const scene = document.querySelector(".camera-scene");
   const previewButton = document.querySelector(".preview-toggle");

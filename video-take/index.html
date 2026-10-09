@@ -64,6 +64,7 @@
           display: block;
         }
         .workflow-stage {
+          display: block;
           overflow: visible;
         }
         .workflow-panel[hidden] {
@@ -331,6 +332,12 @@
         </div>
         <div class="workflow-demo reveal">
           <div class="workflow-controls">
+            <div class="workflow-mobile-heading">
+              <button type="button" class="workflow-previous" aria-label="Previous step">←</button>
+              <div><span class="workflow-position">01 / 04</span><p class="workflow-current-step">WRITE &amp; REHEARSE</p></div>
+              <button type="button" class="workflow-next" aria-label="Next step">→</button>
+            </div>
+            <p class="workflow-swipe-hint" data-i18n="workflowSwipe">Swipe to explore</p>
             <div
               class="workflow-tabs"
               role="tablist"
@@ -430,8 +437,7 @@
                   A fresh start.
                 </h3>
                 <p data-i18n="panelWriteDescription">
-                  Write your script or bring one along. Break it into small
-                  sections, then rehearse until the words feel like you.
+                  Write or import your script. Rehearse one section at a time.
                 </p>
                 <span class="feature-tag" data-i18n="panelWriteTag"
                   >Import TXT, RTF & PDF</span
@@ -464,8 +470,7 @@
                   Just redo that bit.
                 </h3>
                 <p data-i18n="panelRecordDescription">
-                  Keep your script near the lens with the teleprompter. Record
-                  one section, try another take, and keep your favorite.
+                  Follow your script. Record in sections and keep your best takes.
                 </p>
                 <span class="feature-tag" data-i18n="panelRecordTag"
                   >Manual, timed & voice-follow modes*</span
@@ -498,8 +503,7 @@
                   Better together.
                 </h3>
                 <p data-i18n="panelEditDescription">
-                  Trim the pauses. Arrange your clips. Adjust the frame, add
-                  music, and find a filter that feels right.
+                  Trim, reorder, and add music. Make every take your own.
                 </p>
                 <span class="feature-tag" data-i18n="panelEditTag"
                   >Your edit. Your creative control.</span
@@ -532,8 +536,7 @@
                   Or sound off.
                 </h3>
                 <p data-i18n="panelCaptionsDescription">
-                  Create and style your captions so your story travels with
-                  every word. Export your video without a watermark.
+                  Style your captions. Share your video without a watermark.
                 </p>
                 <span class="feature-tag" data-i18n="panelCaptionsTag"
                   >Video, SRT captions & JPEG covers</span
