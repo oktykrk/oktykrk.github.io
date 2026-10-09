@@ -191,6 +191,9 @@ em {
   padding-block: 75px 65px;
   align-items: center;
 }
+.hero .hero-mobile-intro {
+  display: none;
+}
 .hero-copy {
   padding-bottom: 35px;
   min-width: 0;
@@ -1732,25 +1735,33 @@ html[lang="tr"] .teleprompter {
   }
   .hero {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding-top: 45px;
+    gap: 16px;
+    padding-top: 22px;
     padding-bottom: 36px;
   }
   .hero-copy {
     padding-bottom: 0;
+  }
+  .hero .hero-mobile-intro {
+    display: flex;
+    order: -2;
+    margin: 0;
+  }
+  .hero-copy > .eyebrow {
+    display: none;
   }
   .hero .eyebrow {
     font-size: 8px;
     letter-spacing: 1.25px;
   }
   .hero h1 {
-    font-size: clamp(68px, 15vw, 91px);
-    letter-spacing: -4.5px;
+    font-size: clamp(44px, 10vw, 60px);
+    letter-spacing: -2.5px;
     line-height: 1.02;
     margin: 21px 0;
   }
   .hero h1 em {
-    letter-spacing: -4px;
+    letter-spacing: -2px;
     line-height: 1.14;
   }
   .hero-description {
@@ -1796,13 +1807,16 @@ html[lang="tr"] .teleprompter {
     font-size: 9px;
   }
   .hero-art {
+    /* Keep the demo between the short introduction and the main copy. */
+    order: -1;
+    margin-bottom: 16px;
     padding: 12px 10px 0 18px;
     max-width: 450px;
     width: 100%;
     margin-inline: auto;
   }
   .camera-scene {
-    height: 480px;
+    height: clamp(320px, calc(100svh - 230px), 480px);
     border-width: 4px;
     border-radius: 13px;
     transform: rotate(1.5deg);
@@ -2158,8 +2172,8 @@ html[lang="tr"] .teleprompter {
     gap: 17px;
   }
   html[lang="tr"] .hero h1 {
-    font-size: clamp(52px, 12.6vw, 78px);
-    letter-spacing: -3px;
+    font-size: clamp(40px, 9vw, 56px);
+    letter-spacing: -2px;
   }
   html[lang="tr"] .hero h1 em {
     letter-spacing: -3px;
@@ -2179,7 +2193,7 @@ html[lang="tr"] .teleprompter {
     font-size: 9px;
   }
   .hero h1 {
-    font-size: 65px;
+    font-size: 44px;
   }
   .hero-actions {
     gap: 14px;
@@ -2188,7 +2202,7 @@ html[lang="tr"] .teleprompter {
     font-size: 10px;
   }
   .camera-scene {
-    height: 435px;
+    max-height: 435px;
   }
   .teleprompter {
     font-size: 16px;
@@ -2212,7 +2226,7 @@ html[lang="tr"] .teleprompter {
     font-size: 16px;
   }
   html[lang="tr"] .hero h1 {
-    font-size: 47px;
+    font-size: 40px;
   }
   html[lang="tr"] .teleprompter {
     font-size: 15px;
