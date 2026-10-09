@@ -126,6 +126,7 @@
   const previewDescription = document.querySelector(".preview-description");
   const timer = document.querySelector(".camera-timer");
   let videoReady = false;
+  let isPlaying = false;
   let playbackRequest = 0;
   let wantsToPlay = !motion.matches;
   let sceneVisible = false;
@@ -136,18 +137,18 @@
     const type = videoReady ? "video" : "animated preview";
     const label =
       language === "tr"
-        ? wantsToPlay
+        ? isPlaying
           ? videoReady
             ? "Videoyu duraklat"
             : "Hareketli önizlemeyi duraklat"
           : videoReady
             ? "Videoyu oynat"
             : "Hareketli önizlemeyi oynat"
-        : wantsToPlay
+        : isPlaying
           ? `Pause ${type}`
           : `Play ${type}`;
     previewButton.setAttribute("aria-label", label);
-    previewButton.setAttribute("aria-pressed", String(wantsToPlay));
+    previewButton.setAttribute("aria-pressed", String(isPlaying));
     previewButton.title = label;
     soundButton.hidden = !videoReady;
     soundButton.textContent =
@@ -209,26 +210,34 @@
     );
     frame = requestAnimationFrame(tick);
   }
-  function syncPlayback() {
-    const request = ++playbackRequest;
+  function setPlaying(playing) {
+    isPlaying = playing;
+    scene.dataset.playing = String(playing);
     cancelAnimationFrame(frame);
     previousTime = null;
-    const running = wantsToPlay && sceneVisible && !document.hidden;
-    scene.dataset.playing = String(running && videoReady);
-    if (videoReady) {
-      if (running) {
-        previewVideo.play().catch(() => {
-          if (request !== playbackRequest) return;
-          wantsToPlay = false;
-          syncPlayback();
-        });
-      } else previewVideo.pause();
-    }
-    if (running && videoReady) frame = requestAnimationFrame(tick);
+    if (playing) frame = requestAnimationFrame(tick);
     updatePreviewLabel();
   }
+  function syncPlayback() {
+    const request = ++playbackRequest;
+    const running = wantsToPlay && sceneVisible && !document.hidden;
+    if (!running) {
+      previewVideo.pause();
+      setPlaying(false);
+      return;
+    }
+    // Safari can defer loading until play(): don't wait for loadeddata or
+    // leave the video display:none while asking the browser to start it.
+    previewVideo.hidden = false;
+    previewVideo.play().catch(() => {
+      if (request !== playbackRequest) return;
+      wantsToPlay = false;
+      setPlaying(false);
+    });
+  }
   previewButton.addEventListener("click", () => {
-    wantsToPlay = !wantsToPlay;
+    wantsToPlay = !isPlaying;
+    // Keep play() in this gesture, even when preload/autoplay was blocked.
     syncPlayback();
   });
   function showVideo() {
@@ -236,17 +245,33 @@
     previewVideo.hidden = false;
     previewPhoto.hidden = true;
     scene.dataset.video = "true";
-    syncPlayback();
+    updatePreviewLabel();
   }
+  previewVideo.muted = true;
+  previewVideo.defaultMuted = true;
+  previewVideo.playsInline = true;
   previewVideo.addEventListener("loadeddata", showVideo);
+  previewVideo.addEventListener("playing", () => {
+    if (!wantsToPlay || !sceneVisible || document.hidden) {
+      syncPlayback();
+      return;
+    }
+    showVideo();
+    setPlaying(true);
+  });
+  previewVideo.addEventListener("pause", () => setPlaying(false));
+  previewVideo.addEventListener("waiting", () => setPlaying(false));
   if (previewVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) showVideo();
   previewVideo.addEventListener("error", () => {
     videoReady = false;
+    wantsToPlay = false;
     previewVideo.hidden = true;
     previewPhoto.hidden = false;
     previewVideo.muted = true;
     scene.dataset.video = "false";
     elapsed = 0;
+    timer.textContent = "00:00";
+    scene.style.setProperty("--prompt-progress", "0%");
     syncPlayback();
   });
   previewVideo.addEventListener("volumechange", updatePreviewLabel);
