@@ -125,9 +125,7 @@
   const soundButton = document.querySelector(".preview-sound");
   const previewDescription = document.querySelector(".preview-description");
   const timer = document.querySelector(".camera-timer");
-  const videoSource = previewVideo.dataset.src;
   let videoReady = false;
-  let videoRequested = false;
   let playbackRequest = 0;
   let wantsToPlay = !motion.matches;
   let sceneVisible = false;
@@ -216,12 +214,7 @@
     cancelAnimationFrame(frame);
     previousTime = null;
     const running = wantsToPlay && sceneVisible && !document.hidden;
-    if (running && videoSource && !videoRequested) {
-      videoRequested = true;
-      previewVideo.src = videoSource;
-      previewVideo.load();
-    }
-    scene.dataset.playing = String(running);
+    scene.dataset.playing = String(running && videoReady);
     if (videoReady) {
       if (running) {
         previewVideo.play().catch(() => {
@@ -231,20 +224,22 @@
         });
       } else previewVideo.pause();
     }
-    if (running) frame = requestAnimationFrame(tick);
+    if (running && videoReady) frame = requestAnimationFrame(tick);
     updatePreviewLabel();
   }
   previewButton.addEventListener("click", () => {
     wantsToPlay = !wantsToPlay;
     syncPlayback();
   });
-  previewVideo.addEventListener("loadeddata", () => {
+  function showVideo() {
     videoReady = true;
     previewVideo.hidden = false;
     previewPhoto.hidden = true;
     scene.dataset.video = "true";
     syncPlayback();
-  });
+  }
+  previewVideo.addEventListener("loadeddata", showVideo);
+  if (previewVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) showVideo();
   previewVideo.addEventListener("error", () => {
     videoReady = false;
     previewVideo.hidden = true;

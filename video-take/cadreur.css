@@ -183,7 +183,7 @@ em {
   background: var(--accent);
   transform: translateY(-2px);
 }
-/* The hero is a custom, animated camera illustration. */
+/* The hero pairs a video with a matching first-frame fallback. */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -357,12 +357,6 @@ em {
   height: 100%;
   object-fit: cover;
   object-position: 50% 48%;
-  transform: scale(1.04);
-  animation: camera-drift 18s ease-in-out infinite alternate;
-  animation-play-state: paused;
-}
-.camera-scene[data-playing="true"] .creator-photo {
-  animation-play-state: running;
 }
 .creator-video {
   position: absolute;
@@ -1314,14 +1308,6 @@ html[lang="tr"] .hero h1 em {
 }
 html[lang="tr"] .teleprompter {
   font-size: 18px;
-}
-@keyframes camera-drift {
-  from {
-    transform: scale(1.04) translate(0, 0);
-  }
-  to {
-    transform: scale(1.1) translate(-1%, -0.5%);
-  }
 }
 @keyframes meter {
   from {

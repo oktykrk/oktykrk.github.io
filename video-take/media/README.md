@@ -69,14 +69,17 @@ Motion prompt:
 The same fictional adult woman talks warmly and naturally straight to the camera. Preserve her identity, shoulder-length dark wavy hair, off-white crew-neck T-shirt, exact room and warm daylight. One continuous fixed-camera portrait shot, no cuts, no pan, no zoom. Convincing speech lip synchronization, natural blinking, subtle gentle head movements and restrained anatomically natural hand gestures. Calm encouraging delivery with a small friendly smile at the end. No on-screen text, captions, titles, logos, music or additional dialogue.
 ```
 
-The landing page uses the local MP4, with the original photograph as its poster
-and loading/error fallback. It does not depend on an expiring HeyGen URL.
+The landing page uses the local MP4, with `creator-speaking-poster.webp` as its
+poster and loading/error fallback. This 720 × 1080 image is extracted from the
+video’s first decoded frame with FFmpeg and encoded with `cwebp -q 90`. The
+fallback uses the same crop as the video, without zoom or drift animation.
+It does not depend on an expiring HeyGen URL.
 
-The player loads when needed, starts muted, supports pause/resume, and pauses
+The player starts loading with the page, starts muted, supports pause/resume, and pauses
 offscreen or in a background tab. The sound button restarts the clip before
 unmuting so visitors hear the full sentence. Reduced motion requires an explicit
 play action. Both interface languages use the same English clip. Loading or
-decoding failures restore the photograph and hide video-only controls.
+decoding failures restore the first-frame fallback and hide video-only controls.
 
 
 ## App assets
