@@ -65,7 +65,7 @@ change significantly. Do not reset unchanged pages' dates during deployment.
 consistency, page metadata, and JSON-LD syntax.
 
 The JSON-LD connects the product page to Floe's actual features, requirements,
-download, support, license terms, and author. Purchasing is pending and there
+download, support, license terms, and author. Paid purchasing is available and there
 are no published customer ratings, so do not invent offers or ratings to pass
 Google's software-app rich-result requirements. Schema validity and eligibility
 for a Google rich result are separate checks.
@@ -96,7 +96,7 @@ that the provider has crawled, indexed, cited, or recommended Floe.
 
 `/llms.txt` indexes the site's application pages. `/floe/llms.txt` gives a short
 Floe overview with use cases, features, requirements, permissions, limitations,
-the current trial and planned purchase conditions, and official links.
+the current trial and purchase conditions, and official links.
 Portfolio and Floe pages advertise the relevant file with `rel="describedby"`.
 Keep this summary consistent with the visible pages when product, licensing,
 or distribution details change. Neither file belongs in the HTML sitemap.
@@ -118,11 +118,10 @@ GitHub Release via `releases/latest/download/Floe.dmg`. Every new release must
 include this byte-identical alias of its versioned DMG. Release-note and checksum
 links also use `latest`; omit fixed version/size metadata so normal releases do
 not require a website update. `SHA256SUMS.txt` names the versioned DMG; its hash
-also verifies the identical `Floe.dmg` download. Purchasing and license activation are unavailable while Lemon
-Squeezy approval is pending; the page explains that window management pauses
-after the trial. Never link a test checkout as a live sale. Add a verified live
-checkout only after merchant approval and a new release configured for the live
-catalog. Keep billing on Lemon Squeezy and binaries on GitHub Releases; this
+also verifies the identical `Floe.dmg` download. Floe 1.0.22 and later support
+paid license activation. The product page links to the verified live Lemon
+Squeezy checkout: USD 9.99, one-time, perpetual, two active Macs. Older trial
+releases must update before activation. Never link a test checkout as a live sale. Keep billing on Lemon Squeezy and binaries on GitHub Releases; this
 repository contains neither merchant credentials nor the private app source.
 
 ## Cadreur landing page
