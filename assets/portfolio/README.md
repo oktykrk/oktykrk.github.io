@@ -5,6 +5,11 @@
   and `04-merge-order.png`). These show actual app UI with sample documents.
 - `pado-icon.webp`: resized from Pado PDF's app icon asset.
 - `mark.svg`: portfolio-specific typographic favicon.
+- `favicon-32.png`, `/favicon.ico`, `/apple-touch-icon.png`: raster versions of
+  `mark.svg` for browser tabs and Safari shortcuts. The Apple touch icon is an
+  opaque 180×180 PNG with the portfolio's charcoal background. Regenerate from
+  the SVG at 512×512 using macOS `sips`, then resize with Pillow (Lanczos);
+  the ICO contains 16×16, 32×32, and 48×48 sizes.
 - The portfolio reuses the Floe icon and lake photo already in this repository;
   see `floe/media/README.md` for the photograph's attribution. Floe's desktop is
   explicitly labeled a workspace preview and is an interactive illustration.
