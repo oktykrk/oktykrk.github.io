@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#111210" />
     <meta
       name="description"
-      content="Apps by Oktay Kırık. Arrange your Mac with Floe, create videos with Cadreur, and take control of your documents with Pado PDF."
+      content="Apps by Oktay Kırık. Arrange your Mac with Floe, create videos with Cadreur, take control of your documents with Pado PDF, and explore your media with MediaRoll."
     />
     <title>Oktay Kırık — Good ideas. Real apps.</title>
     <link rel="canonical" href="https://oktykrk.github.io/" />
@@ -14,7 +14,7 @@
     <meta property="og:title" content="Oktay Kırık — Good ideas. Real apps." />
     <meta
       property="og:description"
-      content="Independent software for your work, your stories, and everything in between. Explore Floe, Cadreur, and Pado PDF."
+      content="Independent software for your work, your stories, and everything in between. Explore Floe, Cadreur, Pado PDF, and MediaRoll."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://oktykrk.github.io/" />
@@ -64,7 +64,7 @@
         >
       </a>
       <nav aria-label="Main navigation">
-        <a href="#apps">The work <span class="nav-count">03</span></a>
+        <a href="#apps">The work <span class="nav-count">04</span></a>
         <a href="#about">About</a>
         <a class="contact-link" href="mailto:oktay.kirik@icloud.com"
           >Let’s talk <span aria-hidden="true">↗</span></a
@@ -129,13 +129,25 @@
             ><span class="index-platform">iOS</span
             ><span class="index-arrow" aria-hidden="true">↗</span></a
           >
+          <a href="#mediaroll"
+            ><span class="index-number">04</span
+            ><img
+              src="/media-roll/media/icon.png"
+              width="36"
+              height="36"
+              alt=""
+            /><span class="index-name"
+              >MediaRoll<span>Keep exploring</span></span
+            ><span class="index-platform">macOS</span
+            ><span class="index-arrow" aria-hidden="true">↗</span></a
+          >
         </nav>
       </section>
 
       <section id="apps" class="work wrap" aria-labelledby="work-title">
         <div class="section-heading">
           <h2 id="work-title">Software with a purpose<span>.</span></h2>
-          <span class="eyebrow">The collection / 01—03</span>
+          <span class="eyebrow">The collection / 01—04</span>
         </div>
 
         <article
@@ -303,7 +315,7 @@
 
         <article
           id="cadreur"
-          class="project project-cadreur"
+          class="project project-cadreur project-reversed"
           aria-labelledby="cadreur-title"
         >
           <div class="project-copy">
@@ -507,6 +519,86 @@
                   aria-pressed="false"
                 >
                   Merge PDFs
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article
+          id="mediaroll"
+          class="project project-mediaroll project-reversed"
+          aria-labelledby="mediaroll-title"
+        >
+          <div class="project-copy">
+            <div class="project-meta">
+              <span>04 / Explore</span><span>macOS 14+</span>
+            </div>
+            <div class="project-name">
+              <img
+                src="/media-roll/media/icon.png"
+                alt=""
+                width="56"
+                height="56"
+              />
+              <h3 id="mediaroll-title">MediaRoll</h3>
+            </div>
+            <p class="project-headline">One file.<br />A whole folder.</p>
+            <p class="project-description">
+              Double-click a photo or video. Browse everything beside it with
+              your arrow keys. Your media, right where you left it.
+            </p>
+            <ul class="features" aria-label="MediaRoll features">
+              <li>Folder browsing</li>
+              <li>Photos &amp; video</li>
+              <li>Compare &amp; edit</li>
+            </ul>
+            <div class="project-actions">
+              <a class="button button-light" href="/media-roll/"
+                >Explore MediaRoll <span aria-hidden="true">↗</span></a
+              ><span class="project-note">Coming to the Mac App Store</span>
+            </div>
+          </div>
+          <div class="project-stage mediaroll-stage">
+            <div class="stage-topline">
+              <span>A little less clicking. A lot more looking.</span
+              ><span class="stage-tag">Actual app screens</span>
+            </div>
+            <div class="mr-composition">
+              <p class="mr-stage-heading">
+                Let it <em>roll.</em
+                ><span>YOUR FOLDERS. READY TO EXPLORE.</span>
+              </p>
+              <div class="mr-preview-window">
+                <img
+                  id="mr-preview-image"
+                  src="/media-roll/media/viewer-coast.webp"
+                  width="1920"
+                  height="1292"
+                  alt="Actual MediaRoll window with a coastal photo and its folder sidebar"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="stage-bottomline">
+              <span>Same folder. Next moment.</span>
+              <div
+                class="preview-controls"
+                role="group"
+                aria-label="MediaRoll preview photos"
+              >
+                <button
+                  type="button"
+                  data-mediaroll-screen="coast"
+                  aria-pressed="true"
+                >
+                  01 Coast</button
+                ><button
+                  type="button"
+                  data-mediaroll-screen="lake"
+                  aria-pressed="false"
+                >
+                  02 Lake
                 </button>
               </div>
             </div>

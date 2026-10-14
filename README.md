@@ -8,9 +8,10 @@ and private support correspondence are not stored here.
 
 | Application | Privacy                    | Terms                    | Support                    |
 | ----------- | -------------------------- | ------------------------ | -------------------------- |
-| Cadreur  | `/video-take/privacy.html` | `/video-take/terms.html` | `/video-take/support.html` |
+| Cadreur     | `/video-take/privacy.html` | `/video-take/terms.html` | `/video-take/support.html` |
 | Pado PDF    | `/pado-pdf/privacy.html`   | `/pado-pdf/terms.html`   | `/pado-pdf/support.html`   |
 | Floe        | `/floe/privacy.html`       | `/floe/terms.html`       | `/floe/support.html`       |
+| MediaRoll   | `/media-roll/privacy.html` | `/media-roll/terms.html` | `/media-roll/support.html` |
 
 The site is published at <https://oktykrk.github.io/>. Add future applications
 as another top-level directory instead of creating a separate repository.
@@ -21,7 +22,7 @@ Legacy Cadreur URLs under `/video-take-site/`, `/privacy.html`, and
 ## Landing pages
 
 The portfolio at `/` uses a charcoal and lime design, oversized Space Grotesk
-typography, and three interactive app showcases in `portfolio.css` and
+typography, and four interactive app showcases in `portfolio.css` and
 `portfolio.js`. Floe at `/floe/` has an independent white, ink, and cobalt design
 in `floe/floe.css`. Cadreur retains its own paper and lavender identity. Product
 pages and the shared legal-page stylesheet are independent of the portfolio.
@@ -150,3 +151,27 @@ existing app, without assuming the review outcome.
 The two original editorial photographs were created with built-in ImageGen.
 Exact prompts and media provenance are in `video-take/media/README.md`. App
 screens show real UI with sample content; the hero is an animated illustration.
+
+## MediaRoll landing page
+
+`/media-roll/` uses warm paper, charcoal, burnt orange, serif accents, and
+photographic compositions. `mediaroll.css` and `mediaroll.js` are independent
+of the portfolio. It requires no build step or third-party runtime packages.
+
+The hero starts with a real Finder capture and an animated double-click, then
+uses actual MediaRoll screens to walk through opening a photo,
+advancing to another photo, and reaching a video in the same folder. Its UI
+is never reconstructed in HTML. Previous/next buttons, step buttons, and arrow
+keys switch screenshots. Automatic transitions have an explicit pause control,
+pause offscreen and in background tabs, and start paused with reduced motion.
+Manual interaction stops the walkthrough. No visitor files are accessed.
+
+The feature gallery switches between four actual AppKit view renders. Static
+copy, legal links, and native FAQ disclosures work without JavaScript. The
+portfolio includes MediaRoll as app 04 with a manual two-screenshot preview.
+Asset origins and the motion-sample command are in `media-roll/media/README.md`.
+
+MediaRoll is awaiting App Store review. Keep the “Coming to the Mac App Store”
+state until release; its known ID is `6822382896`. Verify availability before
+adding a download CTA. The trial is 30 days with no automatic charge; continued
+use requires an optional one-time Lifetime Unlock.

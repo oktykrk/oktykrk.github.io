@@ -1,1 +1,548 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MediaRoll — Your media, in one place</title><style>body{font:18px/1.7 system-ui;max-width:860px;margin:70px auto;padding:0 24px;color:#202c33;background:#f6f8f9}a{color:#176c7a}h1{font-size:56px;line-height:1.1;letter-spacing:-2px}h2{line-height:1.2}img{width:100%;border-radius:16px;margin:18px 0}nav{display:flex;gap:24px;flex-wrap:wrap}.tag{letter-spacing:3px;font-size:12px;font-weight:700;color:#176c7a}</style><main><p class="tag">MEDIAROLL · FOR MAC</p><h1>Your media,<br>in one place.</h1><p>Open one file. Explore the whole folder. Browse photos, videos, and audio without importing a library or creating an account.</p><img src="browse.jpg" alt="MediaRoll browsing a folder of original landscape photos"><h2>A calmer way to review your files.</h2><p>Pick favorites, compare images, crop and straighten, resize and export. Media processing stays on your Mac.</p><p>30-day free trial, then an optional one-time Lifetime Unlock. No subscription or automatic charge. Requires macOS 14 or newer.</p><nav><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav></main></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f3eb" />
+    <title>MediaRoll — Open one file. Explore the whole folder.</title>
+    <meta
+      name="description"
+      content="Meet MediaRoll for Mac. Open a photo or video and browse the whole folder with your arrow keys. Compare, crop, and export. No import, no account, no subscription."
+    />
+    <link rel="canonical" href="https://oktykrk.github.io/media-roll/" />
+    <link rel="icon" href="media/icon.png" type="image/png" />
+    <meta property="og:title" content="MediaRoll — One file. A whole folder." />
+    <meta
+      property="og:description"
+      content="Your photos, videos, and everything beside them. A native media viewer for Mac, with no library to import."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://oktykrk.github.io/media-roll/" />
+    <meta
+      property="og:image"
+      content="https://oktykrk.github.io/media-roll/browse.jpg"
+    />
+    <meta
+      property="og:image:alt"
+      content="MediaRoll browsing a folder of landscape photos on Mac"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="preload"
+      href="/assets/fonts/space-grotesk-latin.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="mediaroll.css" />
+    <script src="mediaroll.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "MediaRoll",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "macOS 14 or later",
+        "url": "https://oktykrk.github.io/media-roll/",
+        "description": "Open one file and browse supported photos, videos, and audio in its immediate folder. Compare images, crop, resize, and export copies with local media processing.",
+        "author": {
+          "@type": "Person",
+          "name": "Oktay Kırık",
+          "url": "https://oktykrk.github.io/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="./" aria-label="MediaRoll home"
+        ><img
+          src="media/icon.png"
+          width="40"
+          height="40"
+          alt=""
+        />MediaRoll<span class="wordmark-dot" aria-hidden="true">●</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">The flow</a><a href="#tools">The details</a
+        ><a href="support.html">Support ↗</a>
+      </nav>
+      <a class="nav-cta" href="#availability"
+        >Made for Mac <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="eyebrow hero-eyebrow">
+          <span class="status-dot"></span> YOUR FOLDERS. READY TO ROLL.<span
+            class="hero-edition"
+            >A NATIVE MAC APP / VOL. 01</span
+          >
+        </div>
+        <div class="hero-copy">
+          <h1 id="hero-title">One file.<br />A whole <em>folder.</em></h1>
+          <div class="hero-aside">
+            <p class="hero-description">
+              Double-click a photo.<br />Stay for the whole story.
+            </p>
+            <p>
+              Photos, videos, and audio, right where you left them. Open one and
+              explore everything beside it.
+            </p>
+            <a class="button button-dark" href="#demo"
+              >See it in action <span aria-hidden="true">↘</span></a
+            ><span class="hero-note">No imports. No account. Just press →</span>
+          </div>
+        </div>
+        <div
+          class="demo"
+          id="demo"
+          role="region"
+          data-phase="finder"
+          aria-label="From Finder to MediaRoll walkthrough"
+          aria-describedby="demo-help"
+          tabindex="0"
+        >
+          <div class="demo-topline">
+            <span
+              ><i class="live-dot" aria-hidden="true"></i> FINDER → MEDIAROLL →
+              KEEP EXPLORING</span
+            >
+            <button
+              class="play-flow js-control"
+              type="button"
+              aria-pressed="false"
+            >
+              <span class="flow-icon" aria-hidden="true">▶</span
+              ><span class="flow-label">Play the flow</span>
+            </button>
+          </div>
+          <figure class="native-preview">
+            <div class="finder-capture">
+              <img
+                src="media/finder-folder.webp"
+                width="1840"
+                height="928"
+                alt="Actual Finder window with two photos and a video in the MediaRoll Website Demo folder"
+                fetchpriority="high"
+              />
+              <button
+                class="finder-open js-control"
+                type="button"
+                aria-label="Open the coastal photo in the walkthrough"
+              ></button>
+              <span class="flow-cursor" aria-hidden="true"
+                ><svg viewBox="0 0 28 36">
+                  <path d="M3 2 24 21 14 22 9 32Z" /></svg
+                ><i></i
+              ></span>
+            </div>
+            <img
+              class="native-screen"
+              src="media/viewer-coast.webp"
+              width="1920"
+              height="1292"
+              alt="Actual MediaRoll window showing the coastal photo and its folder sidebar"
+            />
+            <figcaption class="action-cue">
+              <span class="cue-symbol" aria-hidden="true">↖</span
+              ><span class="cue-text">Start with a folder in Finder.</span>
+            </figcaption>
+          </figure>
+          <div
+            class="native-steps js-control"
+            role="group"
+            aria-label="Finder to MediaRoll steps"
+          >
+            <button type="button" data-frame="0" aria-pressed="true">
+              <span>01</span> Start in Finder
+            </button>
+            <button type="button" data-frame="1" aria-pressed="false">
+              <span>02</span> Double-click a photo
+            </button>
+            <button type="button" data-frame="2" aria-pressed="false">
+              <span>03</span> Explore with arrows
+            </button>
+          </div>
+          <div class="demo-bottomline">
+            <p id="demo-caption">
+              Your photos and videos, right where you keep them.
+            </p>
+            <div class="walkthrough-arrows js-control">
+              <button
+                type="button"
+                data-direction="-1"
+                aria-label="Previous moment"
+                disabled
+              >
+                ←</button
+              ><span class="frame-number">01 / 03</span
+              ><button
+                type="button"
+                data-direction="1"
+                aria-label="Next moment"
+              >
+                →
+              </button>
+            </div>
+          </div>
+          <p class="sr-only" id="demo-announcement" aria-live="polite"></p>
+        </div>
+        <div class="demo-under">
+          <p id="demo-help">
+            Animated walkthrough using real Finder and MediaRoll screens.
+          </p>
+          <span>Double-click the highlighted photo, then try ← →.</span>
+        </div>
+        <noscript
+          ><style>
+            .js-control {
+              display: none;
+            }
+          </style></noscript
+        >
+        <div class="hero-footnote">
+          <span>PHOTOS <i>+</i> VIDEO <i>+</i> AUDIO</span
+          ><span>Already in your folder. Finally in one flow.</span
+          ><span>macOS 14 AND UP</span>
+        </div>
+      </section>
+      <section
+        class="flow-section wrap"
+        id="how-it-works"
+        aria-labelledby="flow-title"
+      >
+        <div class="section-label">
+          <span>01 / THE FLOW</span><span>FROM FINDER TO FOUND IT.</span>
+        </div>
+        <div class="section-intro">
+          <h2 id="flow-title">Less opening.<br /><em>More exploring.</em></h2>
+          <p>
+            You shouldn’t have to open every file to see what’s in a folder.
+            Start with one. Let your curiosity take it from there.
+          </p>
+        </div>
+        <div class="flow-steps">
+          <article>
+            <div class="step-symbol">
+              <span class="mini-folder" aria-hidden="true"></span
+              ><span class="step-number">01</span>
+            </div>
+            <h3>Double-click. You’re in.</h3>
+            <p>
+              Set MediaRoll as the default for your favorite file types. Then
+              open any photo or video from Finder.
+            </p>
+            <a href="#default-viewer"
+              >A one-time setup <span aria-hidden="true">↗</span></a
+            >
+          </article>
+          <article>
+            <div class="step-symbol">
+              <span class="step-keys" aria-hidden="true"
+                ><kbd>←</kbd><kbd>→</kbd></span
+              ><span class="step-number">02</span>
+            </div>
+            <h3>The folder comes along.</h3>
+            <p>
+              Press an arrow key or swipe your trackpad. Move through the
+              supported files in the same folder, in order.
+            </p>
+            <span class="step-note">Grant folder access once when asked.</span>
+          </article>
+          <article>
+            <div class="step-symbol">
+              <span class="step-media" aria-hidden="true">▧ <i>▶</i> ♫</span
+              ><span class="step-number">03</span>
+            </div>
+            <h3>Keep the moment going.</h3>
+            <p>
+              A photo, then a video, then a sound. One viewer keeps it all
+              together, without building another library.
+            </p>
+            <span class="step-note">Your files stay where you put them.</span>
+          </article>
+        </div>
+      </section>
+      <section class="tools-section" id="tools" aria-labelledby="tools-title">
+        <div class="wrap">
+          <div class="section-label">
+            <span>02 / A CLOSER LOOK</span
+            ><span>SMALL TOOLS. GOOD INSTINCTS.</span>
+          </div>
+          <div class="section-intro">
+            <h2 id="tools-title">
+              Find the keepers.<br /><em>Make them yours.</em>
+            </h2>
+            <p>
+              Stay for a quick look, or get a little closer. The useful things
+              are right there when you need them.
+            </p>
+          </div>
+          <div class="app-showcase">
+            <div
+              class="tool-options"
+              role="group"
+              aria-label="Explore MediaRoll tools"
+            >
+              <button
+                type="button"
+                class="tool-option"
+                data-tool="browse"
+                aria-pressed="true"
+              >
+                <span class="tool-index">01</span
+                ><span
+                  ><strong>Browse &amp; pick</strong
+                  ><span
+                    >Scan thumbnails, filter by media type, and mark your
+                    favorites.</span
+                  ></span
+                ><i aria-hidden="true">↗</i>
+              </button>
+              <button
+                type="button"
+                class="tool-option"
+                data-tool="compare"
+                aria-pressed="false"
+              >
+                <span class="tool-index">02</span
+                ><span
+                  ><strong>Side by side</strong
+                  ><span
+                    >Compare two images with linked zoom and pan. Find the
+                    one.</span
+                  ></span
+                ><i aria-hidden="true">↗</i>
+              </button>
+              <button
+                type="button"
+                class="tool-option"
+                data-tool="edit"
+                aria-pressed="false"
+              >
+                <span class="tool-index">03</span
+                ><span
+                  ><strong>A little fine-tuning</strong
+                  ><span
+                    >Crop, straighten, rotate, and flip. Get the framing just
+                    right.</span
+                  ></span
+                ><i aria-hidden="true">↗</i>
+              </button>
+              <button
+                type="button"
+                class="tool-option"
+                data-tool="export"
+                aria-pressed="false"
+              >
+                <span class="tool-index">04</span
+                ><span
+                  ><strong>Ready to go</strong
+                  ><span
+                    >Resize and export a JPEG, PNG, or HEIC copy. Keep your
+                    original.</span
+                  ></span
+                ><i aria-hidden="true">↗</i>
+              </button>
+            </div>
+            <figure class="app-screenshot">
+              <div class="screenshot-canvas">
+                <img
+                  id="tool-image"
+                  src="media/app-browse.webp"
+                  alt="MediaRoll’s actual folder browser with thumbnails beside a coastal photograph"
+                  width="1400"
+                  height="948"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption id="tool-caption" aria-live="polite">
+                Your folder, with a view. Actual MediaRoll interface.
+              </figcaption>
+            </figure>
+          </div>
+          <div class="quiet-features">
+            <div>
+              <span aria-hidden="true">⌘</span>
+              <p>
+                <strong>Feels at home.</strong>Keyboard shortcuts, trackpad
+                gestures, and a proper fullscreen view.
+              </p>
+            </div>
+            <div>
+              <span aria-hidden="true">◎</span>
+              <p>
+                <strong>Stays on your Mac.</strong>Media processing happens
+                locally. Your files aren’t uploaded.
+              </p>
+            </div>
+            <div>
+              <span aria-hidden="true">∞</span>
+              <p>
+                <strong>Skip the subscription.</strong>A 30-day free trial, then
+                an optional one-time Lifetime Unlock.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="faq-section wrap" aria-labelledby="faq-title">
+        <div>
+          <p class="section-label">03 / THE PRACTICAL THINGS</p>
+          <h2 id="faq-title">Good to <em>know.</em></h2>
+          <p class="faq-support">
+            Something else on your mind?<br /><a href="support.html"
+              >We’re here to help ↗</a
+            >
+          </p>
+        </div>
+        <div class="questions">
+          <details id="default-viewer">
+            <summary>
+              How do I open files with a double-click?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <div>
+              <p>
+                In Finder, select a file and choose
+                <strong>Get Info → Open with → MediaRoll → Change All</strong>.
+                Repeat for each file type you want MediaRoll to open by default.
+              </p>
+              <p>
+                For a quick start without changing defaults, right-click a file
+                and choose <strong>Open With → MediaRoll</strong>. You can also
+                drag a file into MediaRoll or press <kbd>⌘O</kbd>.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              Does it really open the whole folder?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <div>
+              <p>
+                MediaRoll finds supported media in the same folder as the file
+                you opened. If macOS asks for permission, choose
+                <strong>Allow Folder</strong>. That access is remembered for
+                next time.
+              </p>
+              <p>
+                Browsing stays in the immediate folder; it doesn’t scan through
+                subfolders.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              Which formats can I browse?<span aria-hidden="true">+</span>
+            </summary>
+            <div>
+              <p>
+                Common formats include JPEG, PNG, HEIC, WebP, GIF, MP4, MOV,
+                MP3, and M4A. Photos, videos, and audio can share the same
+                browsing flow.
+              </p>
+              <p>
+                Format and codec support depend on macOS. Camera RAW and PDF are
+                not supported.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              Are my original photos safe when I edit?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <div>
+              <p>
+                Crop, rotate, and other edits change the preview. Export saves a
+                copy to a destination you choose. Export any edits you want to
+                keep before closing the viewer; preview edits are temporary.
+              </p>
+            </div>
+          </details>
+          <details>
+            <summary>
+              How does the free trial work?<span aria-hidden="true">+</span>
+            </summary>
+            <div>
+              <p>
+                Start the 30-day free trial in MediaRoll when you’re ready. It
+                doesn’t charge automatically. After the trial, a one-time
+                Lifetime Unlock is required to open media and start new browsing
+                or editing tasks.
+              </p>
+              <p>
+                There’s no subscription. The App Store shows your local price
+                before you buy. See the
+                <a href="terms.html">Terms of Use</a> for details.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+      <section
+        class="closing"
+        id="availability"
+        aria-labelledby="closing-title"
+      >
+        <div class="wrap closing-inner">
+          <div class="closing-copy">
+            <span class="eyebrow">MEET YOUR NEW DEFAULT.</span>
+            <h2 id="closing-title">
+              It’s all there.<br /><em>Let it roll.</em>
+            </h2>
+            <p>A better view of the files you already have.</p>
+            <div class="availability">
+              <img src="media/icon.png" width="52" height="52" alt="" />
+              <div>
+                <strong>Coming to the Mac App Store</strong
+                ><span>macOS 14+ · 30-day free trial · One-time unlock</span>
+              </div>
+            </div>
+            <a
+              class="closing-link"
+              href="mailto:oktay.kirik@icloud.com?subject=MediaRoll"
+              >Get in touch ↗</a
+            >
+          </div>
+          <div class="closing-photos" aria-hidden="true">
+            <div class="photo-print print-back">
+              <img
+                src="media/lake.webp"
+                width="1600"
+                height="1000"
+                alt=""
+                loading="lazy"
+              /><span>02 / A QUIETER MORNING</span>
+            </div>
+            <div class="photo-print print-front">
+              <img
+                src="media/coast.webp"
+                width="1600"
+                height="1000"
+                alt=""
+                loading="lazy"
+              /><span>01 / TAKE THE LONG WAY HOME <i>↗</i></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer wrap">
+      <a class="wordmark" href="./"
+        >MediaRoll<span class="wordmark-dot" aria-hidden="true">●</span></a
+      ><span>Made with care by <a href="/">Oktay Kırık</a>.</span>
+      <nav aria-label="Footer">
+        <a href="support.html">Support</a><a href="privacy.html">Privacy</a
+        ><a href="terms.html">Terms</a><a href="/">All apps ↗</a>
+      </nav>
+    </footer>
+  </body>
+</html>

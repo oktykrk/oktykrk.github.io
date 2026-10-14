@@ -816,14 +816,14 @@ h1 {
 [data-layout="columns"] .files-content {
   flex-direction: column;
 }
-.project-cadreur {
+.project-reversed {
   grid-template-columns: 1.13fr 0.87fr;
 }
-.project-cadreur .project-copy {
+.project-reversed .project-copy {
   grid-column: 2;
   grid-row: 1;
 }
-.project-cadreur .project-stage {
+.project-reversed .project-stage {
   grid-column: 1;
   grid-row: 1;
 }
@@ -1174,14 +1174,14 @@ h1 {
     font-size: 9px;
   }
   .project,
-  .project-cadreur {
+  .project-reversed {
     grid-template-columns: 1fr;
   }
   .project-copy {
     padding: 30px;
   }
-  .project-cadreur .project-copy,
-  .project-cadreur .project-stage {
+  .project-reversed .project-copy,
+  .project-reversed .project-stage {
     grid-column: auto;
     grid-row: auto;
   }
@@ -1721,4 +1721,155 @@ h1 {
 
 #cadreur-caption {
   white-space: pre-line;
+}
+
+/* MediaRoll: a warm photographic counterpoint to the portfolio. */
+.app-index {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.app-index a {
+  gap: 10px;
+  padding-inline: 18px;
+}
+.app-index .index-number {
+  margin-right: 0;
+}
+.app-index .index-platform {
+  display: none;
+}
+.app-index .index-arrow {
+  margin-left: auto;
+}
+.mediaroll-stage {
+  background: #e7e8dc;
+  color: #33382c;
+}
+.mediaroll-stage .stage-topline,
+.mediaroll-stage .stage-bottomline {
+  color: #5d6654;
+  border-color: #c6cbb9;
+}
+.mediaroll-stage .stage-tag {
+  border-color: #b7bfaa;
+  color: #68715f;
+}
+.mr-composition {
+  padding: 10px 32px 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mr-stage-heading {
+  font-size: 67px;
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+.mr-stage-heading em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  color: #bd512d;
+  letter-spacing: -0.07em;
+}
+.mr-stage-heading > span {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: #6b735e;
+  margin-top: 12px;
+}
+.mr-preview-window {
+  background: #282c25;
+  border: 1px solid #4f5746;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 12px 25px #34422825;
+}
+.mr-preview-window > img {
+  width: 100%;
+  aspect-ratio: 1100 / 740;
+  height: auto;
+  object-fit: contain;
+}
+.mediaroll-stage .preview-controls {
+  border-color: #b3bba6;
+  background: #d8ddcd;
+}
+.mediaroll-stage .preview-controls button {
+  color: #4b5541;
+}
+.mediaroll-stage .preview-controls button[aria-pressed="true"] {
+  background: #333d2b;
+  color: #f1f3ec;
+}
+.project-mediaroll .project-note {
+  font-size: 10px;
+  max-width: 110px;
+  line-height: 1.6;
+}
+@media (max-width: 1100px) and (min-width: 801px) {
+  .app-index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .app-index a:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .app-index a:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+  .app-index a:nth-child(2) {
+    padding-right: 0;
+  }
+  .mr-composition {
+    padding-inline: 22px;
+  }
+  .mr-stage-heading {
+    font-size: 58px;
+  }
+}
+@media (max-width: 800px) {
+  .app-index a {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+  .mr-composition {
+    padding: 15px 35px 30px;
+  }
+  .mr-stage-heading {
+    font-size: 74px;
+  }
+  .mr-preview-window {
+    max-width: 550px;
+    width: 100%;
+    align-self: center;
+  }
+}
+@media (max-width: 520px) {
+  .app-index a {
+    padding-inline: 9px;
+  }
+  .app-index .index-name {
+    font-size: 12px;
+  }
+  .app-index .index-arrow {
+    display: none;
+  }
+  .mr-composition {
+    padding: 10px 24px 24px;
+  }
+  .mr-stage-heading {
+    font-size: 64px;
+  }
+  .mediaroll-stage .stage-topline {
+    font-size: 10px;
+  }
+  .mediaroll-stage .stage-tag {
+    display: none;
+  }
+  .project-mediaroll .project-note {
+    max-width: none;
+  }
 }

@@ -78,3 +78,19 @@
   );
   connectScreens("data-pado-screen", padoScreens, "pado-screen");
 })();
+
+// Switch between actual MediaRoll app screenshots.
+document.querySelectorAll("[data-mediaroll-screen]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const isCoast = button.dataset.mediarollScreen === "coast";
+    const name = isCoast ? "coast" : "lake";
+    const image = document.querySelector("#mr-preview-image");
+    image.src = `/media-roll/media/viewer-${name}.webp`;
+    image.alt = isCoast
+      ? "Actual MediaRoll window with a coastal photo and its folder sidebar"
+      : "Actual MediaRoll window showing the next photo, a sailboat on an alpine lake";
+    document.querySelectorAll("[data-mediaroll-screen]").forEach((item) => {
+      item.setAttribute("aria-pressed", String(item === button));
+    });
+  });
+});

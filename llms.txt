@@ -16,3 +16,5 @@ Floe context file linked below. Product pages are published by the developer.
 - [Publisher](https://oktykrk.github.io/): Oktay Kırık's application portfolio.
 - [Cadreur](https://oktykrk.github.io/video-take/): Teleprompter and video studio for iPhone and iPad. Write, record in sections, edit, and caption; three projects free.
 - [Pado PDF](https://oktykrk.github.io/pado-pdf/): Official application and support pages.
+
+- [MediaRoll](https://oktykrk.github.io/media-roll/): Native photo, video, and audio viewer for macOS 14+. Open one file and browse supported media in the same folder. Compare, crop, and export. Coming to the Mac App Store; 30-day free trial, then an optional one-time Lifetime Unlock.
