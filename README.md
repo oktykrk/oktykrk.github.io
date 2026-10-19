@@ -62,8 +62,12 @@ when the page is reached through `/floe/index.html`. `robots.txt` allows crawler
 and advertises `sitemap.xml`; the sitemap contains only canonical content pages.
 Update a page's `lastmod` when its content, metadata, structured data, or links
 change significantly. Do not reset unchanged pages' dates during deployment.
-`tools/check-site.py` checks local links, crawler access, sitemap/canonical
-consistency, page metadata, and JSON-LD syntax.
+Every content page has an explicit self-referencing canonical URL.
+`tools/check-site.py` checks local links, reachability from the homepage, crawler
+access, sitemap/canonical consistency, page metadata, and JSON-LD syntax.
+Pado PDF's landing page describes its PDF tools, local processing, purchase
+options, requirements, and support, with product details checked against the
+official App Store listing on 2026-10-19.
 
 The JSON-LD connects the product page to Floe's actual features, requirements,
 download, support, license terms, and author. Paid purchasing is available and there
@@ -74,7 +78,10 @@ for a Google rich result are separate checks.
 After publishing, verify the `https://oktykrk.github.io/` URL-prefix property in
 [Google Search Console](https://search.google.com/search-console/). A
 `github.io` property can use an HTML verification file or meta tag supplied by
-Google; this repository has no verification token. Submit
+Google. Keep `googleae5b38c21ece8c89.html` at the site root with its original
+contents so Google can verify ownership and check it again later. This file is
+not a content page and must stay out of the sitemap. Publishing it does not by
+itself confirm that verification or sitemap submission is complete. Submit
 `https://oktykrk.github.io/sitemap.xml`, inspect the Floe landing and support
 URLs, run a live URL test, and request indexing. The Page indexing report shows
 Google's actual index status; a `site:` search alone is not a definitive test.

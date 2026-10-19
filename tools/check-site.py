@@ -198,18 +198,31 @@ for path, page in indexable.items():
     descriptions = page.metadata.get('description', [])
     if len(descriptions) != 1 or not descriptions[0].strip():
         errors.append(f'{label}: needs exactly one nonempty meta description')
-    # Canonical tags are optional; the sitemap can declare a preferred URL.
-    # The portfolio and Floe have explicit canonicals that must stay present.
-    needs_canonical = path == root / 'index.html' or path.is_relative_to(root / 'floe')
-    if len(page.canonicals) > 1 or (needs_canonical and not page.canonicals):
+    # Keep every content page's preferred address explicit and self-referential.
+    if len(page.canonicals) != 1:
         errors.append(f'{label}: needs exactly one canonical URL')
         continue
-    canonical = page.canonicals[0] if page.canonicals else page_url(path)
+    canonical = page.canonicals[0]
+    if canonical != page_url(path):
+        errors.append(f'{label}: canonical URL must match its preferred page path')
     if canonical not in sitemap_locations:
         errors.append(f'{label}: canonical URL missing from sitemap')
     if canonical in canonical_owners:
         errors.append(f'{label}: canonical URL also used by {canonical_owners[canonical]}')
     canonical_owners[canonical] = label
+
+# Every content page should be discoverable through ordinary internal links.
+discovered = {root / 'index.html'}
+pending = list(discovered)
+while pending:
+    source = pending.pop()
+    for reference in pages[source].references:
+        target = local_target(reference, source)
+        if target in pages and target not in discovered:
+            discovered.add(target)
+            pending.append(target)
+for path in indexable.keys() - discovered:
+    errors.append(f'{path.relative_to(root)}: not reachable from the homepage through internal links')
 
 if errors:
     raise SystemExit('\n'.join(errors))

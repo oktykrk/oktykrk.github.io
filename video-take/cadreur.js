@@ -53,8 +53,8 @@
     );
     document.title =
       language === "tr"
-        ? "Cadreur — Senin hikâyen. Senin ritmin."
-        : "Cadreur — Your story. Your pace.";
+        ? "Cadreur — iPhone ve iPad için Teleprompter ve Video Stüdyosu"
+        : "Cadreur — Teleprompter & Video Studio for iPhone & iPad";
     document
       .querySelectorAll(".app-store")
       .forEach((link) =>
