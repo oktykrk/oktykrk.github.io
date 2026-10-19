@@ -23,7 +23,7 @@ Legacy Cadreur URLs under `/video-take-site/`, `/privacy.html`, and
 ## Landing pages
 
 The portfolio at `/` uses a charcoal and lime design, oversized Space Grotesk
-typography, and four interactive app showcases in `portfolio.css` and
+typography, and five interactive app showcases in `portfolio.css` and
 `portfolio.js`. Floe at `/floe/` has an independent white, ink, and cobalt design
 in `floe/floe.css`. Cadreur retains its own paper and lavender identity. Product
 pages and the shared legal-page stylesheet are independent of the portfolio.
@@ -185,20 +185,29 @@ adding a download CTA. The trial is 30 days with no automatic charge; continued
 use requires an optional one-time Lifetime Unlock.
 
 
-## PlainShot legal pages
+## PlainShot website
 
-`/plain-shot/` is intentionally a blank HTML document until the product landing
-page is requested. Privacy, terms, and support are directly accessible at the
-paths above and use the shared `site.css`, with no scripts, tracking, remote
-fonts, or runtime dependencies. All four PlainShot pages currently use
-`noindex` and are intentionally omitted from the sitemap and portfolio until
-the product landing page launches. Remove that directive and add the relevant
-content pages to the sitemap and internal navigation when launching it.
+`/plain-shot/` is PlainShot’s product website. Its independent paper, ink,
+sage, and coral design lives in `plainshot.css`; `plainshot.js` drives a
+four-step capture → annotate → pixelate → local history illustration and an
+interactive selector for all ten annotation tools. No build or runtime
+packages, remote fonts, tracking, or analytics are needed.
 
-The English legal text was checked against PlainShot's current source on
-October 20, 2026: local ScreenCaptureKit still captures, sandboxed permanent
-PNG history, optional clipboard/export, no app networking or telemetry SDK,
-StoreKit-based 30-day trial and non-consumable Permanent Unlock. No App Store
-availability or production product configuration is claimed. The legal pages
-link to Apple's standard EULA, App Store privacy information, and GitHub Pages
-hosting privacy. Support uses the publisher's existing contact email.
+The walkthrough pauses offscreen, in background tabs, and on manual step
+selection. Reduced motion starts paused and disables transitions. Tool
+shortcuts work only when focus is inside the tool picker. Static product
+information, legal links, and FAQ disclosures work without JavaScript.
+The sample desktop and history are clearly labeled product illustrations,
+not app recordings. Asset provenance is recorded in `plain-shot/media/README.md`.
+
+The portfolio includes PlainShot as app 05 with an annotation/pixelation
+preview. All four PlainShot pages are indexable, included in the sitemap,
+and reachable from the portfolio. Legal text is unchanged.
+
+Product facts were checked against the local PlainShot source on October 20,
+2026: macOS 14+, local still capture, ten tools, flattened PNG history, optional
+clipboard/export, no app account or telemetry, and StoreKit-based 30-day trial
+with an optional one-time Permanent Unlock. Distribution is not verified, so
+the site says “Coming soon” and has no invented download link or price.
+
+Rebuild the social card with `swift tools/render-plainshot-social.swift`.

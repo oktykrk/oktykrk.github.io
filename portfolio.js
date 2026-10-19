@@ -94,3 +94,19 @@ document.querySelectorAll("[data-mediaroll-screen]").forEach((button) => {
     });
   });
 });
+
+// PlainShot's sample content illustrates two real annotation tools.
+document.querySelectorAll("[data-plainshot-preview]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const mode = button.dataset.plainshotPreview;
+    const scene = document.querySelector(".ps-composition");
+    scene.dataset.psPreview = mode;
+    scene.querySelector("img").alt =
+      mode === "annotate"
+        ? "Illustrated project notes with an arrow pointing to a detail"
+        : "Illustrated project notes with a pixelated sample email address";
+    document.querySelectorAll("[data-plainshot-preview]").forEach((item) => {
+      item.setAttribute("aria-pressed", String(item === button));
+    });
+  });
+});

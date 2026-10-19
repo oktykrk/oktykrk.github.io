@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+  <rect width="1000" height="600" fill="#e4e5de" />
+  <path d="M-100 620 330-100h250L150 620Z" fill="#d7d9cf" />
+  <path d="m600 600 400-600h180L780 600Z" fill="#dfe0d6" />
+  <rect width="1000" height="26" fill="#f6f5f0" fill-opacity=".9" />
+  <g
+    font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif"
+    fill="#343830"
+  >
+    <text x="20" y="18" font-size="15">●</text>
+    <text x="48" y="18" font-size="12" font-weight="600">Notes</text>
+    <text x="104" y="18" font-size="12">File</text>
+    <text x="142" y="18" font-size="12">Edit</text>
+    <text x="180" y="18" font-size="12">View</text>
+    <text x="857" y="18" font-size="11">Tue 10:24 AM</text>
+  </g>
+  <rect
+    x="100"
+    y="65"
+    width="800"
+    height="470"
+    rx="12"
+    fill="#394035"
+    opacity=".12"
+    transform="translate(0 8)"
+  />
+  <rect
+    x="100"
+    y="65"
+    width="800"
+    height="470"
+    rx="12"
+    fill="#fffefa"
+    stroke="#c4c6bc"
+  />
+  <path
+    d="M112 65h776a12 12 0 0 1 12 12v32H100V77a12 12 0 0 1 12-12Z"
+    fill="#f0f0e9"
+  />
+  <g>
+    <circle cx="122" cy="87" r="5" fill="#ee7669" />
+    <circle cx="139" cy="87" r="5" fill="#e9c15e" />
+    <circle cx="156" cy="87" r="5" fill="#8bb679" />
+  </g>
+  <path d="M100 109h800M282 109v426" stroke="#dedfd5" />
+  <g font-family="-apple-system,BlinkMacSystemFont,Arial,sans-serif">
+    <text x="457" y="91" font-size="12" fill="#686c61">Studio notes</text>
+    <text x="122" y="145" font-size="11" fill="#8c8f83">YOUR WORKSPACE</text>
+    <rect x="112" y="162" width="158" height="35" rx="6" fill="#e7e9dd" />
+    <text x="127" y="184" font-size="13" fill="#3d4435">
+      ▤ Launch checklist
+    </text>
+    <text x="127" y="220" font-size="13" fill="#85897c">
+      ▤ Ideas &amp; references
+    </text>
+    <text x="127" y="257" font-size="13" fill="#85897c">▤ Meeting notes</text>
+    <text x="329" y="155" font-size="11" fill="#a2a397">
+      OCTOBER 20 · PROJECT NOTES
+    </text>
+    <text x="329" y="198" font-size="30" font-weight="600" fill="#30382d">
+      A little more clarity.
+    </text>
+    <text x="329" y="232" font-size="14" fill="#7c8073">
+      A few small changes before we share the next version.
+    </text>
+    <path d="M329 253h516" stroke="#e8e9df" />
+    <rect
+      x="330"
+      y="278"
+      width="15"
+      height="15"
+      rx="3"
+      fill="none"
+      stroke="#b6baaa"
+    />
+    <text x="360" y="291" font-size="16" fill="#52594a">
+      Give the headline a little room to breathe
+    </text>
+    <rect
+      x="330"
+      y="320"
+      width="15"
+      height="15"
+      rx="3"
+      fill="none"
+      stroke="#b6baaa"
+    />
+    <text x="360" y="333" font-size="16" fill="#52594a">
+      Make the next step easy to find
+    </text>
+    <rect
+      x="330"
+      y="362"
+      width="15"
+      height="15"
+      rx="3"
+      fill="none"
+      stroke="#b6baaa"
+    />
+    <text x="360" y="375" font-size="16" fill="#52594a">
+      Keep the useful things. Leave the rest.
+    </text>
+    <rect x="328" y="411" width="516" height="78" rx="7" fill="#f2f3eb" />
+    <text x="345" y="437" font-size="11" fill="#8b907f">REVIEW CONTACT</text>
+    <text x="345" y="466" font-size="15" fill="#68705d">alex@example.com</text>
+  </g>
+</svg>
