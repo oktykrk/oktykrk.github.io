@@ -12,6 +12,7 @@ and private support correspondence are not stored here.
 | Pado PDF    | `/pado-pdf/privacy.html`   | `/pado-pdf/terms.html`   | `/pado-pdf/support.html`   |
 | Floe        | `/floe/privacy.html`       | `/floe/terms.html`       | `/floe/support.html`       |
 | MediaRoll   | `/media-roll/privacy.html` | `/media-roll/terms.html` | `/media-roll/support.html` |
+| PlainShot   | `/plain-shot/privacy.html` | `/plain-shot/terms.html` | `/plain-shot/support.html` |
 
 The site is published at <https://oktykrk.github.io/>. Add future applications
 as another top-level directory instead of creating a separate repository.
@@ -182,3 +183,22 @@ MediaRoll is awaiting App Store review. Keep the â€œComing to the Mac App Storeâ
 state until release; its known ID is `6822382896`. Verify availability before
 adding a download CTA. The trial is 30 days with no automatic charge; continued
 use requires an optional one-time Lifetime Unlock.
+
+
+## PlainShot legal pages
+
+`/plain-shot/` is intentionally a blank HTML document until the product landing
+page is requested. Privacy, terms, and support are directly accessible at the
+paths above and use the shared `site.css`, with no scripts, tracking, remote
+fonts, or runtime dependencies. All four PlainShot pages currently use
+`noindex` and are intentionally omitted from the sitemap and portfolio until
+the product landing page launches. Remove that directive and add the relevant
+content pages to the sitemap and internal navigation when launching it.
+
+The English legal text was checked against PlainShot's current source on
+October 20, 2026: local ScreenCaptureKit still captures, sandboxed permanent
+PNG history, optional clipboard/export, no app networking or telemetry SDK,
+StoreKit-based 30-day trial and non-consumable Permanent Unlock. No App Store
+availability or production product configuration is claimed. The legal pages
+link to Apple's standard EULA, App Store privacy information, and GitHub Pages
+hosting privacy. Support uses the publisher's existing contact email.
