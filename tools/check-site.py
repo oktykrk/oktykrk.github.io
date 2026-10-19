@@ -90,6 +90,7 @@ def page_url(path):
     return f'{origin}/{relative}'
 
 pages = {path: Page(path.read_text(encoding='utf-8')) for path in root.rglob('*.html') if '.git' not in path.parts}
+verification_files = {path for path in root.glob('google*.html') if re.fullmatch(r'google[0-9a-f]+\.html', path.name)}
 errors = []
 count = 0
 robots = RobotFileParser()
@@ -180,7 +181,13 @@ for entry in sitemap.findall('sm:url', namespace):
 if len(set(sitemap_locations)) != len(sitemap_locations):
     errors.append('sitemap.xml: duplicate URLs')
 
-indexable = {path: page for path, page in pages.items() if not page.redirect and not page.noindex and path.name != '404.html'}
+# Google verification files contain a plain token, not a content page.
+for path in verification_files:
+    if path.read_text(encoding='utf-8').rstrip('\r\n') != f'google-site-verification: {path.name}':
+        errors.append(f'{path.name}: invalid Google verification content')
+    check_crawler_access(page_url(path), path.name)
+
+indexable = {path: page for path, page in pages.items() if not page.redirect and not page.noindex and path.name != '404.html' and path not in verification_files}
 canonical_owners = {}
 for path, page in indexable.items():
     label = path.relative_to(root)
