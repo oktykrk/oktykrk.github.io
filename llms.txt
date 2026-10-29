@@ -20,3 +20,8 @@ Floe context file linked below. Product pages are published by the developer.
 - [MediaRoll](https://oktykrk.github.io/media-roll/): Native photo, video, and audio viewer for macOS 14+. Open one file and browse supported media in the same folder. Compare, crop, and export. Coming to the Mac App Store; 30-day free trial, then an optional one-time Lifetime Unlock.
 
 - [PlainShot](https://oktykrk.github.io/plain-shot/): A screenshot and annotation app for macOS 14+. Region, window, and desktop capture; 10 tools; permanent local PNG history. No PlainShot account, cloud uploads, or telemetry. Coming soon for Mac; 30-day trial and an optional one-time Permanent Unlock.
+
+## Akort for iPhone
+
+- [Akort](https://oktykrk.github.io/akort/): Free offline chromatic tuner for iOS 18+. Live note, octave, frequency and cent deviation; A4 = 440 Hz. No ads, accounts, audio recording, uploads or analytics. App Store release coming soon.
+- [Privacy](https://oktykrk.github.io/akort/privacy.html), [Terms](https://oktykrk.github.io/akort/terms.html), [Support](https://oktykrk.github.io/akort/support.html): English and Turkish documentation.

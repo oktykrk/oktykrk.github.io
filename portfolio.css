@@ -2045,3 +2045,8 @@ h1 {
     transition: none;
   }
 }
+
+/* Akort: a quiet, local chromatic tuner. */
+.akort-stage { background: #07120b; color: #a6c2b0; }
+.akort-preview { display: block; width: 210px; max-width: 65%; height: auto; margin: 8px auto; border: 1px solid #294334; border-radius: 24px; }
+.project-akort .project-note { max-width: 130px; }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://oktykrk.github.io/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://oktykrk.github.io/</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://oktykrk.github.io/floe/</loc><lastmod>2026-10-13</lastmod></url>
   <url><loc>https://oktykrk.github.io/floe/privacy.html</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://oktykrk.github.io/floe/terms.html</loc><lastmod>2026-10-13</lastmod></url>
@@ -21,4 +21,8 @@
   <url><loc>https://oktykrk.github.io/plain-shot/privacy.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://oktykrk.github.io/plain-shot/terms.html</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://oktykrk.github.io/plain-shot/support.html</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://oktykrk.github.io/akort/</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://oktykrk.github.io/akort/privacy.html</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://oktykrk.github.io/akort/terms.html</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://oktykrk.github.io/akort/support.html</loc><lastmod>2026-10-30</lastmod></url>
 </urlset>
