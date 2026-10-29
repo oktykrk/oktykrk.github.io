@@ -2050,3 +2050,11 @@ h1 {
 .akort-stage { background: #07120b; color: #a6c2b0; }
 .akort-preview { display: block; width: 210px; max-width: 65%; height: auto; margin: 8px auto; border: 1px solid #294334; border-radius: 24px; }
 .project-akort .project-note { max-width: 130px; }
+@media (min-width: 701px) {
+  .app-index { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .app-index a { border: 0; padding-inline: 18px; }
+  .app-index a:nth-child(3n + 1) { border-left: 0; padding-left: 0; }
+  .app-index a:nth-child(3n + 2), .app-index a:nth-child(3n) { border-left: 1px solid var(--line); border-right: 0; }
+  .app-index a:nth-child(3) { border-top: 0; padding-right: 0; }
+  .app-index a:nth-child(n + 4) { border-top: 1px solid var(--line); }
+}
